@@ -1,0 +1,162 @@
+<!-- Contact CTA Button — paste wherever you need it -->
+<button class="contact-cta-btn" onclick="showContactModal()">
+  Contact Us
+</button>
+
+<!-- Contact Modal -->
+<div class="contact-modal-overlay" id="contactModal" onclick="closeContactModal(event)">
+  <div class="contact-modal-box">
+    <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+    <div class="contact-modal-icon">✈️</div>
+    <h3 class="contact-modal-title">Get in Touch</h3>
+    <p class="contact-modal-sub">Choose how you'd like to reach us — we're ready to help plan your perfect trip.</p>
+    <div class="contact-modal-actions">
+      <a href="tel:+919429693718" class="contact-action-btn call-btn">
+        <div class="cab-icon"><i class="fas fa-phone"></i></div>
+        <div class="cab-text">
+          <span class="cab-label">Call Us</span>
+          <span class="cab-num">+91 94296 93718</span>
+        </div>
+        <i class="fas fa-arrow-right cab-arrow"></i>
+      </a>
+      <a href="https://wa.me/918123568002" target="_blank" rel="noopener" class="contact-action-btn wa-btn">
+        <div class="cab-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="cab-text">
+          <span class="cab-label">WhatsApp Us</span>
+          <span class="cab-num">+91 81235 68002</span>
+        </div>
+        <i class="fas fa-arrow-right cab-arrow"></i>
+      </a>
+    </div>
+    <p class="contact-modal-hours"><i class="fas fa-clock"></i> Mon–Sat · 9 AM – 8 PM &nbsp;|&nbsp; WhatsApp 24 / 7</p>
+  </div>
+</div>
+
+<!-- Styles — paste once in your <head> or <style> block -->
+<style>
+  /* Overlay */
+  .contact-modal-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(10, 16, 38, 0.72);
+    backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease;
+  }
+  .contact-modal-overlay.open {
+    opacity: 1; pointer-events: auto;
+  }
+
+  /* Box */
+  .contact-modal-box {
+    background: #fff;
+    border-radius: 28px;
+    padding: 40px 36px 36px;
+    max-width: 420px; width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 32px 80px rgba(17, 30, 69, 0.22);
+    transform: translateY(24px) scale(0.96);
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .contact-modal-overlay.open .contact-modal-box {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Close */
+  .contact-modal-close {
+    position: absolute; top: 16px; right: 20px;
+    background: none; border: none;
+    font-size: 1.5rem; color: #a0aec0; cursor: pointer;
+    line-height: 1; transition: color .2s ease;
+  }
+  .contact-modal-close:hover { color: #1a2a5e; }
+
+  /* Icon + text */
+  .contact-modal-icon { font-size: 2.4rem; margin-bottom: 12px; }
+  .contact-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 800;
+    color: #1a2a5e; margin-bottom: 8px;
+  }
+  .contact-modal-sub {
+    font-size: .84rem; color: #718096;
+    line-height: 1.65; margin-bottom: 28px;
+  }
+
+  /* Action buttons */
+  .contact-modal-actions { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+
+  .contact-action-btn {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px; border-radius: 18px;
+    text-decoration: none; text-align: left;
+    border: 2px solid transparent;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .contact-action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  }
+
+  /* Call */
+  .call-btn {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-color: #bfdbfe;
+  }
+  .call-btn:hover { border-color: #1a2a5e; }
+  .call-btn .cab-icon {
+    width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0;
+    background: linear-gradient(135deg, #1a2a5e, #2d4a8a);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1rem;
+  }
+
+  /* WhatsApp */
+  .wa-btn {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-color: #bbf7d0;
+  }
+  .wa-btn:hover { border-color: #25D366; }
+  .wa-btn .cab-icon {
+    width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.2rem;
+  }
+
+  /* Text inside buttons */
+  .cab-text { flex: 1; display: flex; flex-direction: column; }
+  .cab-label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #718096; margin-bottom: 2px; }
+  .call-btn .cab-num { font-size: .98rem; font-weight: 800; color: #1a2a5e; }
+  .wa-btn   .cab-num { font-size: .98rem; font-weight: 800; color: #15803d; }
+  .cab-arrow { font-size: .75rem; color: #cbd5e0; align-self: center; }
+  .contact-action-btn:hover .cab-arrow { color: #1a2a5e; }
+
+  /* Hours */
+  .contact-modal-hours {
+    font-size: .75rem; color: #a0aec0; font-weight: 500;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .contact-modal-hours i { color: #FF6B35; }
+</style>
+
+<!-- Script — paste once before </body> -->
+<script>
+  function showContactModal() {
+    document.getElementById('contactModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeContactModal(e) {
+    // Close on overlay click or close button click
+    if (!e || e.target === document.getElementById('contactModal')) {
+      document.getElementById('contactModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeContactModal();
+  });
+</script>

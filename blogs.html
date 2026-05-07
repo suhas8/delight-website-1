@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Travel Blogs - Delight Departures</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:        #1a2a5e;
+      --navy-mid:    #2d4a8a;
+      --navy-deep:   #111e45;
+      --orange:      #FF6B35;
+      --orange-lt:   #FF8C42;
+      --orange-pale: #fff4ef;
+      --white:       #ffffff;
+      --gray-bg:     #f7f8fc;
+      --gray-text:   #4a5568;
+      --gray-sub:    #718096;
+      --gray-dark:   #1a202c;
+      --border:      rgba(26,42,94,0.08);
+      --shadow-sm:   0 4px 16px rgba(26,42,94,0.07);
+      --shadow-md:   0 12px 40px rgba(26,42,94,0.12);
+      --shadow-lg:   0 28px 72px rgba(26,42,94,0.16);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--gray-dark);overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+
+    /* HERO */
+    .blog-hero{position:relative;min-height:540px;background:linear-gradient(135deg,#111e45 0%,#1a2a5e 50%,#2d4a8a 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:140px 24px 110px;}
+    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:30px 30px;}
+    .h-orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:0.15;animation:orbDrift 10s ease-in-out infinite alternate;}
+    .h-orb-1{width:520px;height:520px;background:#FF6B35;top:-200px;right:-120px;}
+    .h-orb-2{width:360px;height:360px;background:#60a5fa;bottom:-120px;left:-80px;animation-delay:3s;}
+    .h-orb-3{width:200px;height:200px;background:#fbbf24;top:30%;left:38%;animation-delay:6s;}
+    @keyframes orbDrift{from{transform:translate(0,0) scale(1);}to{transform:translate(18px,-28px) scale(1.07);}}
+    .hero-stripe{position:absolute;bottom:0;left:0;right:0;height:80px;background:var(--white);clip-path:polygon(0 100%,100% 0,100% 100%);}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:760px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.11);border:1px solid rgba(255,255,255,0.22);backdrop-filter:blur(10px);border-radius:40px;padding:8px 22px;color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;animation:fadeDown .7s ease both;}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;color:#fff;line-height:1.16;margin-bottom:18px;animation:fadeDown .7s .15s ease both;}
+    .hero-title em{color:#FF8C42;font-style:italic;}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.75);line-height:1.75;max-width:540px;margin:0 auto 44px;animation:fadeDown .7s .3s ease both;}
+    .hero-search{display:flex;align-items:center;max-width:500px;margin:0 auto;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.28);backdrop-filter:blur(14px);border-radius:50px;overflow:hidden;transition:box-shadow .3s ease;animation:fadeDown .7s .45s ease both;}
+    .hero-search:focus-within{box-shadow:0 0 0 3px rgba(255,140,66,0.45);border-color:var(--orange-lt);}
+    .hero-search input{flex:1;background:transparent;border:none;outline:none;padding:15px 22px;font-size:.92rem;color:#fff;font-family:'Poppins',sans-serif;}
+    .hero-search input::placeholder{color:rgba(255,255,255,0.5);}
+    .hero-search button{background:linear-gradient(135deg,var(--orange),var(--orange-lt));border:none;cursor:pointer;padding:13px 24px;color:#fff;font-size:1rem;flex-shrink:0;transition:opacity .2s ease;}
+    .hero-search button:hover{opacity:.85;}
+    .hero-stats{display:flex;justify-content:center;gap:40px;margin-top:40px;animation:fadeDown .7s .6s ease both;flex-wrap:wrap;}
+    .h-stat{text-align:center;}
+    .h-stat-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1;}
+    .h-stat-num span{color:#FF8C42;}
+    .h-stat-label{font-size:.7rem;color:rgba(255,255,255,0.52);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+
+    /* FILTER BAR */
+    .filter-bar{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:90;box-shadow:0 2px 16px rgba(26,42,94,0.07);}
+    .filter-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;}
+    .filter-inner::-webkit-scrollbar{display:none;}
+    .filter-btn{display:inline-flex;align-items:center;gap:7px;padding:15px 17px;border:none;background:transparent;font-family:'Poppins',sans-serif;font-size:.81rem;font-weight:600;color:var(--gray-sub);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:all .25s ease;}
+    .filter-btn:hover{color:var(--navy);}
+    .filter-btn.active{color:var(--navy);border-bottom-color:var(--orange);}
+
+    /* LAYOUT */
+    .blogs-layout{max-width:1200px;margin:0 auto;padding:72px 24px 96px;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:start;}
+    @media(max-width:1020px){.blogs-layout{grid-template-columns:1fr;}}
+
+    /* SECTION LABELS */
+    .sec-label{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:18px;}
+    .sec-label::before{content:'';display:inline-block;width:26px;height:2px;background:var(--orange);}
+    .sec-head{display:flex;align-items:center;justify-content:space-between;margin:60px 0 26px;flex-wrap:wrap;gap:12px;}
+    .sec-head h2{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:800;color:var(--navy);}
+    .sec-head h2 em{color:var(--orange);font-style:italic;}
+    .view-all{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:700;color:var(--navy);border:1.5px solid var(--border);border-radius:30px;padding:7px 16px;transition:all .25s ease;}
+    .view-all:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+    /* FEATURED CARD */
+    .featured-card{position:relative;border-radius:28px;overflow:hidden;height:500px;cursor:pointer;box-shadow:var(--shadow-lg);transition:transform .4s ease,box-shadow .4s ease;}
+    .featured-card:hover{transform:translateY(-6px);box-shadow:0 44px 96px rgba(26,42,94,0.22);}
+    .featured-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+    .featured-card:hover img{transform:scale(1.05);}
+    .featured-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,30,69,0.93) 0%,rgba(17,30,69,0.25) 65%,transparent 100%);}
+    .featured-top-badge{position:absolute;top:22px;left:22px;display:flex;gap:10px;}
+    .f-badge{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:6px 14px;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+    .f-badge.orange{background:var(--orange);color:#fff;}
+    .f-badge.glass{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);backdrop-filter:blur(10px);color:#fff;}
+    .featured-body{position:absolute;bottom:0;left:0;right:0;padding:38px 36px 34px;}
+    .featured-title{font-family:'Playfair Display',serif;font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;color:#fff;line-height:1.24;margin-bottom:12px;}
+    .featured-excerpt{font-size:.88rem;color:rgba(255,255,255,0.72);line-height:1.65;margin-bottom:18px;max-width:600px;}
+    .featured-meta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;color:rgba(255,255,255,0.6);font-size:.79rem;margin-bottom:20px;}
+    .featured-meta span{display:flex;align-items:center;gap:6px;}
+    .featured-read-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--orange),var(--orange-lt));color:#fff;border-radius:30px;padding:10px 22px;font-size:.82rem;font-weight:700;transition:transform .25s ease,box-shadow .25s ease;}
+    .featured-read-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,0.45);}
+
+    /* DEST STRIPS */
+    .dest-strips{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;}
+    .dest-strips::-webkit-scrollbar{display:none;}
+    .dest-strip{position:relative;flex-shrink:0;width:152px;height:104px;border-radius:18px;overflow:hidden;cursor:pointer;transition:transform .3s ease;}
+    .dest-strip:hover{transform:scale(1.05);}
+    .dest-strip img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+    .dest-strip:hover img{transform:scale(1.08);}
+    .dest-strip-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,30,69,0.78) 0%,rgba(17,30,69,0.1) 100%);}
+    .dest-strip-label{position:absolute;bottom:9px;left:11px;color:#fff;font-size:.76rem;font-weight:700;}
+    .dest-strip-count{position:absolute;top:8px;right:9px;background:var(--orange);color:#fff;border-radius:10px;padding:2px 8px;font-size:.63rem;font-weight:800;}
+
+    /* BLOG GRID */
+    .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+    @media(max-width:600px){.blog-grid{grid-template-columns:1fr;}}
+    .blog-card{background:var(--white);border-radius:24px;border:1px solid var(--border);overflow:hidden;cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .35s ease,box-shadow .35s ease;display:flex;flex-direction:column;}
+    .blog-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
+    .blog-card:hover .card-img{transform:scale(1.06);}
+    .blog-card.wide{grid-column:1/-1;flex-direction:row;}
+    .blog-card.wide .card-img-wrap{width:44%;flex-shrink:0;height:auto;}
+    .blog-card.wide .card-body{padding:32px 30px;}
+    .blog-card.wide .card-title{font-size:1.25rem;}
+    @media(max-width:600px){.blog-card.wide{flex-direction:column;}.blog-card.wide .card-img-wrap{width:100%;height:210px;}}
+    .card-img-wrap{position:relative;overflow:hidden;height:210px;flex-shrink:0;}
+    .card-img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+    .card-region-tag{position:absolute;top:13px;left:13px;background:rgba(17,30,69,0.82);backdrop-filter:blur(8px);border-radius:20px;padding:5px 12px;font-size:.7rem;font-weight:700;color:#fff;letter-spacing:.05em;}
+    .card-save-btn{position:absolute;top:11px;right:11px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.84rem;color:var(--gray-sub);transition:all .25s ease;}
+    .card-save-btn:hover{background:#fff;color:var(--orange);transform:scale(1.12);}
+    .card-save-btn.saved{color:var(--orange);}
+    .card-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column;}
+    .card-tag{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;}
+    .card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--gray-dark);line-height:1.38;margin-bottom:10px;transition:color .2s ease;}
+    .blog-card:hover .card-title{color:var(--navy);}
+    .card-excerpt{font-size:.83rem;color:var(--gray-text);line-height:1.65;margin-bottom:18px;flex:1;}
+    .card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);}
+    .card-author{display:flex;align-items:center;gap:10px;}
+    .author-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:#fff;flex-shrink:0;}
+    .d1{background:linear-gradient(135deg,#1a2a5e,#2d4a8a);}
+    .d2{background:linear-gradient(135deg,#FF6B35,#FF8C42);}
+    .d3{background:linear-gradient(135deg,#059669,#10b981);}
+    .d4{background:linear-gradient(135deg,#7c3aed,#8b5cf6);}
+    .d5{background:linear-gradient(135deg,#e11d48,#f43f5e);}
+    .d6{background:linear-gradient(135deg,#0891b2,#06b6d4);}
+    .d7{background:linear-gradient(135deg,#b45309,#d97706);}
+    .d8{background:linear-gradient(135deg,#15803d,#16a34a);}
+    .author-name{font-size:.78rem;font-weight:700;color:var(--gray-dark);}
+    .author-date{font-size:.69rem;color:var(--gray-sub);}
+    .card-read-time{display:flex;align-items:center;gap:5px;font-size:.71rem;color:var(--gray-sub);font-weight:500;}
+
+    /* TIPS STRIP */
+    .tips-strip{display:flex;gap:18px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;}
+    .tips-strip::-webkit-scrollbar{display:none;}
+    .tip-card{flex-shrink:0;width:220px;background:var(--white);border-radius:20px;border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease;}
+    .tip-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);}
+    .tip-card-img{width:100%;height:130px;object-fit:cover;transition:transform .4s ease;}
+    .tip-card:hover .tip-card-img{transform:scale(1.06);}
+    .tip-card-body{padding:14px 16px 16px;}
+    .tip-card-tag{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+    .tip-card-title{font-size:.84rem;font-weight:700;color:var(--gray-dark);line-height:1.4;}
+
+    /* NO RESULTS */
+    .no-results{grid-column:1/-1;text-align:center;padding:60px 20px;display:none;}
+    .no-results.show{display:block;}
+    .no-results i{font-size:3rem;color:rgba(26,42,94,0.12);margin-bottom:16px;}
+    .no-results h3{font-size:1.1rem;color:var(--gray-sub);font-weight:600;}
+    .no-results p{font-size:.84rem;color:#a0aec0;margin-top:8px;}
+
+    /* LOAD MORE */
+    .load-more-wrap{text-align:center;margin-top:52px;}
+    .load-more-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 42px;border-radius:50px;background:transparent;border:2px solid var(--navy);color:var(--navy);font-family:'Poppins',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .3s ease;}
+    .load-more-btn:hover{background:var(--navy);color:#fff;transform:translateY(-3px);box-shadow:0 12px 32px rgba(26,42,94,0.18);}
+
+    /* SIDEBAR */
+    .sidebar{display:flex;flex-direction:column;gap:28px;}
+    @media(max-width:1020px){.sidebar{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}}
+    .s-card{background:var(--white);border-radius:24px;border:1px solid var(--border);padding:28px 24px;box-shadow:var(--shadow-sm);}
+    .s-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+
+    /* Trending */
+    .trending-list{display:flex;flex-direction:column;gap:16px;}
+    .t-item{display:flex;gap:14px;cursor:pointer;}
+    .t-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:rgba(26,42,94,0.08);line-height:1;flex-shrink:0;width:26px;}
+    .t-content h4{font-size:.84rem;font-weight:700;color:var(--gray-dark);line-height:1.4;margin-bottom:5px;transition:color .2s ease;}
+    .t-item:hover .t-content h4{color:var(--navy);}
+    .t-meta{display:flex;align-items:center;gap:10px;font-size:.71rem;color:var(--gray-sub);}
+    .t-tag{background:var(--orange-pale);color:var(--orange);border-radius:10px;padding:2px 8px;font-size:.67rem;font-weight:700;}
+
+    /* Newsletter */
+    .s-card.newsletter{background:linear-gradient(135deg,var(--navy),var(--navy-mid));position:relative;overflow:hidden;}
+    .s-card.newsletter::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:18px 18px;}
+    .nl-inner{position:relative;z-index:1;}
+    .nl-icon{font-size:2.2rem;margin-bottom:12px;}
+    .nl-title{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:800;color:#fff;margin-bottom:8px;}
+    .nl-sub{font-size:.82rem;color:rgba(255,255,255,0.68);line-height:1.6;margin-bottom:18px;}
+    .nl-input{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-family:'Poppins',sans-serif;font-size:.84rem;outline:none;margin-bottom:10px;transition:border-color .2s ease;}
+    .nl-input::placeholder{color:rgba(255,255,255,0.42);}
+    .nl-input:focus{border-color:var(--orange-lt);}
+    .nl-btn{width:100%;padding:13px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--orange),var(--orange-lt));color:#fff;font-family:'Poppins',sans-serif;font-size:.86rem;font-weight:700;border-radius:12px;transition:opacity .2s ease,transform .2s ease;}
+    .nl-btn:hover{opacity:.88;transform:translateY(-2px);}
+
+    /* Recent posts */
+    .recent-list{display:flex;flex-direction:column;gap:16px;}
+    .recent-item{display:flex;gap:14px;cursor:pointer;align-items:flex-start;}
+    .recent-thumb{width:68px;height:56px;border-radius:12px;overflow:hidden;flex-shrink:0;}
+    .recent-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+    .recent-item:hover .recent-thumb img{transform:scale(1.1);}
+    .recent-info h4{font-size:.82rem;font-weight:700;color:var(--gray-dark);line-height:1.38;margin-bottom:4px;transition:color .2s ease;}
+    .recent-item:hover .recent-info h4{color:var(--navy);}
+    .recent-date{font-size:.69rem;color:var(--gray-sub);display:flex;align-items:center;gap:5px;}
+
+    /* Tags */
+    .tags-cloud{display:flex;flex-wrap:wrap;gap:9px;}
+    .tag-pill{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:30px;font-size:.75rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);color:var(--gray-text);background:var(--gray-bg);transition:all .25s ease;}
+    .tag-pill:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-2px);}
+
+    /* Social */
+    .social-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+    .social-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:14px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;font-family:'Poppins',sans-serif;transition:all .25s ease;}
+    .social-btn:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);}
+    .s-insta{background:linear-gradient(135deg,#f43f5e,#f97316);color:#fff;}
+    .s-wa{background:#25D366;color:#fff;}
+    .s-gmap{background:#fff;color:var(--navy);border:1.5px solid var(--border);}
+    .s-yt{background:#FF0000;color:#fff;}
+
+    /* INFO BAND */
+    .info-band{background:var(--gray-bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 24px;}
+    .info-band-inner{max-width:1200px;margin:0 auto;}
+    .info-band-head{text-align:center;margin-bottom:52px;}
+    .info-band-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:var(--navy);}
+    .info-band-head h2 em{color:var(--orange);font-style:italic;}
+    .info-band-head p{font-size:.95rem;color:var(--gray-text);margin-top:10px;}
+    .tips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+    @media(max-width:900px){.tips-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:520px){.tips-grid{grid-template-columns:1fr;}}
+    .tip-block{background:var(--white);border-radius:22px;padding:30px 22px;border:1px solid var(--border);box-shadow:var(--shadow-sm);text-align:center;transition:all .3s ease;position:relative;overflow:hidden;}
+    .tip-block::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--orange));transform:scaleX(0);transition:transform .35s ease;}
+    .tip-block:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+    .tip-block:hover::after{transform:scaleX(1);}
+    .tip-block-icon{font-size:2.2rem;margin-bottom:14px;display:inline-block;transition:transform .3s ease;}
+    .tip-block:hover .tip-block-icon{transform:scale(1.15) rotate(-5deg);}
+    .tip-block h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+    .tip-block p{font-size:.81rem;color:var(--gray-text);line-height:1.6;}
+
+    /* CTA */
+    .blog-cta{background:linear-gradient(135deg,#111e45 0%,#1a2a5e 50%,#2d4a8a 100%);padding:96px 24px;text-align:center;position:relative;overflow:hidden;}
+    .blog-cta::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:28px 28px;}
+    .cta-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.13;}
+    .cta-o1{width:420px;height:420px;background:#FF6B35;top:-150px;right:-80px;}
+    .cta-o2{width:320px;height:320px;background:#60a5fa;bottom:-100px;left:-60px;}
+    .cta-inner{position:relative;z-index:2;max-width:680px;margin:0 auto;}
+    .cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:#fff;margin-bottom:16px;}
+    .cta-inner h2 em{color:#FF8C42;font-style:italic;}
+    .cta-inner p{font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.7;margin-bottom:38px;}
+    .cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
+    .btn-white{display:inline-flex;align-items:center;gap:9px;padding:15px 34px;background:#fff;color:var(--navy);border-radius:50px;font-weight:700;font-size:.92rem;transition:all .3s ease;box-shadow:0 8px 28px rgba(0,0,0,0.15);}
+    .btn-white:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.2);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:9px;padding:13px 32px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.42);border-radius:50px;font-weight:600;font-size:.92rem;transition:all .3s ease;}
+    .btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:#fff;transform:translateY(-3px);}
+
+    /* FULL SITE FOOTER */
+    .site-footer{background:var(--navy-deep);padding:72px 24px 0;color:rgba(255,255,255,0.72);}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.08);}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;}
+    .footer-logo span{color:var(--orange);}
+    .footer-brand p{font-size:.84rem;line-height:1.75;color:rgba(255,255,255,0.5);margin:14px 0 22px;max-width:300px;}
+    .footer-socials{display:flex;gap:10px;flex-wrap:wrap;}
+    .f-social{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);transition:all .25s ease;cursor:pointer;}
+    .f-social:hover{background:var(--orange);color:#fff;border-color:var(--orange);transform:translateY(-2px);}
+    .footer-col h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.88);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:.84rem;color:rgba(255,255,255,0.48);transition:color .2s ease;display:flex;align-items:center;gap:8px;}
+    .footer-col ul li a:hover{color:var(--orange-lt);}
+    .footer-col ul li a i{font-size:.62rem;color:var(--orange);}
+    .contact-note{margin-top:18px;padding:14px 16px;background:rgba(255,107,53,0.1);border-radius:14px;border:1px solid rgba(255,107,53,0.18);}
+    .contact-note p{font-size:.78rem;color:rgba(255,255,255,0.65);line-height:1.65;}
+    .contact-note strong{color:#FF8C42;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+    .footer-bottom p{font-size:.79rem;color:rgba(255,255,255,0.3);}
+    .footer-legal{display:flex;gap:20px;flex-wrap:wrap;}
+    .footer-legal a{font-size:.77rem;color:rgba(255,255,255,0.36);transition:color .2s ease;}
+    .footer-legal a:hover{color:rgba(255,255,255,0.75);}
+
+    /* SCROLL TOP & REVEAL */
+    .scroll-top-btn{position:fixed;bottom:28px;right:28px;z-index:999;width:48px;height:48px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 8px 24px rgba(255,107,53,0.38);opacity:0;transform:translateY(16px);transition:all .3s ease;pointer-events:none;}
+    .scroll-top-btn.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+    .scroll-top-btn:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(255,107,53,0.5);}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .rd1{transition-delay:.1s;}.rd2{transition-delay:.2s;}.rd3{transition-delay:.3s;}.rd4{transition-delay:.4s;}.rd5{transition-delay:.5s;}
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown-wrapper">
+        <a href="#" class="nav-link dropdown-trigger">Destinations <i class="fas fa-chevron-down nav-dropdown-icon"></i></a>
+        <div class="nav-dropdown">
+          <div class="dropdown-inner">
+            <div class="dropdown-continent asia">
+              <div class="continent-header"><span class="continent-emoji">🌏</span><span>Asia</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#india">India</a></li><li><a href="destinations.html#malaysia">Malaysia</a></li><li><a href="destinations.html#maldives">Maldives</a></li><li><a href="destinations.html#thailand">Thailand</a></li><li><a href="destinations.html#bali">Indonesia (Bali)</a></li><li><a href="destinations.html#vietnam">Vietnam</a></li><li><a href="destinations.html#philippines">Philippines</a></li><li><a href="destinations.html#singapore">Singapore</a></li><li><a href="destinations.html#cambodia">Cambodia</a></li><li><a href="destinations.html#china">China</a></li><li><a href="destinations.html#sri-lanka">Sri Lanka</a></li><li><a href="destinations.html#georgia">Georgia</a></li><li><a href="destinations.html#south-korea">South Korea</a></li><li><a href="destinations.html#japan">Japan</a></li><li><a href="destinations.html#armenia">Armenia</a></li><li><a href="destinations.html#azerbaijan">Azerbaijan</a></li><li><a href="destinations.html#bhutan">Bhutan</a></li><li><a href="destinations.html#kazakhstan">Kazakhstan</a></li><li><a href="destinations.html#nepal">Nepal</a></li><li><a href="destinations.html#uzbekistan">Uzbekistan</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🏜️</span><span>Middle East</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#dubai">UAE (Dubai)</a></li><li><a href="destinations.html#turkey">Turkey</a></li><li><a href="destinations.html#jordan">Jordan</a></li><li><a href="destinations.html#oman">Oman</a></li><li><a href="destinations.html#qatar">Qatar</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🌍</span><span>Africa</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#mauritius">Mauritius</a></li><li><a href="destinations.html#egypt">Egypt</a></li><li><a href="destinations.html#kenya">Kenya</a></li><li><a href="destinations.html#seychelles">Seychelles</a></li><li><a href="destinations.html#south-africa">South Africa</a></li><li><a href="destinations.html#tanzania">Tanzania</a></li><li><a href="destinations.html#ethiopia">Ethiopia</a></li><li><a href="destinations.html#morocco">Morocco</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🌍</span><span>Europe</span></div>
+              <p class="coming-soon-text">Coming Soon..!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<a href="testimonials.html" class="nav-link">Testimonials</a>
+      <a href="blogs.html" class="nav-link" style="color:var(--orange,#FF6B35);font-weight:700;">Blogs</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<a href="#" class="scroll-top-btn" id="scrollTopBtn"><i class="fas fa-chevron-up"></i></a>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="blog-hero">
+  <div class="hero-dots"></div>
+  <div class="h-orb h-orb-1"></div><div class="h-orb h-orb-2"></div><div class="h-orb h-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-feather-alt"></i>&nbsp; Travel Stories &amp; Guides</div>
+    <h1 class="hero-title">Explore the World Through<br><em>Our Travel Diaries</em></h1>
+    <p class="hero-sub">Insider guides, hidden gems, packing tips and destination deep-dives — everything you need to travel smarter and live fuller.</p>
+    <div class="hero-search">
+      <input type="text" id="searchInput" placeholder="Search destinations, tips, stories…" autocomplete="off">
+      <button onclick="handleSearch()" aria-label="Search"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-num">60<span>+</span></div><div class="h-stat-label">Articles</div></div>
+      <div class="h-stat"><div class="h-stat-num">30<span>+</span></div><div class="h-stat-label">Destinations</div></div>
+      <div class="h-stat"><div class="h-stat-num">12k<span>+</span></div><div class="h-stat-label">Monthly Readers</div></div>
+      <div class="h-stat"><div class="h-stat-num">4.9<span>★</span></div><div class="h-stat-label">Reader Rating</div></div>
+    </div>
+  </div>
+  <div class="hero-stripe"></div>
+</section>
+
+<!-- ═══════════════════ FILTER BAR ═══════════════════ -->
+<nav class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-filter="all">🌍 All</button>
+    <button class="filter-btn" data-filter="asia">🌏 Asia</button>
+    <button class="filter-btn" data-filter="middle-east">🏜️ Middle East</button>
+    <button class="filter-btn" data-filter="africa">🌍 Africa</button>
+    <button class="filter-btn" data-filter="tips">💡 Travel Tips</button>
+    <button class="filter-btn" data-filter="food">🍜 Food &amp; Culture</button>
+    <button class="filter-btn" data-filter="budget">💰 Budget</button>
+    <button class="filter-btn" data-filter="honeymoon">💑 Honeymoon</button>
+    <button class="filter-btn" data-filter="family">👨‍👩‍👧‍👦 Family</button>
+    <button class="filter-btn" data-filter="adventure">🧗 Adventure</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════ MAIN LAYOUT ═══════════════════ -->
+<div class="blogs-layout">
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- Featured -->
+    <div class="reveal">
+      <div class="sec-label">Featured Story</div>
+      <div class="featured-card">
+        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1100&fit=crop&q=80" alt="Thailand Temples at sunrise" loading="lazy">
+        <div class="featured-overlay"></div>
+        <div class="featured-top-badge">
+          <span class="f-badge orange"><i class="fas fa-map-marker-alt"></i>&nbsp;Thailand</span>
+          <span class="f-badge glass"><i class="fas fa-fire"></i>&nbsp;Trending</span>
+        </div>
+        <div class="featured-body">
+          <h2 class="featured-title">Inside Thailand's Sacred Temples: A Spiritual Journey You'll Never Forget</h2>
+          <p class="featured-excerpt">From Wat Pho's golden reclining Buddha to the misty mountaintop Doi Suthep — discover how to experience Thailand's temple trail with depth, respect and wonder.</p>
+          <div class="featured-meta">
+            <span><i class="fas fa-user"></i> Ananya Sharma</span>
+            <span><i class="fas fa-calendar"></i> 28 Mar 2026</span>
+            <span><i class="fas fa-clock"></i> 8 min read</span>
+            <span><i class="fas fa-heart"></i> 342 saves</span>
+          </div>
+          <a href="#" class="featured-read-btn"><i class="fas fa-book-open"></i> Read Full Story</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Destination Strips -->
+    <div class="sec-head reveal"><h2>Browse by <em>Destination</em></h2></div>
+    <div class="dest-strips reveal">
+      <div class="dest-strip"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&fit=crop" alt="Bali" loading="lazy"><div class="dest-strip-ov"></div><div class="dest-strip-label">🇮🇩 Bali</div><div class="dest-strip-count">12 posts</div></div>
+      <div class="dest-strip"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&fit=crop" alt="Dubai" loading="lazy"><div class="dest-strip-ov"></div><div class="dest-strip-label">🇦🇪 Dubai</div><div class="dest-strip-count">9 posts</div></div>
+      <div class="dest-strip"><img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&fit=crop" alt="Maldives" loading="lazy"><div class="dest-strip-ov"></div><div class="dest-strip-label">🇲🇻 Maldives</div><div class="dest-strip-count">7 posts</div></div>
+      <div class="dest-strip"><img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&fit=crop" alt="Japan" loading="lazy"><div class="dest-strip-ov"></div><div class="dest-strip-label">🇯🇵 Japan</div><div class="dest-strip-count">6 posts</div></div>
+      <div class="dest-strip"><img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=400&fit=crop" alt="Singapore" loading="lazy"><div class="dest-strip-ov"></div><div class="dest-strip-label">🇸🇬 Singapore</div><div class="dest-strip-count">5 posts</div></div>
+      <div class="dest-strip"><img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=400&fit=crop" alt="Morocco" loading="lazy"><div class="dest-strip-ov"></div><div class="dest-strip-label">🇲🇦 Morocco</div><div class="dest-strip-count">4 posts</div></div>
+      <div class="dest-strip"><img src="https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=400&fit=crop" alt="Vietnam" loading="lazy"><div class="dest-strip-ov"></div><div class="dest-strip-label">🇻🇳 Vietnam</div><div class="dest-strip-count">6 posts</div></div>
+      <div class="dest-strip"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400&fit=crop" alt="Kenya" loading="lazy"><div class="dest-strip-ov"></div><div class="dest-strip-label">🇰🇪 Kenya</div><div class="dest-strip-count">3 posts</div></div>
+    </div>
+
+    <!-- Latest Stories -->
+    <div class="sec-head reveal">
+      <h2>Latest <em>Stories</em></h2>
+      <a href="#" class="view-all">View All <i class="fas fa-arrow-right" style="font-size:.72rem;"></i></a>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+
+      <!-- Wide: Bali -->
+      <div class="blog-card wide reveal" data-tags="asia budget family">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&fit=crop&q=80" alt="Bali" loading="lazy"><span class="card-region-tag">🇮🇩 Bali, Indonesia</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-fire"></i> Trending</div>
+          <h3 class="card-title">The Ultimate 7-Day Bali Itinerary for First-Time Visitors from India</h3>
+          <p class="card-excerpt">From the emerald rice terraces of Tegalalang to the cliffside Uluwatu temple at sunset — discover the perfect week-long plan covering culture, beaches, food and nightlife without blowing your budget. We cover every day with transport tips, costs and insider spots.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d2">R</div><div><div class="author-name">Rohan Mehta</div><div class="author-date">20 Mar 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 10 min</div></div>
+        </div>
+      </div>
+
+      <!-- Dubai Honeymoon -->
+      <div class="blog-card reveal rd1" data-tags="middle-east honeymoon">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&fit=crop&q=80" alt="Dubai" loading="lazy"><span class="card-region-tag">🇦🇪 Dubai, UAE</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-heart"></i> Honeymoon</div>
+          <h3 class="card-title">Dubai on a Honeymoon: Luxury Without the Shocking Price Tag</h3>
+          <p class="card-excerpt">Rooftop dinners, desert safaris, and skyline views at Burj Khalifa — a romantic guide for couples flying from India on a smart budget.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d4">P</div><div><div class="author-name">Priya &amp; Arjun</div><div class="author-date">12 Mar 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 6 min</div></div>
+        </div>
+      </div>
+
+      <!-- Vietnam Food -->
+      <div class="blog-card reveal rd2" data-tags="asia food">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=600&fit=crop&q=80" alt="Vietnam food" loading="lazy"><span class="card-region-tag">🇻🇳 Vietnam</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-utensils"></i> Food &amp; Culture</div>
+          <h3 class="card-title">Vietnam's Street Food Bible: 20 Dishes You Must Try Before You Leave</h3>
+          <p class="card-excerpt">Phở, Bánh Mì, Cơm Tấm and beyond — a flavour-first guide to eating your way through Hanoi and Ho Chi Minh City.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d3">S</div><div><div class="author-name">Sneha Rao</div><div class="author-date">5 Mar 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 7 min</div></div>
+        </div>
+      </div>
+
+      <!-- Packing Tips -->
+      <div class="blog-card reveal rd1" data-tags="tips budget">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&fit=crop&q=80" alt="Packing" loading="lazy"><span class="card-region-tag">💡 Travel Tips</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-suitcase"></i> Packing</div>
+          <h3 class="card-title">The Carry-On Only Packing List That Actually Works for 14 Days in SE Asia</h3>
+          <p class="card-excerpt">Ditch checked luggage. Our battle-tested 7-item framework lets you pack smart and travel completely free for two weeks.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d1">A</div><div><div class="author-name">Aditya Kumar</div><div class="author-date">28 Feb 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 5 min</div></div>
+        </div>
+      </div>
+
+      <!-- Kenya Safari -->
+      <div class="blog-card reveal rd2" data-tags="africa adventure">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&fit=crop&q=80" alt="Kenya Safari" loading="lazy"><span class="card-region-tag">🇰🇪 Kenya</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-paw"></i> Safari</div>
+          <h3 class="card-title">First Safari in Kenya: What Nobody Tells You Before You Go</h3>
+          <p class="card-excerpt">The Maasai Mara at sunrise is something you'll never forget. Here's the real deal on planning your first African safari.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d5">K</div><div><div class="author-name">Kavya Nair</div><div class="author-date">22 Feb 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 9 min</div></div>
+        </div>
+      </div>
+
+      <!-- Wide: Maldives -->
+      <div class="blog-card wide reveal" data-tags="asia budget honeymoon">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&fit=crop&q=80" alt="Maldives" loading="lazy"><span class="card-region-tag">🇲🇻 Maldives</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-umbrella-beach"></i> Beach &amp; Budget</div>
+          <h3 class="card-title">Maldives on a Budget: How We Had an Overwater Bungalow Experience for Under ₹60,000</h3>
+          <p class="card-excerpt">Yes — absolutely possible. Local guesthouses, turquoise lagoons, snorkelling with manta rays and a budget that won't give you nightmares. This is the smart, honest guide to the Maldives — with every cost, every tip, and every booking hack laid out for you.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d6">V</div><div><div class="author-name">Vikram Iyer</div><div class="author-date">14 Feb 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 11 min</div></div>
+        </div>
+      </div>
+
+      <!-- Japan -->
+      <div class="blog-card reveal rd1" data-tags="asia tips">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=600&fit=crop&q=80" alt="Japan" loading="lazy"><span class="card-region-tag">🇯🇵 Japan</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-torii-gate"></i> Culture</div>
+          <h3 class="card-title">Japan for Indians: Visa, Budget &amp; the Best Time to Visit in 2026</h3>
+          <p class="card-excerpt">Everything you need to plan your first Japan trip — from visa requirements to train passes, etiquette and daily budget breakdown.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d2">N</div><div><div class="author-name">Nisha Verma</div><div class="author-date">8 Feb 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 8 min</div></div>
+        </div>
+      </div>
+
+      <!-- Morocco -->
+      <div class="blog-card reveal rd2" data-tags="africa food adventure">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=600&fit=crop&q=80" alt="Morocco" loading="lazy"><span class="card-region-tag">🇲🇦 Morocco</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-mosque"></i> Culture</div>
+          <h3 class="card-title">Lost in Marrakech's Medina: A Solo Traveller's Complete Guide to Morocco</h3>
+          <p class="card-excerpt">Winding souks, spice markets, rooftop riads and Sahara sunsets — Morocco is Africa's most magical first destination.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d3">M</div><div><div class="author-name">Meera Pillai</div><div class="author-date">1 Feb 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 7 min</div></div>
+        </div>
+      </div>
+
+      <!-- Singapore -->
+      <div class="blog-card reveal rd1" data-tags="asia family tips">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=600&fit=crop&q=80" alt="Singapore" loading="lazy"><span class="card-region-tag">🇸🇬 Singapore</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-city"></i> City Guide</div>
+          <h3 class="card-title">Singapore in 4 Days: The Perfect Family Itinerary for First-Timers</h3>
+          <p class="card-excerpt">Gardens by the Bay, Universal Studios, Sentosa and Hawker centres — how to plan the perfect Singapore trip with kids.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d7">T</div><div><div class="author-name">Tanvi Shah</div><div class="author-date">25 Jan 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 5 min</div></div>
+        </div>
+      </div>
+
+      <!-- Georgia -->
+      <div class="blog-card reveal rd2" data-tags="asia budget adventure">
+        <div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1561574177-6d1aa44a0c73?w=600&fit=crop&q=80" alt="Georgia" loading="lazy"><span class="card-region-tag">🇬🇪 Georgia</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div>
+        <div class="card-body">
+          <div class="card-tag"><i class="fas fa-gem"></i> Hidden Gem</div>
+          <h3 class="card-title">Why Georgia Should Be Every Indian Traveller's Next International Trip</h3>
+          <p class="card-excerpt">Visa-free, breathtaking mountains, incredible wine, ancient monasteries and jaw-dropping affordability — Europe's best-kept secret.</p>
+          <div class="card-footer"><div class="card-author"><div class="author-dot d8">D</div><div><div class="author-name">Dev Rao</div><div class="author-date">18 Jan 2026</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> 6 min</div></div>
+        </div>
+      </div>
+
+      <!-- No Results -->
+      <div class="no-results" id="noResults">
+        <i class="fas fa-search"></i>
+        <h3>No posts found for your search.</h3>
+        <p>Try a different keyword or browse a category above.</p>
+      </div>
+
+    </div><!-- /blog-grid -->
+
+    <!-- Load More -->
+    <div class="load-more-wrap reveal">
+      <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()">
+        <i class="fas fa-sync-alt"></i>&nbsp; Load More Stories
+      </button>
+    </div>
+
+    <!-- Quick Tips Strip -->
+    <div class="sec-head reveal" style="margin-top:64px;">
+      <h2>Quick <em>Travel Tips</em></h2>
+      <a href="#" class="view-all">More Tips <i class="fas fa-arrow-right" style="font-size:.72rem;"></i></a>
+    </div>
+    <div class="tips-strip reveal">
+      <div class="tip-card"><img class="tip-card-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&fit=crop" alt="Flights" loading="lazy"><div class="tip-card-body"><div class="tip-card-tag">✈️ Flights</div><div class="tip-card-title">How to Find the Cheapest International Flights from India</div></div></div>
+      <div class="tip-card"><img class="tip-card-img" src="https://images.unsplash.com/photo-1470004914212-05527e49370b?w=400&fit=crop" alt="Visa" loading="lazy"><div class="tip-card-body"><div class="tip-card-tag">📄 Visa</div><div class="tip-card-title">Visa-Free Countries for Indian Passport Holders in 2026</div></div></div>
+      <div class="tip-card"><img class="tip-card-img" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&fit=crop" alt="Money" loading="lazy"><div class="tip-card-body"><div class="tip-card-tag">💳 Money</div><div class="tip-card-title">Best Cards &amp; Apps to Use Abroad Without Forex Fees</div></div></div>
+      <div class="tip-card"><img class="tip-card-img" src="https://images.unsplash.com/photo-1600861194802-a2b11076bc51?w=400&fit=crop" alt="Insurance" loading="lazy"><div class="tip-card-body"><div class="tip-card-tag">🛡️ Insurance</div><div class="tip-card-title">Why Travel Insurance is Non-Negotiable for International Trips</div></div></div>
+      <div class="tip-card"><img class="tip-card-img" src="https://images.unsplash.com/photo-1551739440-5dd934d3a94a?w=400&fit=crop" alt="SIM" loading="lazy"><div class="tip-card-body"><div class="tip-card-tag">📱 Connectivity</div><div class="tip-card-title">Best International SIMs &amp; eSIMs for Indian Travellers</div></div></div>
+      <div class="tip-card"><img class="tip-card-img" src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=400&fit=crop" alt="Photography" loading="lazy"><div class="tip-card-body"><div class="tip-card-tag">📸 Photography</div><div class="tip-card-title">Travel Photography Tips: Stunning Shots with Your Phone</div></div></div>
+    </div>
+
+  </main><!-- /main -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Trending -->
+    <div class="s-card">
+      <div class="s-title"><span>🔥</span> Trending Now</div>
+      <div class="trending-list">
+        <div class="t-item"><div class="t-num">01</div><div class="t-content"><h4>10 Reasons Why Bali is Still the Best Value Destination in 2026</h4><div class="t-meta"><span class="t-tag">Bali</span><span>5 min</span></div></div></div>
+        <div class="t-item"><div class="t-num">02</div><div class="t-content"><h4>Complete Thailand Visa &amp; Entry Guide for Indian Passport Holders</h4><div class="t-meta"><span class="t-tag">Thailand</span><span>4 min</span></div></div></div>
+        <div class="t-item"><div class="t-num">03</div><div class="t-content"><h4>Singapore in 4 Days: The Perfect First-Timer's Itinerary</h4><div class="t-meta"><span class="t-tag">Singapore</span><span>6 min</span></div></div></div>
+        <div class="t-item"><div class="t-num">04</div><div class="t-content"><h4>How to Book the Cheapest International Flights from India</h4><div class="t-meta"><span class="t-tag">Tips</span><span>7 min</span></div></div></div>
+        <div class="t-item"><div class="t-num">05</div><div class="t-content"><h4>Maldives vs Mauritius: Which Island Holiday is Right for You?</h4><div class="t-meta"><span class="t-tag">Islands</span><span>5 min</span></div></div></div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="s-card newsletter">
+      <div class="nl-inner">
+        <div class="nl-icon">✈️</div>
+        <div class="nl-title">Get Travel Stories in Your Inbox</div>
+        <p class="nl-sub">Join 12,000+ travellers who receive our weekly destination guides, tips &amp; exclusive deals — free, always.</p>
+        <input type="email" class="nl-input" id="nlEmail" placeholder="Your email address">
+        <button class="nl-btn" onclick="handleSubscribe(this)">Subscribe — It's Free!</button>
+      </div>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="s-card">
+      <div class="s-title"><span>🕐</span> Recent Posts</div>
+      <div class="recent-list">
+        <div class="recent-item"><div class="recent-thumb"><img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=200&fit=crop" alt="Thailand" loading="lazy"></div><div class="recent-info"><h4>Thailand's Sacred Temples: A Spiritual Journey</h4><div class="recent-date"><i class="fas fa-calendar" style="font-size:.65rem;color:var(--orange);"></i> 28 Mar 2026</div></div></div>
+        <div class="recent-item"><div class="recent-thumb"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=200&fit=crop" alt="Bali" loading="lazy"></div><div class="recent-info"><h4>The Ultimate 7-Day Bali Itinerary for Indians</h4><div class="recent-date"><i class="fas fa-calendar" style="font-size:.65rem;color:var(--orange);"></i> 20 Mar 2026</div></div></div>
+        <div class="recent-item"><div class="recent-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&fit=crop" alt="Dubai" loading="lazy"></div><div class="recent-info"><h4>Dubai on a Honeymoon: Luxury Without Breaking the Bank</h4><div class="recent-date"><i class="fas fa-calendar" style="font-size:.65rem;color:var(--orange);"></i> 12 Mar 2026</div></div></div>
+        <div class="recent-item"><div class="recent-thumb"><img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=200&fit=crop" alt="Vietnam" loading="lazy"></div><div class="recent-info"><h4>Vietnam's Street Food Bible: 20 Must-Try Dishes</h4><div class="recent-date"><i class="fas fa-calendar" style="font-size:.65rem;color:var(--orange);"></i> 5 Mar 2026</div></div></div>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="s-card">
+      <div class="s-title"><span>🏷️</span> Browse by Topic</div>
+      <div class="tags-cloud">
+        <span class="tag-pill" onclick="setFilter('asia')">🇮🇩 Bali</span>
+        <span class="tag-pill" onclick="setFilter('asia')">🇹🇭 Thailand</span>
+        <span class="tag-pill" onclick="setFilter('middle-east')">🇦🇪 Dubai</span>
+        <span class="tag-pill" onclick="setFilter('asia')">🇲🇻 Maldives</span>
+        <span class="tag-pill" onclick="setFilter('asia')">🇯🇵 Japan</span>
+        <span class="tag-pill" onclick="setFilter('asia')">🇻🇳 Vietnam</span>
+        <span class="tag-pill" onclick="setFilter('honeymoon')">💑 Honeymoon</span>
+        <span class="tag-pill" onclick="setFilter('family')">👨‍👩‍👧‍👦 Family</span>
+        <span class="tag-pill" onclick="setFilter('budget')">💰 Budget</span>
+        <span class="tag-pill" onclick="setFilter('food')">🍜 Food</span>
+        <span class="tag-pill" onclick="setFilter('africa')">🦁 Safari</span>
+        <span class="tag-pill" onclick="setFilter('tips')">🧳 Packing</span>
+        <span class="tag-pill" onclick="setFilter('tips')">📄 Visa</span>
+        <span class="tag-pill" onclick="setFilter('adventure')">🧗 Adventure</span>
+        <span class="tag-pill" onclick="setFilter('tips')">✈️ Flights</span>
+        <span class="tag-pill" onclick="setFilter('budget')">🏖️ Beach</span>
+      </div>
+    </div>
+
+    <!-- Follow Us -->
+    <div class="s-card">
+      <div class="s-title"><span>📲</span> Follow Our Journey</div>
+      <p style="font-size:.82rem;color:var(--gray-text);line-height:1.6;margin-bottom:18px;">Stay inspired with daily travel reels, stories and exclusive deals across our channels.</p>
+      <div class="social-grid">
+        <button class="social-btn s-insta"><i class="fab fa-instagram"></i> Instagram</button>
+        <button class="social-btn s-wa"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+        <button class="social-btn s-gmap"><i class="fab fa-google"></i> Reviews</button>
+        <button class="social-btn s-yt"><i class="fab fa-youtube"></i> YouTube</button>
+      </div>
+    </div>
+
+  </aside>
+</div><!-- /blogs-layout -->
+
+<!-- ═══════════════════ TRAVEL TIPS BAND ═══════════════════ -->
+<div class="info-band">
+  <div class="info-band-inner">
+    <div class="info-band-head reveal">
+      <h2>Travel Smarter with <em>Delight Tips</em></h2>
+      <p>Quick, actionable wisdom from our experienced travel team — because great trips start with great planning.</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-block reveal rd1"><span class="tip-block-icon">🛂</span><h4>Visa Planning</h4><p>Apply 4–6 weeks early for peak-season destinations. Keep all documents digital and physical.</p></div>
+      <div class="tip-block reveal rd2"><span class="tip-block-icon">💸</span><h4>Best Time to Book</h4><p>Book 6–8 weeks ahead for best fares. Tuesdays and Wednesdays consistently show the lowest prices.</p></div>
+      <div class="tip-block reveal rd3"><span class="tip-block-icon">🌦️</span><h4>Check the Season</h4><p>SE Asia has monsoon season — avoid Bali in Dec–Feb. Maldives is best October to April.</p></div>
+      <div class="tip-block reveal rd4"><span class="tip-block-icon">📦</span><h4>Pack Light</h4><p>A 7kg carry-on is enough for two weeks. Roll clothes, use packing cubes, skip "just in case" items.</p></div>
+      <div class="tip-block reveal rd1"><span class="tip-block-icon">💳</span><h4>Forex Card</h4><p>Get a loaded forex card before you travel. No foreign transaction fees and better exchange rates.</p></div>
+      <div class="tip-block reveal rd2"><span class="tip-block-icon">📡</span><h4>Stay Connected</h4><p>Buy a local SIM at the airport or use Airalo eSIM. Activate before you land for seamless connectivity.</p></div>
+      <div class="tip-block reveal rd3"><span class="tip-block-icon">🛡️</span><h4>Travel Insurance</h4><p>Always insure your trip. Medical emergencies abroad without insurance can cost ₹10 lakh or more.</p></div>
+      <div class="tip-block reveal rd4"><span class="tip-block-icon">📸</span><h4>Golden Hour Shots</h4><p>Shoot between 7–9 AM and 5–7 PM for the best travel photos. Your phone camera is enough.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="blog-cta">
+  <div class="cta-orb cta-o1"></div>
+  <div class="cta-orb cta-o2"></div>
+  <div class="cta-inner reveal">
+    <h2>Ready to Live These <em>Stories Yourself?</em></h2>
+    <p>Stop reading. Start travelling. Our expert team is ready to craft your perfect trip to any destination you've read about here.</p>
+    <div class="cta-btns">
+      <a href="packages.html" class="btn-white"><i class="fas fa-map-marked-alt"></i> Explore Packages</a>
+      <a href="contact.html" class="btn-ghost"><i class="fas fa-paper-plane"></i> Plan My Trip</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FULL SITE FOOTER ═══════════════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <div class="footer-logo">✈️ Delight <span>Departures</span></div>
+      <div><span> - </span></div>
+      <p>We don't just plan trips — we create experiences that stay with you for a lifetime. Specialising in international group tours and customised private trips across 80+ destinations worldwide.</p>
+      <div class="footer-socials">
+        <div class="f-social"><i class="fab fa-instagram"></i></div>
+        <div class="f-social"><i class="fab fa-whatsapp"></i></div>
+        <div class="f-social"><i class="fab fa-youtube"></i></div>
+        <div class="f-social"><i class="fab fa-facebook-f"></i></div>
+        <div class="f-social"><i class="fab fa-google"></i></div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Top Destinations</h4>
+      <ul>
+        <li><a href="destinations.html#bali"><i class="fas fa-chevron-right"></i> Bali, Indonesia</a></li>
+        <li><a href="destinations.html#thailand"><i class="fas fa-chevron-right"></i> Thailand</a></li>
+        <li><a href="destinations.html#maldives"><i class="fas fa-chevron-right"></i> Maldives</a></li>
+        <li><a href="destinations.html#dubai"><i class="fas fa-chevron-right"></i> Dubai, UAE</a></li>
+        <li><a href="destinations.html#singapore"><i class="fas fa-chevron-right"></i> Singapore</a></li>
+        <li><a href="destinations.html#malaysia"><i class="fas fa-chevron-right"></i> Malaysia</a></li>
+        <li><a href="destinations.html#japan"><i class="fas fa-chevron-right"></i> Japan</a></li>
+        <li><a href="destinations.html#vietnam"><i class="fas fa-chevron-right"></i> Vietnam</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Destinations</a></li>
+        <li><a href="blogs.html"><i class="fas fa-chevron-right"></i> Blogs</a></li>
+        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Group Tours</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul>
+        <li><a href="tel:+919429693718"><i class="fas fa-phone"></i> +91 94296 93718</a></li>
+        <li><a href="mailto:support@delightdepartures.com"><i class="fas fa-envelope"></i> support@delightdepartures.com</a></li>
+        <li><a href="https://wa.me/918123568002"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></li>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</a></li>
+      </ul>
+      <div class="contact-note">
+        <p>⏱️ <strong>Mon – Sun:</strong> 10:30 AM – 7:30 PM<br></p>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Delight Departures. All rights reserved. Made with ❤️ for travellers.</p>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <a href="refund-policy.html">Refund Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script src="js/whatsapp.js"></script>
+<script>
+  /* NAVBAR */
+  const hamburger   = document.querySelector('.hamburger');
+  const navLinksEl  = document.querySelector('.nav-links');
+  const navCtaEl    = document.querySelector('.nav-cta');
+  const dropWrapper = document.querySelector('.nav-dropdown-wrapper');
+  const dropTrigger = document.querySelector('.dropdown-trigger');
+  let ddT;
+  hamburger?.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinksEl.classList.toggle('active');navCtaEl.classList.toggle('active');});
+  const openDD=()=>{clearTimeout(ddT);dropWrapper?.classList.add('open');};
+  const closeDD=()=>{ddT=setTimeout(()=>dropWrapper?.classList.remove('open'),120);};
+  if(dropWrapper){
+    dropWrapper.addEventListener('mouseenter',()=>{if(window.innerWidth>768)openDD();});
+    dropWrapper.addEventListener('mouseleave',()=>{if(window.innerWidth>768)closeDD();});
+    dropTrigger.addEventListener('click',e=>{if(window.innerWidth<=768){e.preventDefault();dropWrapper.classList.toggle('open');}});
+  }
+  document.addEventListener('click',e=>{if(dropWrapper&&!dropWrapper.contains(e.target))dropWrapper.classList.remove('open');});
+  document.querySelectorAll('.nav-dropdown a').forEach(l=>l.addEventListener('click',()=>dropWrapper?.classList.remove('open')));
+
+  /* SCROLL */
+  const scrollTopBtn=document.getElementById('scrollTopBtn');
+  const navbar=document.querySelector('.navbar');
+  let lastST=0;
+  window.addEventListener('scroll',()=>{
+    const st=window.pageYOffset,dir=st>lastST?'down':'up';
+    if(st<60)navbar.classList.remove('hidden');
+    else if(dir==='down'&&st>120)navbar.classList.add('hidden');
+    else if(dir==='up')navbar.classList.remove('hidden');
+    scrollTopBtn.classList.toggle('visible',dir==='up'&&st>250);
+    lastST=Math.max(0,st);
+  });
+  scrollTopBtn.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* REVEAL */
+  const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+  /* FILTER */
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+  function applyFilter(filter){
+    const cards=document.querySelectorAll('.blog-card');
+    let vis=0;
+    cards.forEach(card=>{
+      const show=filter==='all'||(card.dataset.tags||'').split(' ').includes(filter);
+      card.style.display=show?'':'none';
+      if(show)vis++;
+    });
+    document.getElementById('noResults').classList.toggle('show',vis===0);
+  }
+  function setFilter(f){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    const m=document.querySelector(`.filter-btn[data-filter="${f}"]`);
+    if(m)m.classList.add('active');
+    applyFilter(f);
+    window.scrollTo({top:document.getElementById('blogGrid').offsetTop-100,behavior:'smooth'});
+  }
+
+  /* SAVE */
+  function toggleSave(e,btn){
+    e.stopPropagation();
+    btn.classList.toggle('saved');
+    const ic=btn.querySelector('i');
+    if(btn.classList.contains('saved')){ic.className='fas fa-heart';btn.style.color='#FF6B35';}
+    else{ic.className='far fa-heart';btn.style.color='';}
+  }
+
+  /* SEARCH */
+  function handleSearch(){
+    const q=document.getElementById('searchInput').value.toLowerCase().trim();
+    if(!q){applyFilter('all');document.querySelectorAll('.filter-btn')[0].classList.add('active');return;}
+    const cards=document.querySelectorAll('.blog-card');
+    let vis=0;
+    cards.forEach(card=>{
+      const txt=(card.querySelector('.card-title')?.textContent||'')+' '+(card.dataset.tags||'');
+      const show=txt.toLowerCase().includes(q);
+      card.style.display=show?'':'none';
+      if(show)vis++;
+    });
+    document.getElementById('noResults').classList.toggle('show',vis===0);
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    window.scrollTo({top:document.getElementById('blogGrid').offsetTop-100,behavior:'smooth'});
+  }
+  document.getElementById('searchInput').addEventListener('keydown',e=>{
+    if(e.key==='Enter')handleSearch();
+    if(e.key==='Escape'){document.getElementById('searchInput').value='';applyFilter('all');document.querySelectorAll('.filter-btn')[0].classList.add('active');}
+  });
+
+  /* LOAD MORE */
+  const morePosts=[
+    {dest:'🇵🇭 Philippines',img:'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&fit=crop',tag:'Beach',icon:'fas fa-water',title:'El Nido & Palawan: The Philippines Island-Hopping Guide Indians Are Missing Out On',excerpt:'Crystal-clear lagoons, secret beaches and world-class snorkelling — the Philippines is breathtakingly underrated by Indian travellers.',author:'Riya Joshi',dot:'d4',date:'10 Jan 2026',time:'8 min',tags:'asia budget adventure'},
+    {dest:'🇦🇲 Armenia',img:'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=600&fit=crop',tag:'Hidden Gem',icon:'fas fa-gem',title:'Armenia: The Ancient, Affordable & Absolutely Unmissable Destination for Indians',excerpt:'Monastery trails, brandy tastings, epic Caucasus mountain views and visa-on-arrival for Indians — Armenia deserves to be on your list.',author:'Siddharth R',dot:'d1',date:'2 Jan 2026',time:'6 min',tags:'asia budget'},
+  ];
+  let loaded=false;
+  function loadMore(){
+    if(loaded)return;
+    loaded=true;
+    const grid=document.getElementById('blogGrid');
+    const nr=document.getElementById('noResults');
+    morePosts.forEach(p=>{
+      const card=document.createElement('div');
+      card.className='blog-card reveal';
+      card.dataset.tags=p.tags;
+      card.innerHTML=`<div class="card-img-wrap"><img class="card-img" src="${p.img}" alt="${p.title}" loading="lazy"><span class="card-region-tag">${p.dest}</span><button class="card-save-btn" onclick="toggleSave(event,this)"><i class="far fa-heart"></i></button></div><div class="card-body"><div class="card-tag"><i class="${p.icon}"></i> ${p.tag}</div><h3 class="card-title">${p.title}</h3><p class="card-excerpt">${p.excerpt}</p><div class="card-footer"><div class="card-author"><div class="author-dot ${p.dot}">${p.author[0]}</div><div><div class="author-name">${p.author}</div><div class="author-date">${p.date}</div></div></div><div class="card-read-time"><i class="fas fa-clock"></i> ${p.time}</div></div></div>`;
+      grid.insertBefore(card,nr);
+      setTimeout(()=>ro.observe(card),60);
+    });
+    const btn=document.getElementById('loadMoreBtn');
+    btn.innerHTML='<i class="fas fa-check"></i>&nbsp; All Posts Loaded';
+    btn.style.opacity='.5';btn.style.cursor='default';btn.style.pointerEvents='none';
+  }
+
+  /* NEWSLETTER */
+  function handleSubscribe(btn){
+    const input=document.getElementById('nlEmail');
+    if(!input.value||!input.value.includes('@')){input.style.borderColor='#f43f5e';input.placeholder='Enter a valid email';return;}
+    input.style.borderColor='#10b981';
+    btn.textContent='✓ You\'re subscribed!';
+    btn.style.background='#10b981';
+    btn.disabled=true;
+  }
+</script>
+</body>
+</html>

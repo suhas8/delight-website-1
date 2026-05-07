@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Majestic Malaysia Tour 3N / 4D – Delight Departures</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --primary:#0f3a66;
+      --accent:#ffd43b;
+      --soft:#f7fbff;
+      --text:#1c2a38;
+      --muted:#65788b;
+      --line:#e3edf8;
+      --shadow:0 10px 28px rgba(13,44,82,.08);
+      --radius:14px;
+    }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:'Poppins',sans-serif; color:var(--text); background:#fff; }
+    .k-container{ width:min(1180px,92%); margin:0 auto; }
+
+    .navbar{
+      position:absolute; top:0; left:0; right:0; z-index:50;
+      background:transparent !important; box-shadow:none !important; border-bottom:none !important; backdrop-filter:none;
+    }
+    .navbar .nav-container{ background:transparent !important; border:none !important; box-shadow:none !important; }
+    .navbar .nav-link,.navbar .nav-cta{ color:#fff !important; }
+    .navbar .nav-cta{ border:1px solid rgba(255,255,255,.45); background:rgba(255,255,255,.14); }
+    .navbar .hamburger span{ background:#fff !important; }
+
+    .hero-wrap{ position:relative; min-height:85vh; display:flex; align-items:flex-end; color:#fff; overflow:hidden; margin-top:0; }
+    .hero-slides{ position:absolute; inset:0; }
+    .hero-slide{ position:absolute; inset:0; opacity:0; transition:opacity .7s ease; background-size:cover; background-position:center; }
+    .hero-slide.active{ opacity:1; }
+    .hero-overlay{ position:absolute; inset:0; background:linear-gradient(110deg,rgba(6,24,44,.78),rgba(6,24,44,.35)); z-index:1; }
+    .hero-content{ position:relative; z-index:2; width:min(1180px,92%); margin:0 auto; padding:36px 0 40px; }
+    .hero-badge{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px;
+      background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); backdrop-filter:blur(6px);
+      font-weight:600; font-size:.9rem;
+    }
+    .hero-content h1{ margin:14px 0 8px; font-size:clamp(2rem,4vw,3.4rem); line-height:1.1; }
+    .hero-content p{ margin:0; max-width:760px; color:rgba(255,255,255,.92); line-height:1.75; font-size:1.02rem; }
+    .hero-meta{ margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
+    .meta-chip{
+      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28); border-radius:999px;
+      padding:8px 12px; font-weight:600; font-size:.88rem;
+    }
+    .hero-nav{
+      position:absolute; z-index:3; top:50%; transform:translateY(-50%);
+      width:44px; height:44px; border-radius:50%; border:none; cursor:pointer;
+      background:rgba(255,255,255,.22); color:#fff; font-size:1rem; backdrop-filter:blur(6px);
+    }
+    .hero-nav:hover{ background:rgba(255,255,255,.33); }
+    .hero-prev{ left:18px; } .hero-next{ right:18px; }
+    .hero-dots{
+      position:absolute; z-index:3; left:50%; bottom:18px; transform:translateX(-50%); display:flex; gap:8px;
+    }
+    .hero-dot{ width:10px; height:10px; border-radius:50%; border:none; cursor:pointer; background:rgba(255,255,255,.45); }
+    .hero-dot.active{ background:#fff; }
+
+    .section{ padding:58px 0; }
+    .section.alt{
+      background:linear-gradient(180deg,#f7fbff 0%, #f2f8ff 100%);
+      border-top:1px solid #eef4fb; border-bottom:1px solid #eef4fb;
+    }
+    .title{ margin:0 0 10px; font-size:clamp(1.6rem,2.2vw,2.2rem); color:#102f4f; }
+    .sub{ margin:0 0 24px; color:var(--muted); line-height:1.75; }
+
+    .split-2{ display:grid; grid-template-columns:1.75fr .55fr; gap:20px; align-items:start; }
+    .card{
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:20px; position:relative; overflow:hidden;
+    }
+    .card::after{
+      content:""; position:absolute; top:0; left:0; right:0; height:4px;
+      background:linear-gradient(90deg,#2f76c2,#ffd43b);
+    }
+    .rating-strip{
+      margin-bottom:14px; padding:10px 12px; border-radius:10px; background:#fff8de; border:1px solid #ffe186;
+      display:flex; align-items:center; gap:10px; font-weight:700; color:#684c00;
+    }
+    .rating-strip i{ color:#ffb800; }
+    .highlight-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    .h-item{
+      background:#f9fcff; border:1px solid #deebf8; border-radius:10px; padding:10px 12px;
+      font-weight:600; color:#1b446b; display:flex; align-items:center; gap:9px;
+    }
+    .h-item i{ color:#0d5fa5; }
+
+    .facts-list{ display:grid; gap:8px; }
+    .fact{
+      background:#fff; border:1px solid #e2ecf8; border-radius:8px; padding:8px 10px;
+      color:#30485f; line-height:1.45; font-size:.88rem;
+    }
+    .fact b{ color:#123c62; }
+
+    .overview-pricing{ display:grid; grid-template-columns:1.15fr .85fr; gap:20px; align-items:start; }
+    .pill-list{ display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; }
+    .pill{
+      border:1px solid #cbe0f7; background:#eff7ff; color:#0f467d;
+      border-radius:999px; padding:7px 11px; font-size:.84rem; font-weight:600;
+    }
+    .pricing-card{
+      background:linear-gradient(145deg,#0f3154,#1c578e); color:#fff; border-radius:var(--radius); padding:20px;
+      box-shadow:var(--shadow); position:sticky; top:95px; border:1px solid rgba(255,255,255,.2);
+    }
+    .pricing-card h3{ margin:0 0 6px; }
+    .amount{ font-size:2rem; font-weight:800; line-height:1.1; margin:0; }
+    .pp{ color:rgba(255,255,255,.86); font-size:.92rem; margin:2px 0 12px; }
+    .plan-list{ margin:0; padding-left:18px; color:rgba(255,255,255,.92); line-height:1.8; }
+    .pricing-cta{ margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; }
+
+    .itinerary-wrap{ position:relative; }
+    .day-block{ position:relative; border-bottom:1px solid #e7edf6; padding:18px 0 18px 26px; }
+    .day-block::before{
+      content:""; position:absolute; left:5px; top:0; bottom:0; width:2px; background:#ffd43b; opacity:.8;
+    }
+    .day-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; cursor:pointer; }
+    .day-title{
+      margin:0 0 14px; font-size:2rem; font-family:Georgia, 'Times New Roman', serif; color:#1f2c39; letter-spacing:.2px;
+    }
+    .day-subtitle{
+      margin:2px 0 0; font-size:1.35rem; font-family:Georgia, 'Times New Roman', serif; color:#1f2c39; font-weight:500;
+    }
+    .marker{
+      width:24px; height:24px; border-radius:50%; background:#fff3b7; color:#997500; border:1px solid #f5d750;
+      display:inline-flex; align-items:center; justify-content:center; font-size:.85rem; margin-right:8px; flex-shrink:0;
+    }
+    .day-left{ display:flex; align-items:flex-start; gap:10px; }
+    .toggle-btn{
+      width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; font-size:1.25rem; font-weight:700;
+      background:#f0f4f9; color:#586d82;
+    }
+    .day-content{ display:none; padding:14px 0 6px 44px; color:#3f566d; line-height:1.8; }
+    .day-block.open .day-content{ display:block; }
+    .day-content ul{ margin:0 0 14px; padding-left:20px; }
+    .day-gallery{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:10px 0 12px; }
+    .day-gallery img{
+      width:100%; height:84px; object-fit:cover; border-radius:4px; border:1px solid #e5edf7;
+    }
+    .meal-box{
+      background:#fafafa; border:1px solid #eceff3; border-radius:6px; padding:12px; max-width:580px; color:#2f4458;
+    }
+    .meal-box p{ margin:7px 0; }
+
+    .incl-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .incl-card{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; box-shadow:var(--shadow); }
+    .incl-card h3{ margin:0 0 8px; color:#113a62; }
+    .incl-card ul{ margin:0; padding-left:19px; color:#495f74; line-height:1.75; }
+
+    .review-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .review{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; box-shadow:var(--shadow); }
+    .review h4{ margin:0 0 8px; color:#10375d; }
+    .review p{ margin:0; color:#4b6176; line-height:1.7; }
+
+    .faq-list{ display:grid; gap:10px; }
+    .faq{ border:1px solid #dde8f6; border-radius:10px; overflow:hidden; background:#fff; }
+    .faq-q{
+      width:100%; border:none; background:#fff; cursor:pointer; text-align:left; padding:14px 16px;
+      font-weight:700; color:#113a62; display:flex; align-items:center; justify-content:space-between; gap:8px;
+    }
+    .faq-a{ display:none; padding:0 16px 14px; color:#4b6176; line-height:1.7; }
+    .faq.open .faq-a{ display:block; }
+
+    .final-cta{
+      text-align:center; background:linear-gradient(120deg,#0e3358,#1b4f82); color:#fff;
+      border-radius:16px; padding:32px 20px; box-shadow:var(--shadow);
+    }
+    .final-cta h2{ margin:0 0 8px; font-size:2rem; }
+    .final-cta p{ margin:0 auto 16px; max-width:760px; color:rgba(255,255,255,.9); }
+    .cta-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+
+    .btn{
+      border:none; border-radius:10px; padding:12px 14px; font-weight:700; cursor:pointer; text-decoration:none;
+      display:inline-flex; align-items:center; gap:8px; font-size:.92rem;
+    }
+    .btn-light{ background:#fff; color:#153d64; }
+    .btn-yellow{ background:var(--accent); color:#1c1c1c; }
+
+    .enquire-menu{
+      display:none; margin:12px auto 0; max-width:430px; text-align:left; background:#fff;
+      border-radius:10px; overflow:hidden; border:1px solid #deebf8;
+    }
+    .enquire-menu.show{ display:block; }
+    .enquire-menu a{
+      display:flex; align-items:center; gap:10px; text-decoration:none; color:#183b5f;
+      padding:12px 14px; border-bottom:1px solid #eef3fa; font-weight:600;
+    }
+    .enquire-menu a:last-child{ border-bottom:none; }
+    .enquire-menu a:hover{ background:#f8fbff; }
+
+    @media (max-width:980px){
+      .split-2,.overview-pricing{ grid-template-columns:1fr; }
+      .pricing-card{ position:static; }
+      .review-grid{ grid-template-columns:1fr 1fr; }
+      .day-gallery{ grid-template-columns:repeat(3,1fr); }
+    }
+
+    @media (max-width:640px){
+      .hero-wrap{ min-height:65vh; }
+      .hero-nav{ display:none; }
+      .highlight-grid{ grid-template-columns:1fr; }
+      .incl-grid,.review-grid{ grid-template-columns:1fr; }
+      .day-title,.day-subtitle{ font-size:1.5rem; }
+      .day-content{ padding-left:10px; }
+      .day-block{ padding-left:16px; }
+      .day-block::before{ left:0; }
+      .day-gallery{ grid-template-columns:repeat(2,1fr); }
+
+      .navbar{
+        position:fixed;
+        background:linear-gradient(180deg, rgba(7,28,49,.78), rgba(7,28,49,.4)) !important;
+        backdrop-filter:blur(8px);
+      }
+      .navbar .nav-container{ padding:10px 14px; }
+      .navbar .nav-links{
+        background:rgba(7,28,49,.96); border:1px solid rgba(255,255,255,.15); border-radius:12px; padding:10px;
+      }
+      .navbar .nav-link{ color:#fff !important; }
+      .navbar .nav-cta{ color:#fff !important; border-color:rgba(255,255,255,.35); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="packages.html" class="nav-link">Packages</a>
+        <a href="destinations.html" class="nav-link">Destinations</a>
+        <a href="about.html" class="nav-link">About Us</a>
+      </div>
+      <a href="#" class="nav-cta" onclick="showContactModal()">Contact Us</a>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero-wrap" id="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="background-image:url('assets/malaysia-cover-img.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('assets/Thailand 4N-5D Group/hero2.png');"></div>
+      <div class="hero-slide" style="background-image:url('assets/Thailand 4N-5D Group/hero3.png');"></div>
+      <div class="hero-slide" style="background-image:url('assets/Thailand 4N-5D Group/hero4.png');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <button class="hero-nav hero-prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-nav hero-next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
+
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-flag"></i> Malaysia</span>
+      <h1>Majestic Malaysia Tour</h1>
+      <p>Experience the best of Malaysia with Kuala Lumpur, Genting Highlands, and Malacca in one seamless private holiday. 
+      From iconic city landmarks to mangrove caves and island exploration, this package balances adventure, comfort, and value.</p>
+      <div class="hero-meta">
+        <span class="meta-chip">3 Nights / 4 Days</span>
+        <span class="meta-chip">Price: ₹29,999/- per person</span>
+        <span class="meta-chip">All Inclusive Private Tour</span>
+      </div>
+    </div>
+
+    <div class="hero-dots" id="heroDots">
+      <button class="hero-dot active" data-slide="0"></button>
+      <button class="hero-dot" data-slide="1"></button>
+      <button class="hero-dot" data-slide="2"></button>
+      <button class="hero-dot" data-slide="3"></button>
+    </div>
+  </section>
+
+  <section class="section" id="highlights-facts">
+    <div class="k-container split-2">
+      <div class="card">
+        <h2 class="title">✨ Highlights</h2>
+        <div class="rating-strip"><i class="fas fa-star"></i> 4.7 rating based on 126 verified travellers</div>
+        <div class="highlight-grid">
+          <div class="h-item"><i class="fas fa-location-dot"></i> Driver-Cum Guide</div>
+          <div class="h-item"><i class="fas fa-location-dot"></i> 3* Hotel Accommodation</div>
+          <div class="h-item"><i class="fas fa-location-dot"></i> Daily Breakfast</div>
+          <div class="h-item"><i class="fas fa-location-dot"></i> Putrajaya Visit</div>
+          <div class="h-item"><i class="fas fa-location-dot"></i> Kuala Lumpur City Tour</div>
+          <div class="h-item"><i class="fas fa-location-dot"></i> Genting Highlands - Two-way Cable Car</div>
+          <div class="h-item"><i class="fas fa-location-dot"></i> Batu Caves</div>
+          <div class="h-item"><i class="fas fa-location-dot"></i> Malacca City Tour</div>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="title">📌 Quick Facts</h2>
+        <div class="facts-list">
+          <div class="fact"><b>Currency:</b> Malaysian Ringgit (MYR)</div>
+          <div class="fact"><b>Languages Spoken:</b> Malay, English, Mandarin</div>
+          <div class="fact"><b>Local Speciality:</b> Nasi Lemak, Satay, Roti Canai</div>
+          <div class="fact"><b>Travel Tip:</b> Comfortable shoes for Batu Caves stairs and city tours, light layers for cooler Genting Highlands.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="overview-pricing">
+    <div class="k-container overview-pricing">
+      <div class="card">
+        <h2 class="title">🧭 Overview</h2>
+        <p class="sub">
+          Majestic Malaysia Tour 3N / 4D combines vibrant cityscapes, cultural heritage, and tropical island adventure in one private itinerary.
+          Begin with Kuala Lumpur, Putrajaya, Genting Highlands, Batu Caves, and historic Malacca.
+          The package includes guided transfers, 3* stays, visa support, and sightseeing for a smooth and stress-free journey.
+          From cable car views to cave exploration, each day is curated for comfort and memorable experiences.
+          Ideal for families, couples, friends, and solo travellers who want both city energy and beachside relaxation.
+        </p>
+        <div class="pill-list">
+          <span class="pill">Driver-Cum-Guide</span>
+          <span class="pill">3* Hotel Accommodation</span>
+          <span class="pill">Visa</span>
+          <span class="pill">Transportation & Sightseeing</span>
+          <span class="pill">Meals (Breakfast)</span>
+        </div>
+      </div>
+      <aside class="pricing-card">
+        <h3>💰 Package Pricing</h3>
+        <p class="amount">₹29,999</p>
+        <p class="pp">Per person • 3 Nights / 4 Days</p>
+        <ul class="plan-list">
+          <li>Hotel Category: 3 Star Hotels</li>
+          <li>Meals Included: All Indian Meals</li>
+          <li>Transport Type: AC Transportation</li>
+          <li>Best For: Family, Couple, Friends, Solo</li>
+        </ul>
+        <div class="pricing-cta">
+          <button class="btn btn-yellow" id="downloadItineraryBtnTop"><i class="fas fa-download"></i> Download Itinerary</button>
+          <button class="btn btn-light" id="enquireToggleBtnTop"><i class="fas fa-headset"></i> Enquire Now</button>
+        </div>
+        <div class="enquire-menu" id="enquireMenuTop">
+          <a href="tel:+919429693718"><i class="fas fa-phone"></i> Call Us - +91 94296 93718</a>
+          <a href="https://wa.me/918123568002" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp - +91 81235 68002</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="itinerary">
+    <div class="k-container itinerary-wrap">
+      <h2 class="day-title">Itinerary (Day Wise)</h2>
+
+      <div class="day-block open">
+        <div class="day-head">
+          <div class="day-left"><span class="marker"><i class="fas fa-location-dot"></i></span><div><h3 class="day-subtitle">Day 01 : Arrival in Kuala Lumpur + Check In</h3></div></div>
+          <button class="toggle-btn">−</button>
+        </div>
+        <div class="day-content">
+          <ul>
+            <li>Arrival at Kuala Lumpur and hotel check-in.</li>
+            <li>Putrajaya photo stop and Kuala Lumpur city sightseeing.</li>
+          </ul>
+          <div class="day-gallery">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=500&h=300&fit=crop" alt="Kuala Lumpur skyline">
+            <img src="https://images.unsplash.com/photo-1565967511849-76a60a516170?w=500&h=300&fit=crop" alt="Putrajaya landmark">
+            <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=500&h=300&fit=crop" alt="City tour">
+            <img src="https://images.unsplash.com/photo-1526481280695-3c469a6f8a5b?w=500&h=300&fit=crop" alt="Urban roads">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&h=300&fit=crop" alt="Arrival travel">
+          </div>
+          <div class="meal-box"><p><i class="fas fa-utensils"></i> Meal Info: Breakfast</p></div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-head">
+          <div class="day-left"><span class="marker"><i class="fas fa-location-dot"></i></span><div><h3 class="day-subtitle">Day 02 : Batu Caves + Full Day Genting Highlands</h3></div></div>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="day-content">
+          <ul>
+            <li>Enroute visit to Batu Caves.</li>
+            <li>Full day Genting Highlands tour with two-way cable car.</li>
+          </ul>
+          <div class="day-gallery">
+            <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=500&h=300&fit=crop" alt="Batu caves stairs">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&h=300&fit=crop" alt="Genting highlands mist">
+            <img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?w=500&h=300&fit=crop" alt="Cable car ride">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500&h=300&fit=crop" alt="Highlands views">
+            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=500&h=300&fit=crop" alt="Nature trail">
+          </div>
+          <div class="meal-box"><p><i class="fas fa-utensils"></i> Meal Info: Breakfast</p></div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-head">
+          <div class="day-left"><span class="marker"><i class="fas fa-location-dot"></i></span><div><h3 class="day-subtitle">Day 03 : Malacca Full Day Trip</h3></div></div>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="day-content">
+          <ul>
+            <li>Explore Malacca’s heritage sites, streets, and historical landmarks.</li>
+            <li>Enjoy guided cultural city experiences and local architecture.</li>
+          </ul>
+          <div class="day-gallery">
+            <img src="https://images.unsplash.com/photo-1559628233-100c798642d8?w=500&h=300&fit=crop" alt="Malacca riverside">
+            <img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?w=500&h=300&fit=crop" alt="Heritage street">
+            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=500&h=300&fit=crop" alt="City shopping">
+            <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=500&h=300&fit=crop" alt="Old town walk">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500&h=300&fit=crop" alt="Evening city lights">
+          </div>
+          <div class="meal-box"><p><i class="fas fa-utensils"></i> Meal Info: Breakfast</p></div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-head">
+          <div class="day-left"><span class="marker"><i class="fas fa-location-dot"></i></span><div><h3 class="day-subtitle">Day 04 : Departure</h3></div></div>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="day-content">
+          <ul>
+            <li>Breakfast at hotel and checkout.</li>
+            <li>Transfer to airport for onward departure.</li>
+          </ul>
+          <div class="day-gallery">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=300&fit=crop" alt="Departure travel">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&h=300&fit=crop" alt="Flight departure">
+            <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=500&h=300&fit=crop" alt="Airport terminal">
+            <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?w=500&h=300&fit=crop" alt="Travel bags">
+            <img src="https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=500&h=300&fit=crop" alt="Boarding time">
+          </div>
+          <div class="meal-box"><p><i class="fas fa-utensils"></i> Meal Info: Breakfast</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="inclusions">
+    <div class="k-container">
+      <h2 class="title">Inclusions & Exclusions</h2>
+      <div class="incl-grid">
+        <div class="incl-card">
+          <h3>Inclusions</h3>
+          <ul>
+            <li>3* Hotel Accommodation</li>
+            <li>Visa</li>
+            <li>Sightseeing & Entry tickets as in itinerary</li>
+            <li>Meal plan as mentioned</li>
+            <li>English speaking guide + Driver</li>
+          </ul>
+        </div>
+        <div class="incl-card">
+          <h3>Exclusions</h3>
+          <ul>
+            <li>Flight Tickets</li>
+            <li>Travel Insurance</li>
+            <li>Personal Expenses</li>
+            <li>Anything not specified in inclusions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="k-container">
+      <h2 class="title">💬 Guest Reviews</h2>
+      <div class="review-grid">
+        <div class="review"><h4>Rahul S. ★★★★★</h4><p>Smooth and value-for-money Malaysia tour. Genting and Batu Caves were highlights for our family.</p></div>
+        <div class="review"><h4>Divya K. ★★★★☆</h4><p>Well-organized itinerary with comfortable stays. Malacca day trip was informative and enjoyable.</p></div>
+        <div class="review"><h4>Aarav & Nisha ★★★★★</h4><p>Great coordination, easy transfers, and good sightseeing coverage within 4 days.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="faq">
+    <div class="k-container">
+      <h2 class="title">❓ Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq open">
+          <button class="faq-q">Are flight tickets included?<i class="fas fa-plus"></i></button>
+          <div class="faq-a">No, the package does not include flight tickets. This is a land package and includes everything mentioned as per the itinerary.</div>
+        </div>
+        <div class="faq">
+          <button class="faq-q">Does this tour include Genting cable car and Batu Caves?<i class="fas fa-plus"></i></button>
+          <div class="faq-a">Yes, Genting Highlands with two-way cable car and enroute Batu Caves are included.</div>
+        </div>
+        <div class="faq">
+          <button class="faq-q">What meals are included in this package?<i class="fas fa-plus"></i></button>
+          <div class="faq-a">Breakfast is included as per itinerary.</div>
+        </div>
+        <div class="faq">
+          <button class="faq-q">Is this package suitable for families and couples?<i class="fas fa-plus"></i></button>
+          <div class="faq-a">Yes, it is designed for family, couple, friends, and solo travellers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="final-cta">
+    <div class="k-container">
+      <div class="final-cta">
+        <h2>Plan Your Malaysia Getaway Today</h2>
+        <p>Download itinerary details on WhatsApp or connect instantly with our travel experts.</p>
+        <div class="cta-actions">
+          <button class="btn btn-yellow" id="downloadItineraryBtn"><i class="fas fa-download"></i> Download Itinerary</button>
+          <button class="btn btn-light" id="enquireToggleBtn"><i class="fas fa-headset"></i> Enquire Now</button>
+        </div>
+        <div class="enquire-menu" id="enquireMenu">
+          <a href="tel:+919429693718"><i class="fas fa-phone"></i> Call Us - +91 94296 93718</a>
+          <a href="https://wa.me/918123568002" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp - +91 81235 68002</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="privacy-footer">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms & Conditions</a>
+    <a href="refund-policy.html">Refund Policy</a>
+    <p>© 2026 Delight Departures</p>
+  </footer>
+
+  <script src="js/whatsapp.js"></script>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navCta = document.querySelector('.nav-cta');
+
+    hamburger?.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      navCta.classList.toggle('active');
+    });
+
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const prevBtn = document.getElementById('heroPrev');
+    const nextBtn = document.getElementById('heroNext');
+    let currentSlide = 0;
+    let autoSlide;
+
+    function showSlide(index){
+      slides.forEach((s,i)=>s.classList.toggle('active', i===index));
+      dots.forEach((d,i)=>d.classList.toggle('active', i===index));
+      currentSlide = index;
+    }
+    function nextSlide(){ showSlide((currentSlide + 1) % slides.length); }
+    function prevSlide(){ showSlide((currentSlide - 1 + slides.length) % slides.length); }
+    function startAuto(){
+      clearInterval(autoSlide);
+      autoSlide = setInterval(nextSlide, 4500);
+    }
+
+    nextBtn?.addEventListener('click', ()=>{ nextSlide(); startAuto(); });
+    prevBtn?.addEventListener('click', ()=>{ prevSlide(); startAuto(); });
+    dots.forEach(dot=>{
+      dot.addEventListener('click', ()=>{
+        showSlide(parseInt(dot.dataset.slide,10));
+        startAuto();
+      });
+    });
+    startAuto();
+
+    document.querySelectorAll('.day-block').forEach(block=>{
+      const btn = block.querySelector('.toggle-btn');
+      block.querySelector('.day-head').addEventListener('click', ()=>{
+        block.classList.toggle('open');
+        const isOpen = block.classList.contains('open');
+        btn.textContent = isOpen ? '−' : '+';
+      });
+    });
+
+    document.querySelectorAll('.faq-q').forEach(q=>{
+      q.addEventListener('click', ()=>{
+        const item = q.closest('.faq');
+        item.classList.toggle('open');
+      });
+    });
+
+    const enqBtn = document.getElementById('enquireToggleBtn');
+    const enqMenu = document.getElementById('enquireMenu');
+    const enqBtnTop = document.getElementById('enquireToggleBtnTop');
+    const enqMenuTop = document.getElementById('enquireMenuTop');
+
+    enqBtn?.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      enqMenu.classList.toggle('show');
+    });
+    enqBtnTop?.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      enqMenuTop.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e)=>{
+      if (enqMenu && !enqMenu.contains(e.target) && e.target !== enqBtn){
+        enqMenu.classList.remove('show');
+      }
+      if (enqMenuTop && !enqMenuTop.contains(e.target) && e.target !== enqBtnTop){
+        enqMenuTop.classList.remove('show');
+      }
+    });
+
+    function requestItineraryOnWhatsApp() {
+      const message = encodeURIComponent('Download Majestic Malaysia 3N / 4D Tour Package');
+      const whatsappUrl = `https://wa.me/918123568002?text=${message}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    document.getElementById('downloadItineraryBtn')?.addEventListener('click', requestItineraryOnWhatsApp);
+    document.getElementById('downloadItineraryBtnTop')?.addEventListener('click', requestItineraryOnWhatsApp);
+  </script>
+</body>
+</html>

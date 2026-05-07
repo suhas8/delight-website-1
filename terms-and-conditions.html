@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Terms & Conditions - Delight Departures</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:        #1a2a5e;
+      --navy-mid:    #2d4a8a;
+      --navy-deep:   #111e45;
+      --orange:      #FF6B35;
+      --orange-lt:   #FF8C42;
+      --orange-pale: #fff4ef;
+      --white:       #ffffff;
+      --gray-bg:     #f7f8fc;
+      --gray-text:   #4a5568;
+      --gray-sub:    #718096;
+      --gray-dark:   #1a202c;
+      --border:      rgba(26,42,94,0.08);
+      --shadow-sm:   0 4px 16px rgba(26,42,94,0.07);
+      --shadow-md:   0 12px 40px rgba(26,42,94,0.12);
+      --shadow-lg:   0 28px 72px rgba(26,42,94,0.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--gray-dark);overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+
+    /* ── HERO ── */
+    .tc-hero{
+      position:relative;
+      background:linear-gradient(135deg,#111e45 0%,#1a2a5e 50%,#2d4a8a 100%);
+      padding:140px 24px 100px;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;min-height:460px;
+    }
+    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,0.09) 1px,transparent 1px);background-size:30px 30px;}
+    .h-orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.15;animation:orbDrift 10s ease-in-out infinite alternate;}
+    .h-orb-1{width:480px;height:480px;background:#FF6B35;top:-180px;right:-100px;}
+    .h-orb-2{width:340px;height:340px;background:#60a5fa;bottom:-110px;left:-70px;animation-delay:3s;}
+    .h-orb-3{width:180px;height:180px;background:#fbbf24;top:40%;left:42%;animation-delay:5s;}
+    @keyframes orbDrift{from{transform:translate(0,0) scale(1);}to{transform:translate(18px,-28px) scale(1.07);}}
+    .hero-stripe{position:absolute;bottom:0;left:0;right:0;height:70px;background:var(--white);clip-path:polygon(0 100%,100% 0,100% 100%);}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:700px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.11);border:1px solid rgba(255,255,255,0.22);backdrop-filter:blur(10px);border-radius:40px;padding:8px 22px;color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;animation:fadeDown .7s ease both;}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;color:#fff;line-height:1.18;margin-bottom:16px;animation:fadeDown .7s .15s ease both;}
+    .hero-title em{color:#FF8C42;font-style:italic;}
+    .hero-sub{font-size:.97rem;color:rgba(255,255,255,0.7);line-height:1.75;max-width:530px;margin:0 auto;animation:fadeDown .7s .3s ease both;}
+    .hero-date{display:inline-flex;align-items:center;gap:7px;margin-top:22px;background:rgba(255,255,255,0.1);border-radius:30px;padding:7px 18px;font-size:.78rem;color:rgba(255,255,255,0.65);font-weight:500;animation:fadeDown .7s .45s ease both;}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ── QUICK PILLS ── */
+    .quick-band{background:var(--gray-bg);border-bottom:1px solid var(--border);padding:28px 24px;}
+    .quick-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+    @media(max-width:840px){.quick-inner{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:480px){.quick-inner{grid-template-columns:1fr;}}
+    .q-pill{display:flex;align-items:center;gap:14px;background:var(--white);border-radius:18px;border:1px solid var(--border);padding:18px 20px;box-shadow:var(--shadow-sm);transition:transform .3s ease,box-shadow .3s ease;}
+    .q-pill:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+    .q-pill-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+    .qi-navy{background:linear-gradient(135deg,#1a2a5e,#2d4a8a);}
+    .qi-orange{background:linear-gradient(135deg,#FF6B35,#FF8C42);}
+    .qi-green{background:linear-gradient(135deg,#059669,#10b981);}
+    .qi-teal{background:linear-gradient(135deg,#0891b2,#06b6d4);}
+    .q-pill-label{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gray-sub);margin-bottom:3px;}
+    .q-pill-val{font-size:.88rem;font-weight:700;color:var(--navy);}
+
+    /* ── LAYOUT ── */
+    .tc-layout{max-width:1100px;margin:0 auto;padding:72px 24px 96px;display:grid;grid-template-columns:250px 1fr;gap:52px;align-items:start;}
+    @media(max-width:880px){.tc-layout{grid-template-columns:1fr;}}
+
+    /* ── TOC ── */
+    .toc{position:sticky;top:88px;background:var(--white);border-radius:22px;border:1px solid var(--border);box-shadow:var(--shadow-sm);padding:26px 22px;}
+    @media(max-width:880px){.toc{position:static;}}
+    .toc-title{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:18px;display:flex;align-items:center;gap:7px;}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px;}
+    .toc-list li a{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:12px;font-size:.79rem;font-weight:500;color:var(--gray-sub);transition:all .22s ease;}
+    .toc-list li a:hover{background:var(--orange-pale);color:var(--orange);}
+    .toc-list li a.active{background:var(--orange-pale);color:var(--orange);font-weight:700;}
+    .toc-list li a i{font-size:.62rem;color:var(--orange);flex-shrink:0;}
+    .toc-contact{margin-top:22px;padding:16px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:14px;text-align:center;}
+    .toc-contact p{font-size:.75rem;color:rgba(255,255,255,0.62);line-height:1.6;margin-bottom:10px;}
+    .toc-contact a{display:inline-flex;align-items:center;gap:6px;background:var(--orange);color:#fff;border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:700;transition:opacity .2s ease;}
+    .toc-contact a:hover{opacity:.88;}
+
+    /* ── CONTENT ── */
+    .update-banner{display:flex;align-items:center;gap:12px;background:var(--orange-pale);border:1px solid rgba(255,107,53,0.2);border-radius:14px;padding:14px 20px;margin-bottom:44px;font-size:.83rem;color:var(--orange);font-weight:600;}
+    .update-banner i{font-size:1rem;flex-shrink:0;}
+    .tc-intro{background:var(--gray-bg);border-radius:22px;padding:30px 32px;border-left:4px solid var(--orange);margin-bottom:48px;box-shadow:var(--shadow-sm);}
+    .tc-intro p{font-size:.92rem;color:var(--gray-text);line-height:1.8;}
+    .tc-intro strong{color:var(--navy);}
+
+    /* Section */
+    .tc-section{margin-bottom:56px;scroll-margin-top:100px;}
+    .tc-sec-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--gray-bg);}
+    .tc-sec-icon{width:50px;height:50px;border-radius:15px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+    .ic-orange{background:linear-gradient(135deg,#FF6B35,#FF8C42);}
+    .ic-navy{background:linear-gradient(135deg,#1a2a5e,#2d4a8a);}
+    .ic-green{background:linear-gradient(135deg,#059669,#10b981);}
+    .ic-rose{background:linear-gradient(135deg,#e11d48,#f43f5e);}
+    .ic-teal{background:linear-gradient(135deg,#0891b2,#06b6d4);}
+    .ic-amber{background:linear-gradient(135deg,#b45309,#d97706);}
+    .ic-purple{background:linear-gradient(135deg,#7c3aed,#8b5cf6);}
+    .ic-indigo{background:linear-gradient(135deg,#4338ca,#6366f1);}
+    .ic-emerald{background:linear-gradient(135deg,#047857,#059669);}
+    .ic-sky{background:linear-gradient(135deg,#0369a1,#0891b2);}
+    .tc-sec-num{font-family:'Playfair Display',serif;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:4px;}
+    .tc-sec-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:800;color:var(--navy);}
+
+    .tc-text{font-size:.9rem;color:var(--gray-text);line-height:1.85;margin-bottom:16px;}
+    .tc-text:last-child{margin-bottom:0;}
+    .tc-text strong{color:var(--gray-dark);}
+    .tc-text a{color:var(--orange);font-weight:600;}
+    .tc-text a:hover{text-decoration:underline;}
+
+    /* List */
+    .tc-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:18px;}
+    .tc-list li{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:var(--gray-text);line-height:1.7;}
+    .tc-list li i{color:var(--orange);font-size:.75rem;flex-shrink:0;margin-top:5px;}
+    .tc-list li strong{color:var(--gray-dark);}
+
+    /* Info boxes */
+    .tc-box{border-radius:18px;padding:22px 24px;margin-bottom:18px;display:flex;gap:16px;align-items:flex-start;}
+    .tc-box.blue{background:#eff6ff;border:1px solid #bfdbfe;}
+    .tc-box.green{background:#f0fdf4;border:1px solid #bbf7d0;}
+    .tc-box.amber{background:#fffbeb;border:1px solid #fde68a;}
+    .tc-box.rose{background:#fff1f2;border:1px solid #fecdd3;}
+    .tc-box.navy{background:rgba(26,42,94,0.04);border:1px solid rgba(26,42,94,0.12);}
+    .tc-box.purple{background:#faf5ff;border:1px solid #e9d5ff;}
+    .tc-box-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+    .tc-box-text{font-size:.87rem;line-height:1.72;}
+    .tc-box.blue   .tc-box-text{color:#1d4ed8;}
+    .tc-box.green  .tc-box-text{color:#15803d;}
+    .tc-box.amber  .tc-box-text{color:#92400e;}
+    .tc-box.rose   .tc-box-text{color:#be123c;}
+    .tc-box.navy   .tc-box-text{color:var(--navy);}
+    .tc-box.purple .tc-box-text{color:#6b21a8;}
+    .tc-box-text strong{display:block;margin-bottom:5px;}
+    .tc-box-text a{font-weight:700;}
+    .tc-box.blue   .tc-box-text a{color:#1d4ed8;}
+    .tc-box.amber  .tc-box-text a{color:#92400e;}
+    .tc-box.rose   .tc-box-text a{color:#be123c;}
+
+    /* Sub-heading inside section */
+    .tc-subhead{font-size:.92rem;font-weight:700;color:var(--navy);margin:20px 0 10px;display:flex;align-items:center;gap:8px;}
+    .tc-subhead::before{content:'';display:inline-block;width:3px;height:14px;background:var(--orange);border-radius:2px;flex-shrink:0;}
+
+    /* Responsibility grid */
+    .resp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0 20px;}
+    @media(max-width:600px){.resp-grid{grid-template-columns:1fr;}}
+    .resp-card{border-radius:18px;padding:22px 20px;border:1px solid var(--border);}
+    .resp-card.ours{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#bbf7d0;}
+    .resp-card.yours{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#bfdbfe;}
+    .resp-card-title{font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .resp-card.ours  .resp-card-title{color:#059669;}
+    .resp-card.yours .resp-card-title{color:#2563eb;}
+    .resp-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+    .resp-list li{display:flex;align-items:flex-start;gap:9px;font-size:.83rem;line-height:1.6;}
+    .resp-list li i{font-size:.7rem;flex-shrink:0;margin-top:4px;}
+    .resp-card.ours  .resp-list li{color:#15803d;}
+    .resp-card.ours  .resp-list li i{color:#059669;}
+    .resp-card.yours .resp-list li{color:#1d4ed8;}
+    .resp-card.yours .resp-list li i{color:#2563eb;}
+
+    /* Table */
+    .tc-table-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--border);margin-bottom:20px;}
+    table{width:100%;border-collapse:collapse;font-size:.85rem;}
+    thead tr{background:var(--navy);color:#fff;}
+    thead th{padding:13px 18px;text-align:left;font-weight:700;font-size:.79rem;letter-spacing:.04em;}
+    tbody tr{border-bottom:1px solid var(--border);}
+    tbody tr:last-child{border-bottom:none;}
+    tbody tr:nth-child(even){background:var(--gray-bg);}
+    tbody td{padding:12px 18px;color:var(--gray-text);vertical-align:top;line-height:1.6;}
+    tbody td:first-child{color:var(--navy);font-weight:600;}
+
+    /* Contact card */
+    .tc-contact-card{background:linear-gradient(135deg,#1a2a5e,#2d4a8a);border-radius:22px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px;}
+    @media(max-width:560px){.tc-contact-card{grid-template-columns:1fr;}}
+    .pcc-item{display:flex;align-items:flex-start;gap:14px;}
+    .pcc-icon{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:#FF8C42;font-size:.95rem;flex-shrink:0;}
+    .pcc-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:3px;}
+    .pcc-val{font-size:.88rem;color:#fff;font-weight:600;}
+    .pcc-val a{color:#FF8C42;}
+    .pcc-val a:hover{text-decoration:underline;}
+
+    /* ── CTA ── */
+    .tc-cta{background:linear-gradient(135deg,#111e45 0%,#1a2a5e 50%,#2d4a8a 100%);padding:80px 24px;text-align:center;position:relative;overflow:hidden;}
+    .tc-cta::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:28px 28px;}
+    .cta-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.12;}
+    .cta-o1{width:360px;height:360px;background:#FF6B35;top:-120px;right:-60px;}
+    .cta-o2{width:280px;height:280px;background:#60a5fa;bottom:-80px;left:-50px;}
+    .cta-inner{position:relative;z-index:2;max-width:580px;margin:0 auto;}
+    .cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:14px;}
+    .cta-inner h2 em{color:#FF8C42;font-style:italic;}
+    .cta-inner p{font-size:.95rem;color:rgba(255,255,255,0.68);line-height:1.7;margin-bottom:32px;}
+    .cta-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+    .btn-white{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:#fff;color:var(--navy);border-radius:50px;font-weight:700;font-size:.9rem;transition:all .3s ease;box-shadow:0 8px 24px rgba(0,0,0,0.14);}
+    .btn-white:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,0.18);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);border-radius:50px;font-weight:600;font-size:.9rem;transition:all .3s ease;}
+    .btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:#fff;transform:translateY(-3px);}
+
+    /* ── FOOTER ── */
+    .site-footer{background:var(--navy-deep);padding:72px 24px 0;}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.08);}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;}
+    .footer-logo span{color:var(--orange);}
+    .footer-brand p{font-size:.84rem;line-height:1.75;color:rgba(255,255,255,0.48);margin:14px 0 22px;max-width:300px;}
+    .footer-socials{display:flex;gap:10px;flex-wrap:wrap;}
+    .f-social{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);transition:all .25s ease;cursor:pointer;}
+    .f-social:hover{background:var(--orange);color:#fff;border-color:var(--orange);transform:translateY(-2px);}
+    .footer-col h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.88);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:.84rem;color:rgba(255,255,255,0.46);transition:color .2s ease;display:flex;align-items:center;gap:8px;}
+    .footer-col ul li a:hover{color:var(--orange-lt);}
+    .footer-col ul li a i{font-size:.62rem;color:var(--orange);}
+    .contact-note{margin-top:18px;padding:14px 16px;background:rgba(255,107,53,0.1);border-radius:14px;border:1px solid rgba(255,107,53,0.18);}
+    .contact-note p{font-size:.78rem;color:rgba(255,255,255,0.65);line-height:1.65;}
+    .contact-note strong{color:#FF8C42;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+    .footer-bottom p{font-size:.79rem;color:rgba(255,255,255,0.3);}
+    .footer-legal{display:flex;gap:20px;flex-wrap:wrap;}
+    .footer-legal a{font-size:.77rem;color:rgba(255,255,255,0.35);transition:color .2s ease;}
+    .footer-legal a:hover{color:rgba(255,255,255,0.75);}
+
+    /* ── SCROLL TOP & REVEAL ── */
+    .scroll-top-btn{position:fixed;bottom:28px;right:28px;z-index:999;width:48px;height:48px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 8px 24px rgba(255,107,53,0.38);opacity:0;transform:translateY(16px);transition:all .3s ease;pointer-events:none;}
+    .scroll-top-btn.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+    .scroll-top-btn:hover{transform:translateY(-4px);}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .rd1{transition-delay:.08s;}.rd2{transition-delay:.16s;}.rd3{transition-delay:.24s;}.rd4{transition-delay:.32s;}
+
+    /* Contact modal (shared across pages) */
+    .contact-modal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(10,16,38,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+    .contact-modal-overlay.open{opacity:1;pointer-events:auto;}
+    .contact-modal-box{background:#fff;border-radius:28px;padding:40px 36px 36px;max-width:420px;width:100%;text-align:center;position:relative;box-shadow:0 32px 80px rgba(17,30,69,.22);transform:translateY(24px) scale(.96);transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
+    .contact-modal-overlay.open .contact-modal-box{transform:translateY(0) scale(1);}
+    .contact-modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;color:#a0aec0;cursor:pointer;line-height:1;transition:color .2s ease;}
+    .contact-modal-close:hover{color:#1a2a5e;}
+    .contact-modal-icon{font-size:2.4rem;margin-bottom:12px;}
+    .contact-modal-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:#1a2a5e;margin-bottom:8px;}
+    .contact-modal-sub{font-size:.84rem;color:#718096;line-height:1.65;margin-bottom:28px;}
+    .contact-modal-actions{display:flex;flex-direction:column;gap:14px;margin-bottom:20px;}
+    .contact-action-btn{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:18px;text-decoration:none;text-align:left;border:2px solid transparent;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;}
+    .contact-action-btn:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.12);}
+    .call-btn{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#bfdbfe;}
+    .call-btn:hover{border-color:#1a2a5e;}
+    .call-btn .cab-icon{width:46px;height:46px;border-radius:14px;flex-shrink:0;background:linear-gradient(135deg,#1a2a5e,#2d4a8a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;}
+    .wa-btn{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#bbf7d0;}
+    .wa-btn:hover{border-color:#25D366;}
+    .wa-btn .cab-icon{width:46px;height:46px;border-radius:14px;flex-shrink:0;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;}
+    .cab-text{flex:1;display:flex;flex-direction:column;}
+    .cab-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#718096;margin-bottom:2px;}
+    .call-btn .cab-num{font-size:.98rem;font-weight:800;color:#1a2a5e;}
+    .wa-btn .cab-num{font-size:.98rem;font-weight:800;color:#15803d;}
+    .cab-arrow{font-size:.75rem;color:#cbd5e0;align-self:center;}
+    .contact-action-btn:hover .cab-arrow{color:#1a2a5e;}
+    .contact-modal-hours{font-size:.75rem;color:#a0aec0;font-weight:500;display:flex;align-items:center;justify-content:center;gap:6px;}
+    .contact-modal-hours i{color:#FF6B35;}
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown-wrapper">
+        <a href="#" class="nav-link dropdown-trigger">Destinations <i class="fas fa-chevron-down nav-dropdown-icon"></i></a>
+        <div class="nav-dropdown">
+          <div class="dropdown-inner">
+            <div class="dropdown-continent asia">
+              <div class="continent-header"><span class="continent-emoji">🌏</span><span>Asia</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#india">India</a></li><li><a href="destinations.html#malaysia">Malaysia</a></li><li><a href="destinations.html#maldives">Maldives</a></li><li><a href="destinations.html#thailand">Thailand</a></li><li><a href="destinations.html#bali">Indonesia (Bali)</a></li><li><a href="destinations.html#vietnam">Vietnam</a></li><li><a href="destinations.html#philippines">Philippines</a></li><li><a href="destinations.html#singapore">Singapore</a></li><li><a href="destinations.html#cambodia">Cambodia</a></li><li><a href="destinations.html#china">China</a></li><li><a href="destinations.html#sri-lanka">Sri Lanka</a></li><li><a href="destinations.html#georgia">Georgia</a></li><li><a href="destinations.html#south-korea">South Korea</a></li><li><a href="destinations.html#japan">Japan</a></li><li><a href="destinations.html#armenia">Armenia</a></li><li><a href="destinations.html#azerbaijan">Azerbaijan</a></li><li><a href="destinations.html#bhutan">Bhutan</a></li><li><a href="destinations.html#kazakhstan">Kazakhstan</a></li><li><a href="destinations.html#nepal">Nepal</a></li><li><a href="destinations.html#uzbekistan">Uzbekistan</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🏜️</span><span>Middle East</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#dubai">UAE (Dubai)</a></li><li><a href="destinations.html#turkey">Turkey</a></li><li><a href="destinations.html#jordan">Jordan</a></li><li><a href="destinations.html#oman">Oman</a></li><li><a href="destinations.html#qatar">Qatar</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🌍</span><span>Africa</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#mauritius">Mauritius</a></li><li><a href="destinations.html#egypt">Egypt</a></li><li><a href="destinations.html#kenya">Kenya</a></li><li><a href="destinations.html#seychelles">Seychelles</a></li><li><a href="destinations.html#south-africa">South Africa</a></li><li><a href="destinations.html#tanzania">Tanzania</a></li><li><a href="destinations.html#ethiopia">Ethiopia</a></li><li><a href="destinations.html#morocco">Morocco</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🌍</span><span>Europe</span></div>
+              <p class="coming-soon-text">Coming Soon..!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="testimonials.html" class="nav-link">Testimonials</a>
+      <a href="blogs.html" class="nav-link">Blogs</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </div>
+    <a href="#" class="nav-cta" onclick="showContactModal();return false;">Contact Us</a>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<a href="#" class="scroll-top-btn" id="scrollTopBtn"><i class="fas fa-chevron-up"></i></a>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="tc-hero">
+  <div class="hero-dots"></div>
+  <div class="h-orb h-orb-1"></div>
+  <div class="h-orb h-orb-2"></div>
+  <div class="h-orb h-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-file-contract"></i>&nbsp; Please Read Before Booking</div>
+    <h1 class="hero-title">Terms &amp; <em>Conditions</em></h1>
+    <p class="hero-sub">These terms govern all bookings and services provided by Delight Departures. By booking with us, you agree to the conditions set out below.</p>
+    <div class="hero-date"><i class="fas fa-calendar-alt"></i> Last Updated: 1 April 2026 &nbsp;·&nbsp; Effective: 1 April 2026</div>
+  </div>
+  <div class="hero-stripe"></div>
+</section>
+
+<!-- ══════════════════ QUICK PILLS ══════════════════ -->
+<div class="quick-band">
+  <div class="quick-inner">
+    <div class="q-pill reveal rd1">
+      <div class="q-pill-icon qi-navy"><i class="fas fa-handshake" style="color:#fff;font-size:1.1rem;"></i></div>
+      <div>
+        <div class="q-pill-label">Booking Confirmed When</div>
+        <div class="q-pill-val">Payment received</div>
+      </div>
+    </div>
+    <div class="q-pill reveal rd2">
+      <div class="q-pill-icon qi-orange"><i class="fas fa-passport" style="color:#fff;font-size:1.1rem;"></i></div>
+      <div>
+        <div class="q-pill-label">Your Responsibility</div>
+        <div class="q-pill-val">Valid travel documents</div>
+      </div>
+    </div>
+    <div class="q-pill reveal rd3">
+      <div class="q-pill-icon qi-green"><i class="fas fa-undo-alt" style="color:#fff;font-size:1.1rem;"></i></div>
+      <div>
+        <div class="q-pill-label">Cancellations</div>
+        <div class="q-pill-val">See Refund Policy</div>
+      </div>
+    </div>
+    <div class="q-pill reveal rd4">
+      <div class="q-pill-icon qi-teal"><i class="fas fa-gavel" style="color:#fff;font-size:1.1rem;"></i></div>
+      <div>
+        <div class="q-pill-label">Governing Law</div>
+        <div class="q-pill-val">Karnataka, India</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ LAYOUT ══════════════════ -->
+<div class="tc-layout">
+
+  <!-- TOC -->
+  <aside class="toc reveal">
+    <div class="toc-title"><i class="fas fa-list" style="color:var(--orange);"></i> Contents</div>
+    <ul class="toc-list">
+      <li><a href="#tc-1"  class="toc-link"><i class="fas fa-chevron-right"></i> 1. Agreement to Terms</a></li>
+      <li><a href="#tc-2"  class="toc-link"><i class="fas fa-chevron-right"></i> 2. Booking &amp; Confirmation</a></li>
+      <li><a href="#tc-3"  class="toc-link"><i class="fas fa-chevron-right"></i> 3. Payments &amp; Pricing</a></li>
+      <li><a href="#tc-4"  class="toc-link"><i class="fas fa-chevron-right"></i> 4. Cancellation &amp; Refunds</a></li>
+      <li><a href="#tc-5"  class="toc-link"><i class="fas fa-chevron-right"></i> 5. Travel Documents</a></li>
+      <li><a href="#tc-6"  class="toc-link"><i class="fas fa-chevron-right"></i> 6. Itinerary Changes</a></li>
+      <li><a href="#tc-7"  class="toc-link"><i class="fas fa-chevron-right"></i> 7. Responsibilities</a></li>
+      <li><a href="#tc-8"  class="toc-link"><i class="fas fa-chevron-right"></i> 8. Conduct &amp; Behaviour</a></li>
+      <li><a href="#tc-9"  class="toc-link"><i class="fas fa-chevron-right"></i> 9. Health &amp; Safety</a></li>
+      <li><a href="#tc-10" class="toc-link"><i class="fas fa-chevron-right"></i> 10. Travel Insurance</a></li>
+      <li><a href="#tc-11" class="toc-link"><i class="fas fa-chevron-right"></i> 11. Force Majeure</a></li>
+      <li><a href="#tc-12" class="toc-link"><i class="fas fa-chevron-right"></i> 12. Intellectual Property</a></li>
+      <li><a href="#tc-13" class="toc-link"><i class="fas fa-chevron-right"></i> 13. Privacy</a></li>
+      <li><a href="#tc-14" class="toc-link"><i class="fas fa-chevron-right"></i> 14. Governing Law</a></li>
+      <li><a href="#tc-15" class="toc-link"><i class="fas fa-chevron-right"></i> 15. Contact Us</a></li>
+    </ul>
+    <div class="toc-contact">
+      <p>Questions about these terms?</p>
+      <a href="#" onclick="showContactModal();return false;"><i class="fas fa-comments"></i> Talk to Us</a>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main>
+
+    <div class="update-banner reveal">
+      <i class="fas fa-info-circle"></i>
+      These Terms &amp; Conditions were last updated on <strong>&nbsp;1 April 2026</strong>. Please read them carefully before making a booking.
+    </div>
+
+    <div class="tc-intro reveal">
+      <p>Welcome to <strong>Delight Departures</strong>. These Terms &amp; Conditions ("Terms") govern all travel services, bookings and interactions between you ("the traveller" or "customer") and <strong>Delight Departures</strong> ("we", "us", "our"), a travel agency based in Bengaluru, Karnataka, India. By making a booking or payment, or by using our website and services, you confirm that you have read, understood and agreed to these Terms in full.</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="tc-section reveal" id="tc-1">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-navy"><i class="fas fa-file-signature" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 01</span>
+          <div class="tc-sec-title">Agreement to Terms</div>
+        </div>
+      </div>
+      <p class="tc-text">By accessing our website, requesting a quote, making an enquiry, or confirming any booking with Delight Departures, you enter into a legally binding agreement with us and agree to these Terms &amp; Conditions in their entirety.</p>
+      <p class="tc-text">If you are booking on behalf of a group or family, you confirm that you have the authority to accept these Terms on behalf of all travellers in the booking, and that all travellers are aware of and agree to these Terms.</p>
+      <div class="tc-box blue">
+        <div class="tc-box-icon">📌</div>
+        <div class="tc-box-text">
+          <strong>These Terms apply to all bookings</strong>
+          Whether you are booking a group tour, customised private trip, honeymoon package, corporate travel arrangement, or any other service offered by Delight Departures, these Terms apply in full. Please read them carefully before proceeding.
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="tc-section reveal" id="tc-2">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-orange"><i class="fas fa-check-circle" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 02</span>
+          <div class="tc-sec-title">Booking &amp; Confirmation</div>
+        </div>
+      </div>
+      <p class="tc-text">A booking is considered <strong>confirmed</strong> only when Delight Departures has received the required payment (full or deposit as communicated) and issued a written booking confirmation to you via email or WhatsApp.</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span><strong>Provisional Bookings:</strong> Itineraries and quotes shared before payment are provisional and not binding. Availability, pricing and inclusions may change until payment is received.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Booking Confirmation:</strong> Once payment is received, we will send a written confirmation detailing your itinerary, inclusions, payment status and important travel information.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Accuracy of Information:</strong> You are responsible for verifying all details in the confirmation — including names, dates, destinations and inclusions — and notifying us of any errors within 48 hours of receipt.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Name Accuracy:</strong> All traveller names must exactly match the names on their passports. Name correction fees charged by airlines or hotels are the customer's responsibility.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Group Bookings:</strong> For group tours, a minimum deposit per person is required to secure your spot. Full payment is due by the deadline communicated in your booking confirmation.</span></li>
+      </ul>
+      <div class="tc-box amber">
+        <div class="tc-box-icon">⚠️</div>
+        <div class="tc-box-text">
+          <strong>Check your confirmation carefully</strong>
+          Errors in traveller names, travel dates or destinations notified after tickets have been issued may result in amendment charges or may not be correctable. Always review your confirmation within 48 hours.
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="tc-section reveal" id="tc-3">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-green"><i class="fas fa-rupee-sign" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 03</span>
+          <div class="tc-sec-title">Payments &amp; Pricing</div>
+        </div>
+      </div>
+      <p class="tc-text">All prices quoted by Delight Departures are in <strong>Indian Rupees (INR)</strong> unless explicitly stated otherwise. Prices are subject to availability at the time of booking and may change prior to confirmation.</p>
+
+      <div class="tc-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Details</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quote Validity</td><td>Quotes are valid for the period stated (typically 24–72 hours). Prices may change after this period due to airline or hotel rate changes.</td></tr>
+            <tr><td>Deposit</td><td>A non-refundable deposit (amount communicated at time of booking) is required to confirm your booking and secure rates.</td></tr>
+            <tr><td>Full Payment Deadline</td><td>The balance must be paid by the date specified in your confirmation. Failure to pay by this date may result in cancellation of the booking.</td></tr>
+            <tr><td>Payment Methods</td><td>Bank transfer, UPI, credit/debit card, and other methods as communicated. All payments through secure gateways.</td></tr>
+            <tr><td>Convenience Fees</td><td>Certain payment methods may attract a convenience fee charged by the payment processor. This is non-refundable.</td></tr>
+            <tr><td>Currency Fluctuation</td><td>For international packages, prices are based on exchange rates at the time of quoting. Significant currency movements may affect final pricing prior to confirmation.</td></tr>
+            <tr><td>Price Inclusions</td><td>Only the services explicitly listed in your itinerary are included. Any additional services, meals, activities or expenses not listed are at your own cost.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tc-box rose">
+        <div class="tc-box-icon">💡</div>
+        <div class="tc-box-text">
+          <strong>Prices can change until confirmed</strong>
+          Airline seats and hotel rooms are subject to live availability. A quote does not guarantee pricing — only a booking confirmation with payment received guarantees your rate. We recommend paying promptly to lock in your price.
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="tc-section reveal" id="tc-4">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-rose"><i class="fas fa-undo-alt" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 04</span>
+          <div class="tc-sec-title">Cancellation &amp; Refunds</div>
+        </div>
+      </div>
+      <p class="tc-text">All cancellations and refund requests are governed by our dedicated <strong>Refund Policy</strong>, which forms part of these Terms &amp; Conditions. Key points are summarised below:</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span><strong>Customer cancellations</strong> are subject to airline, hotel and vendor cancellation policies. Refunds depend on the timing of cancellation and the specific vendors involved.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Service charges</strong> retained by Delight Departures are non-refundable in all cases.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Visa fees, convenience fees and booking charges</strong> are strictly non-refundable.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Company-initiated cancellations</strong> will result in eligible refunds processed within 7–14 working days.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Refunds</strong> are processed to the original payment method only.</span></li>
+        <li><i class="fas fa-circle"></i><span>All cancellation requests must be submitted <strong>in writing</strong> via email to <a href="mailto:support@delightdepartures.com">support@delightdepartures.com</a>. Verbal cancellations are not accepted.</span></li>
+      </ul>
+      <div class="tc-box blue">
+        <div class="tc-box-icon">📄</div>
+        <div class="tc-box-text">
+          <strong>Full Refund Policy available separately</strong>
+          For complete details on cancellation timelines, refund amounts and the step-by-step process, please read our <a href="refund-policy.html">Refund Policy</a> page, which forms an integral part of these Terms.
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="tc-section reveal" id="tc-5">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-amber"><i class="fas fa-passport" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 05</span>
+          <div class="tc-sec-title">Travel Documents &amp; Visa</div>
+        </div>
+      </div>
+      <p class="tc-text">You are solely responsible for ensuring that you and all travellers in your booking hold valid travel documents for the entire duration of the trip. This includes:</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span><strong>Passport:</strong> Must be valid for at least 6 months beyond the return travel date. Some destinations require more. Check requirements for your specific destination.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Visa:</strong> It is your responsibility to obtain all required visas, permits and entry authorisations for every country on your itinerary, including transit countries. While we assist with visa applications, we cannot guarantee visa approval — this is entirely at the discretion of the issuing authority.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Visa Fees:</strong> All visa fees paid to embassies or consulates are non-refundable, regardless of the outcome of the application or whether the trip proceeds.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Denied Entry:</strong> Delight Departures is not responsible for any costs, losses or consequences arising from denial of a visa, denial of entry at a border, or deportation. No refund will be made for unused services in such cases.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Name Match:</strong> Ensure all documents (passport, visa, tickets) are in the same name and that all details match exactly. Discrepancies may cause travel disruptions for which we bear no liability.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Health Requirements:</strong> Some destinations require vaccinations or health certificates. You are responsible for complying with all health entry requirements of your destination country.</span></li>
+      </ul>
+      <div class="tc-box amber">
+        <div class="tc-box-icon">🛂</div>
+        <div class="tc-box-text">
+          <strong>Visa assistance is not a guarantee</strong>
+          We provide support and guidance for visa applications as a courtesy, but visa approval is the sole decision of the embassy or government authority. We strongly recommend applying well in advance and not purchasing non-refundable travel elements until your visa is confirmed.
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="tc-section reveal" id="tc-6">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-teal"><i class="fas fa-route" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 06</span>
+          <div class="tc-sec-title">Itinerary Changes &amp; Modifications</div>
+        </div>
+      </div>
+      <p class="tc-text">While we strive to deliver every trip exactly as planned, certain circumstances may require changes to your itinerary.</p>
+
+      <div class="tc-subhead">Changes by the Customer</div>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span>Requests to change travel dates, destinations, accommodation or other elements after booking confirmation are subject to availability and may incur amendment fees from airlines, hotels or other vendors, in addition to a service fee from Delight Departures.</span></li>
+        <li><i class="fas fa-circle"></i><span>Date changes on airline tickets are subject to airline fare rules and may not always be possible. The customer is responsible for any fare difference and change fees.</span></li>
+        <li><i class="fas fa-circle"></i><span>All amendment requests must be submitted in writing to <a href="mailto:support@delightdepartures.com">support@delightdepartures.com</a>.</span></li>
+      </ul>
+
+      <div class="tc-subhead">Changes by Delight Departures or Vendors</div>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span>Delight Departures reserves the right to modify itineraries due to operational requirements, safety concerns, adverse weather, vendor changes, or force majeure events.</span></li>
+        <li><i class="fas fa-circle"></i><span>If a significant change is required (e.g., a change in destination, hotel downgrade, or removal of a key activity), we will notify you as soon as possible and offer an alternative of comparable value, or a refund where applicable.</span></li>
+        <li><i class="fas fa-circle"></i><span>Minor changes such as order of sightseeing, restaurant substitutions, or transport vehicle changes do not constitute grounds for a refund and are at our operational discretion.</span></li>
+      </ul>
+
+      <div class="tc-box green">
+        <div class="tc-box-icon">✅</div>
+        <div class="tc-box-text">
+          <strong>Our commitment to you</strong>
+          If we make a significant change to your confirmed itinerary that materially affects your trip, we will always communicate with you promptly and work to find the best possible alternative. Your experience and satisfaction remain our priority.
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="tc-section reveal" id="tc-7">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-purple"><i class="fas fa-balance-scale" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 07</span>
+          <div class="tc-sec-title">Responsibilities &amp; Liability</div>
+        </div>
+      </div>
+      <p class="tc-text">Delight Departures acts as an organiser and intermediary between you and third-party service providers including airlines, hotels, transport companies, activity operators and local guides. Our responsibilities and limitations of liability are as follows:</p>
+
+      <div class="resp-grid">
+        <div class="resp-card ours">
+          <div class="resp-card-title"><i class="fas fa-check-circle"></i> Our Responsibilities</div>
+          <ul class="resp-list">
+            <li><i class="fas fa-check"></i><span>Curating and coordinating your itinerary with care and professionalism</span></li>
+            <li><i class="fas fa-check"></i><span>Making bookings with reputable airlines, hotels and vendors</span></li>
+            <li><i class="fas fa-check"></i><span>Providing 24/7 support during your trip for emergencies</span></li>
+            <li><i class="fas fa-check"></i><span>Communicating any known changes or disruptions promptly</span></li>
+            <li><i class="fas fa-check"></i><span>Processing refunds from vendors as quickly as possible</span></li>
+            <li><i class="fas fa-check"></i><span>Ensuring your documentation is correctly submitted on your behalf</span></li>
+          </ul>
+        </div>
+        <div class="resp-card yours">
+          <div class="resp-card-title"><i class="fas fa-user-check"></i> Your Responsibilities</div>
+          <ul class="resp-list">
+            <li><i class="fas fa-circle"></i><span>Valid passport, visa and all required travel documents</span></li>
+            <li><i class="fas fa-circle"></i><span>Timely arrival at airports, hotels and activity meeting points</span></li>
+            <li><i class="fas fa-circle"></i><span>Informing us of any medical conditions, dietary needs or accessibility requirements in advance</span></li>
+            <li><i class="fas fa-circle"></i><span>Personal travel insurance covering medical, cancellation and emergency</span></li>
+            <li><i class="fas fa-circle"></i><span>Compliance with laws of destination countries</span></li>
+            <li><i class="fas fa-circle"></i><span>Costs arising from personal negligence or misconduct</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tc-subhead">Limitation of Liability</div>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span>Delight Departures is not liable for any loss, injury, death, damage, delay or expense caused by the actions or omissions of third-party vendors including airlines, hotels, transport providers, or activity operators.</span></li>
+        <li><i class="fas fa-circle"></i><span>We are not responsible for losses arising from flight delays, cancellations, overbooking, natural disasters, civil unrest, government actions, or other events beyond our reasonable control.</span></li>
+        <li><i class="fas fa-circle"></i><span>Our maximum liability to you in any circumstances shall not exceed the total amount paid to Delight Departures for the specific booking in question.</span></li>
+        <li><i class="fas fa-circle"></i><span>We are not liable for any indirect, consequential, or special losses including lost income, lost enjoyment, or loss of opportunity.</span></li>
+      </ul>
+
+      <div class="tc-box rose">
+        <div class="tc-box-icon">⚠️</div>
+        <div class="tc-box-text">
+          <strong>Third-Party Services</strong>
+          All airlines, hotels, resorts, transport companies and activity providers operate under their own terms and conditions. Delight Departures has no control over the actions, standards or policies of these vendors and cannot be held responsible for their failures or shortcomings.
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="tc-section reveal" id="tc-8">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-amber"><i class="fas fa-users" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 08</span>
+          <div class="tc-sec-title">Conduct &amp; Behaviour</div>
+        </div>
+      </div>
+      <p class="tc-text">All travellers are expected to conduct themselves in a respectful, lawful and considerate manner throughout their trip. This applies to interactions with fellow travellers, Delight Departures staff, local guides, hotel staff, airline crew and the people and communities at destinations visited.</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span><strong>Group Tours:</strong> On group tours, your conduct must not adversely affect the experience of other travellers. Delight Departures reserves the right to remove a traveller from a group tour if their behaviour is deemed disruptive, dangerous, illegal or offensive. No refund will be issued in such cases.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Local Laws:</strong> You must comply with all laws and regulations of every country you visit. Delight Departures bears no responsibility for legal consequences arising from your actions in a destination country.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Alcohol &amp; Substances:</strong> Excessive alcohol consumption or use of illegal substances that endangers yourself or others, or that disrupts the group or services, may result in removal from the tour without refund.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Cultural Respect:</strong> We ask all travellers to respect the cultural norms, dress codes, religious customs and traditions of destination communities. Our team will brief you on relevant customs before your trip.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Property Damage:</strong> You are financially responsible for any damage caused to hotel rooms, vehicles, equipment or other property during your trip. Costs will be charged directly to you.</span></li>
+      </ul>
+    </div>
+
+    <!-- 9 -->
+    <div class="tc-section reveal" id="tc-9">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-green"><i class="fas fa-heartbeat" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 09</span>
+          <div class="tc-sec-title">Health &amp; Safety</div>
+        </div>
+      </div>
+      <p class="tc-text">Your health and safety are of the utmost importance to us. Please note the following:</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span><strong>Medical Conditions:</strong> You must inform Delight Departures of any pre-existing medical conditions, physical limitations, allergies, dietary restrictions or other health requirements before booking. Failure to disclose relevant health information may affect our ability to assist you during the trip.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Medical Fitness:</strong> By confirming a booking, you declare that all travellers are medically fit and capable of undertaking the activities included in the itinerary. For adventure activities, additional fitness requirements may apply.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Vaccinations:</strong> Some destinations require specific vaccinations or health certificates for entry. It is your sole responsibility to comply with all health entry requirements. Consult a travel medicine specialist well before departure.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Medical Costs:</strong> All medical expenses incurred during your trip are your sole responsibility. This is one of many reasons we strongly recommend comprehensive travel insurance.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Emergency Assistance:</strong> In the event of a medical emergency during your trip, our team will make every effort to assist you in accessing appropriate medical care and contacting your insurer. We cannot be held responsible for medical outcomes.</span></li>
+      </ul>
+      <div class="tc-box green">
+        <div class="tc-box-icon">🏥</div>
+        <div class="tc-box-text">
+          <strong>Carry Your Medications</strong>
+          Always travel with an adequate supply of any prescription medications, clearly labelled and with supporting documentation. Some medications may be controlled substances in certain countries — check the regulations before you travel.
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="tc-section reveal" id="tc-10">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-indigo"><i class="fas fa-shield-alt" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 10</span>
+          <div class="tc-sec-title">Travel Insurance</div>
+        </div>
+      </div>
+      <p class="tc-text">Delight Departures <strong>strongly recommends</strong> that all travellers purchase comprehensive travel insurance before confirming any booking. While we do not mandate insurance, we consider it essential protection for any international trip.</p>
+      <p class="tc-text">A good travel insurance policy should cover:</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span>Trip cancellation and curtailment due to illness, injury, or unforeseen events</span></li>
+        <li><i class="fas fa-circle"></i><span>Emergency medical treatment and hospitalisation abroad</span></li>
+        <li><i class="fas fa-circle"></i><span>Medical evacuation and repatriation</span></li>
+        <li><i class="fas fa-circle"></i><span>Loss or theft of baggage, passports and personal belongings</span></li>
+        <li><i class="fas fa-circle"></i><span>Flight delays and missed connections</span></li>
+        <li><i class="fas fa-circle"></i><span>Personal liability for third-party injury or property damage</span></li>
+        <li><i class="fas fa-circle"></i><span>Natural disasters and force majeure events</span></li>
+      </ul>
+      <div class="tc-box purple">
+        <div class="tc-box-icon">🛡️</div>
+        <div class="tc-box-text">
+          <strong>Insurance is your safety net</strong>
+          International medical emergencies can cost several lakhs of rupees. Travel insurance is a small investment that protects your entire trip cost and your health. Delight Departures will not be held responsible for losses that could have been covered by travel insurance.
+        </div>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="tc-section reveal" id="tc-11">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-sky"><i class="fas fa-cloud-bolt" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 11</span>
+          <div class="tc-sec-title">Force Majeure</div>
+        </div>
+      </div>
+      <p class="tc-text">Delight Departures shall not be liable for any failure or delay in performing its obligations where such failure or delay is caused by events outside our reasonable control. Force majeure events include, but are not limited to:</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span>Natural disasters — earthquakes, floods, cyclones, volcanic eruptions, tsunamis</span></li>
+        <li><i class="fas fa-circle"></i><span>Pandemics, epidemics or public health emergencies</span></li>
+        <li><i class="fas fa-circle"></i><span>Government-imposed travel restrictions, border closures or travel advisories</span></li>
+        <li><i class="fas fa-circle"></i><span>War, civil unrest, terrorism, political instability or strikes</span></li>
+        <li><i class="fas fa-circle"></i><span>Airline groundings, air traffic control failures or airport closures</span></li>
+        <li><i class="fas fa-circle"></i><span>Extreme weather conditions preventing travel</span></li>
+        <li><i class="fas fa-circle"></i><span>Any other event beyond our reasonable control that makes it impossible or unsafe to proceed with travel arrangements</span></li>
+      </ul>
+      <p class="tc-text">In such events, we will endeavour to offer alternative arrangements or pass on whatever refunds are recoverable from vendors. We cannot, however, guarantee full refunds as vendor policies apply. Travel insurance remains the best protection against force majeure events.</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="tc-section reveal" id="tc-12">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-emerald"><i class="fas fa-copyright" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 12</span>
+          <div class="tc-sec-title">Intellectual Property</div>
+        </div>
+      </div>
+      <p class="tc-text">All content on the Delight Departures website — including text, images, logos, graphics, itineraries, pricing, videos and design elements — is the intellectual property of Delight Departures and is protected by applicable copyright and intellectual property laws.</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span>You may not reproduce, copy, distribute, publish or use any content from our website for commercial purposes without our prior written consent.</span></li>
+        <li><i class="fas fa-circle"></i><span>Itineraries and travel plans created by Delight Departures are proprietary. You may not share, reproduce or use them with competing travel agencies or third parties without permission.</span></li>
+        <li><i class="fas fa-circle"></i><span>Customer-submitted photos, videos and testimonials shared with us for use in our marketing remain the property of the customer, but by sharing them you grant Delight Departures a non-exclusive, royalty-free licence to use them in our marketing materials, website and social media.</span></li>
+      </ul>
+    </div>
+
+    <!-- 13 -->
+    <div class="tc-section reveal" id="tc-13">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-teal"><i class="fas fa-user-lock" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 13</span>
+          <div class="tc-sec-title">Privacy &amp; Data Protection</div>
+        </div>
+      </div>
+      <p class="tc-text">Your personal information is collected and processed in accordance with our <a href="privacy-policy.html">Privacy Policy</a>, which forms an integral part of these Terms &amp; Conditions. By booking with us, you consent to the collection and use of your personal information as described in our Privacy Policy.</p>
+      <p class="tc-text">In summary, we collect and use your personal data only to fulfil your travel booking, provide customer support, comply with legal obligations, and (with your consent) send you marketing communications. We do not sell your data to third parties. Please read the full Privacy Policy for complete details.</p>
+      <div class="tc-box blue">
+        <div class="tc-box-icon">🔒</div>
+        <div class="tc-box-text">
+          <strong>Your data, your rights</strong>
+          Under the Digital Personal Data Protection Act, 2023, you have rights to access, correct, and request deletion of your personal data. To exercise these rights, contact us at <a href="mailto:support@delightdepartures.com">support@delightdepartures.com</a>. See our <a href="privacy-policy.html">Privacy Policy</a> for full details.
+        </div>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="tc-section reveal" id="tc-14">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-navy"><i class="fas fa-gavel" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 14</span>
+          <div class="tc-sec-title">Governing Law &amp; Disputes</div>
+        </div>
+      </div>
+      <p class="tc-text">These Terms &amp; Conditions are governed by and shall be construed in accordance with the laws of <strong>Karnataka, India</strong>. Any disputes arising from or in connection with these Terms, your booking, or any services provided by Delight Departures shall be subject to the exclusive jurisdiction of the courts of <strong>Bengaluru, Karnataka, India</strong>.</p>
+      <p class="tc-text">Before resorting to legal proceedings, we encourage all customers to first raise their concern with us directly. We are committed to resolving disputes amicably and promptly through open communication.</p>
+      <ul class="tc-list">
+        <li><i class="fas fa-circle"></i><span><strong>Step 1 — Contact Us:</strong> Email your concern to <a href="mailto:support@delightdepartures.com">support@delightdepartures.com</a>. We will acknowledge within 1 working day.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Step 2 — Resolution:</strong> We will investigate and respond with a proposed resolution within 7 working days.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Step 3 — Escalation:</strong> If unresolved, the matter may be escalated to mediation or legal proceedings under the jurisdiction of Bengaluru, Karnataka courts.</span></li>
+      </ul>
+      <div class="tc-box navy">
+        <div class="tc-box-icon">🤝</div>
+        <div class="tc-box-text">
+          <strong>We prefer resolution over litigation</strong>
+          In our experience, the vast majority of concerns are resolved quickly through direct communication. Please always reach out to us first — we genuinely want to make things right.
+        </div>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="tc-section reveal" id="tc-15">
+      <div class="tc-sec-header">
+        <div class="tc-sec-icon ic-orange"><i class="fas fa-envelope" style="color:#fff;"></i></div>
+        <div>
+          <span class="tc-sec-num">Section 15</span>
+          <div class="tc-sec-title">Contact Us</div>
+        </div>
+      </div>
+      <p class="tc-text">If you have any questions, concerns or requests relating to these Terms &amp; Conditions, please do not hesitate to reach out. We are always happy to clarify and assist.</p>
+      <div class="tc-contact-card">
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="pcc-label">Email</div>
+            <div class="pcc-val"><a href="mailto:support@delightdepartures.com">support@delightdepartures.com</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fab fa-whatsapp"></i></div>
+          <div>
+            <div class="pcc-label">WhatsApp</div>
+            <div class="pcc-val"><a href="https://wa.me/918123568002">+91 81235 68002</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="pcc-label">Phone (All Days, 10:30 AM – 7:30 PM)</div>
+            <div class="pcc-val"><a href="tel:+919429693718">+91 94296 93718</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="pcc-label">Office</div>
+            <div class="pcc-val">Bengaluru, Karnataka, India</div>
+          </div>
+        </div>
+      </div>
+      <p class="tc-text" style="margin-top:20px;">These Terms &amp; Conditions should be read together with our <a href="privacy-policy.html">Privacy Policy</a> and <a href="refund-policy.html">Refund Policy</a>, all of which together form the complete agreement between you and Delight Departures.</p>
+    </div>
+
+  </main>
+</div>
+
+<!-- ══════════════════ CTA ══════════════════ -->
+<section class="tc-cta">
+  <div class="cta-orb cta-o1"></div>
+  <div class="cta-orb cta-o2"></div>
+  <div class="cta-inner reveal">
+    <h2>Questions Before You <em>Book?</em></h2>
+    <p>We're always happy to walk you through these terms or help you understand exactly what your booking includes. Just reach out — no question is too small.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn-white" onclick="showContactModal();return false;"><i class="fas fa-comments"></i> Talk to Us</a>
+      <a href="packages.html" class="btn-ghost"><i class="fas fa-map-marked-alt"></i> Explore Packages</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <div class="footer-logo">✈️ Delight <span>Departures</span></div>
+      <div><span> - </span></div>
+      <p>We don't just plan trips — we create experiences that stay with you for a lifetime. Specialising in international group tours and customised private trips across 80+ destinations worldwide.</p>
+      <div class="footer-socials">
+        <div class="f-social"><i class="fab fa-instagram"></i></div>
+        <div class="f-social"><i class="fab fa-whatsapp"></i></div>
+        <div class="f-social"><i class="fab fa-youtube"></i></div>
+        <div class="f-social"><i class="fab fa-facebook-f"></i></div>
+        <div class="f-social"><i class="fab fa-google"></i></div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Top Destinations</h4>
+      <ul>
+        <li><a href="destinations.html#bali"><i class="fas fa-chevron-right"></i> Bali, Indonesia</a></li>
+        <li><a href="destinations.html#thailand"><i class="fas fa-chevron-right"></i> Thailand</a></li>
+        <li><a href="destinations.html#maldives"><i class="fas fa-chevron-right"></i> Maldives</a></li>
+        <li><a href="destinations.html#dubai"><i class="fas fa-chevron-right"></i> Dubai, UAE</a></li>
+        <li><a href="destinations.html#singapore"><i class="fas fa-chevron-right"></i> Singapore</a></li>
+        <li><a href="destinations.html#malaysia"><i class="fas fa-chevron-right"></i> Malaysia</a></li>
+        <li><a href="destinations.html#japan"><i class="fas fa-chevron-right"></i> Japan</a></li>
+        <li><a href="destinations.html#vietnam"><i class="fas fa-chevron-right"></i> Vietnam</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Destinations</a></li>
+        <li><a href="blogs.html"><i class="fas fa-chevron-right"></i> Blogs</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right" onclick="showContactModal()"></i> Contact Us</a></li>
+        <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+        <li><a href="packages.html"><i class="fas fa-chevron-right"></i> Group Tours</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul>
+        <li><a href="tel:+919429693718"><i class="fas fa-phone"></i> +91 94296 93718</a></li>
+        <li><a href="mailto:support@delightdepartures.com"><i class="fas fa-envelope"></i> support@delightdepartures.com</a></li>
+        <li><a href="https://wa.me/918123568002"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></li>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</a></li>
+      </ul>
+      <div class="contact-note">
+        <p>⏱️ <strong>Mon – Sun:</strong> 10:30 AM – 7:30 PM<br></p>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Delight Departures. All rights reserved. Made with ❤️ for travellers.</p>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <a href="refund-policy.html">Refund Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════ CONTACT MODAL ══════════════════ -->
+<div class="contact-modal-overlay" id="contactModal" onclick="closeLightboxOnBg(event)">
+  <div class="contact-modal-box">
+    <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+    <div class="contact-modal-icon">✈️</div>
+    <h3 class="contact-modal-title">Get in Touch</h3>
+    <p class="contact-modal-sub">Choose how you'd like to reach us — we're ready to help plan your perfect trip.</p>
+    <div class="contact-modal-actions">
+      <a href="tel:+919429693718" class="contact-action-btn call-btn">
+        <div class="cab-icon"><i class="fas fa-phone"></i></div>
+        <div class="cab-text">
+          <span class="cab-label">Call Us</span>
+          <span class="cab-num">+91 94296 93718</span>
+        </div>
+        <i class="fas fa-arrow-right cab-arrow"></i>
+      </a>
+      <a href="https://wa.me/918123568002" target="_blank" rel="noopener" class="contact-action-btn wa-btn">
+        <div class="cab-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="cab-text">
+          <span class="cab-label">WhatsApp Us</span>
+          <span class="cab-num">+91 81235 68002</span>
+        </div>
+        <i class="fas fa-arrow-right cab-arrow"></i>
+      </a>
+    </div>
+    <p class="contact-modal-hours"><i class="fas fa-clock"></i> Mon–Sat · 9 AM – 8 PM &nbsp;|&nbsp; WhatsApp 24 / 7</p>
+  </div>
+</div>
+
+<!-- ══════════════════ SCRIPTS ══════════════════ -->
+<script src="js/whatsapp.js"></script>
+<script>
+  /* NAVBAR */
+  const hamburger=document.querySelector('.hamburger');
+  const navLinksEl=document.querySelector('.nav-links');
+  const navCtaEl=document.querySelector('.nav-cta');
+  const dropWrapper=document.querySelector('.nav-dropdown-wrapper');
+  const dropTrigger=document.querySelector('.dropdown-trigger');
+  let ddT;
+  hamburger?.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinksEl.classList.toggle('active');navCtaEl.classList.toggle('active');});
+  const openDD=()=>{clearTimeout(ddT);dropWrapper?.classList.add('open');};
+  const closeDD=()=>{ddT=setTimeout(()=>dropWrapper?.classList.remove('open'),120);};
+  if(dropWrapper){
+    dropWrapper.addEventListener('mouseenter',()=>{if(window.innerWidth>768)openDD();});
+    dropWrapper.addEventListener('mouseleave',()=>{if(window.innerWidth>768)closeDD();});
+    dropTrigger.addEventListener('click',e=>{if(window.innerWidth<=768){e.preventDefault();dropWrapper.classList.toggle('open');}});
+  }
+  document.addEventListener('click',e=>{if(dropWrapper&&!dropWrapper.contains(e.target))dropWrapper.classList.remove('open');});
+  document.querySelectorAll('.nav-dropdown a').forEach(l=>l.addEventListener('click',()=>dropWrapper?.classList.remove('open')));
+
+  /* SCROLL + TOC ACTIVE */
+  const scrollTopBtn=document.getElementById('scrollTopBtn');
+  const navbar=document.querySelector('.navbar');
+  let lastST=0;
+  window.addEventListener('scroll',()=>{
+    const st=window.pageYOffset,dir=st>lastST?'down':'up';
+    if(st<60)navbar.classList.remove('hidden');
+    else if(dir==='down'&&st>120)navbar.classList.add('hidden');
+    else if(dir==='up')navbar.classList.remove('hidden');
+    scrollTopBtn.classList.toggle('visible',dir==='up'&&st>250);
+    lastST=Math.max(0,st);
+    document.querySelectorAll('.tc-section').forEach(sec=>{
+      const top=sec.getBoundingClientRect().top;
+      const link=document.querySelector(`.toc-link[href="#${sec.id}"]`);
+      if(link){
+        if(top<=120&&top>-sec.offsetHeight+120){
+          document.querySelectorAll('.toc-link').forEach(l=>l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      }
+    });
+  });
+  scrollTopBtn.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* REVEAL */
+  const ro=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});
+  },{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+  /* CONTACT MODAL */
+  function showContactModal(){
+    document.getElementById('contactModal').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeContactModal(){
+    document.getElementById('contactModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  function closeLightboxOnBg(e){
+    if(e.target===document.getElementById('contactModal')) closeContactModal();
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape') closeContactModal();});
+</script>
+</body>
+</html>

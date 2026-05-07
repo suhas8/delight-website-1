@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Delight Departures</title>
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+      .package-card.clickable {
+        cursor: pointer !important;
+      }
+      .package-card.clickable:hover {
+        transform: translateY(-12px) !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.22) !important;
+      }
+      .package-card.clickable .card-content:hover * {
+        color: inherit;
+      }
+    </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="#" class="nav-link">Home</a>
+      <div class="nav-dropdown-wrapper">
+        <a href="#" class="nav-link dropdown-trigger">
+          Destinations <i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown">
+          <div class="dropdown-inner">
+
+            <!-- Asia -->
+            <div class="dropdown-continent asia">
+              <div class="continent-header">
+                <span class="continent-emoji">🌏</span>
+                <span>Asia</span>
+              </div>
+              <ul class="country-list">
+                <li><a href="destinations.html#india">India</a></li>
+                <li><a href="destinations.html#malaysia">Malaysia</a></li>
+                <li><a href="destinations.html#maldives">Maldives</a></li>
+                <li><a href="destinations.html#thailand">Thailand</a></li>
+                <li><a href="destinations.html#bali">Indonesia (Bali)</a></li>
+                <li><a href="destinations.html#vietnam">Vietnam</a></li>
+                <li><a href="destinations.html#philippines">Philippines</a></li>
+                <li><a href="destinations.html#singapore">Singapore</a></li>
+                <li><a href="destinations.html#cambodia">Cambodia</a></li>
+                <li><a href="destinations.html#china">China</a></li>
+                <li><a href="destinations.html#sri-lanka">Sri Lanka</a></li>
+                <li><a href="destinations.html#georgia">Georgia</a></li>
+                <li><a href="destinations.html#south-korea">South Korea</a></li>
+                <li><a href="destinations.html#japan">Japan</a></li>
+                <li><a href="destinations.html#armenia">Armenia</a></li>
+                <li><a href="destinations.html#azerbaijan">Azerbaijan</a></li>
+                <li><a href="destinations.html#bhutan">Bhutan</a></li>
+                <li><a href="destinations.html#kazakhstan">Kazakhstan</a></li>
+                <li><a href="destinations.html#nepal">Nepal</a></li>
+                <li><a href="destinations.html#uzbekistan">Uzbekistan</a></li>
+              </ul>
+            </div>
+
+            <!-- Middle East -->
+            <div class="dropdown-continent">
+              <div class="continent-header">
+                <span class="continent-emoji">🏜️</span>
+                <span>Middle East</span>
+              </div>
+              <ul class="country-list">
+                <li><a href="destinations.html#dubai">United Arab Emirates (Dubai)</a></li>
+                <li><a href="destinations.html#turkey">Turkey</a></li>
+                <li><a href="destinations.html#jordan">Jordan</a></li>
+                <li><a href="destinations.html#oman">Oman</a></li>
+                <li><a href="destinations.html#qatar">Qatar</a></li>
+              </ul>
+            </div>
+
+            <!-- Africa -->
+            <div class="dropdown-continent">
+              <div class="continent-header">
+                <span class="continent-emoji">🌍</span>
+                <span>Africa</span>
+              </div>
+              <ul class="country-list">
+                <li><a href="destinations.html#mauritius">Mauritius</a></li>
+                <li><a href="destinations.html#egypt">Egypt</a></li>
+                <li><a href="destinations.html#kenya">Kenya</a></li>
+                <li><a href="destinations.html#seychelles">Seychelles</a></li>
+                <li><a href="destinations.html#south-africa">South Africa</a></li>
+                <li><a href="destinations.html#tanzania">Tanzania</a></li>
+                <li><a href="destinations.html#ethiopia">Ethiopia</a></li>
+                <li><a href="destinations.html#morocco">Morocco</a></li>
+              </ul>
+            </div>
+
+            <!-- Europe -->
+            <div class="dropdown-continent">
+              <div class="continent-header">
+                <span class="continent-emoji">🌍</span>
+                <span>Europe</span>
+              </div>
+              <p class="coming-soon-text">Coming Soon..!</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+<a href="testimonials.html" class="nav-link">Testimonials</a>
+<a href="blogs.html" class="nav-link">Blogs</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </div>
+    <a href="#" class="nav-cta" onclick="showContactModal()">CONTACT US</a>
+    <div class="contact-modal-overlay" id="contactModal" onclick="closeContactModal(event)">
+  <div class="contact-modal-box">
+    <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+    <div class="contact-modal-icon">✈️</div>
+    <h3 class="contact-modal-title">Get in Touch</h3>
+    <p class="contact-modal-sub">Choose how you'd like to reach us — we're ready to help plan your perfect trip.</p>
+    <div class="contact-modal-actions">
+      <a href="tel:+919429693718" class="contact-action-btn call-btn">
+        <div class="cab-icon"><i class="fas fa-phone"></i></div>
+        <div class="cab-text">
+          <span class="cab-label">Call Us</span>
+          <span class="cab-num">+91 94296 93718</span>
+        </div>
+        <i class="fas fa-arrow-right cab-arrow"></i>
+      </a>
+      <a href="https://wa.me/918123568002" target="_blank" rel="noopener" class="contact-action-btn wa-btn">
+        <div class="cab-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="cab-text">
+          <span class="cab-label">WhatsApp Us</span>
+          <span class="cab-num">+91 81235 68002</span>
+        </div>
+        <i class="fas fa-arrow-right cab-arrow"></i>
+      </a>
+    </div>
+    <p class="contact-modal-hours"><i class="fas fa-clock"></i> All Days · 10:30 AM – 7:30 PM &nbsp;|&nbsp; WhatsApp 24 / 7</p>
+  </div>
+</div>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Scroll to Top Button -->
+<a href="#" class="scroll-top-btn" id="scrollTopBtn">
+  <i class="fas fa-chevron-up"></i>
+</a>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-center">
+    <a class="hero-logo">
+      <img src="assets/logo.png" alt="Delight Departures Logo">
+    </a>
+    <h1 class="hero-headline">
+      <span class="line">Your next big</span>
+      <span class="line">holiday begins</span>
+      <span class="line">here</span>
+    </h1>
+    <a href="#best-sellers" class="hero-cta">
+      Explore Packages <i class="fas fa-chevron-down"></i>
+    </a>
+  </div>
+</section>
+
+<!-- Best Sellers Section -->
+<section id="best-sellers" class="package-section visible">
+  <div class="package-container">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="section-icon"><i class="fas fa-star"></i></span>
+        <div class="section-text">
+          <h2>Best Sellers</h2>
+          <p>Our most loved travel packages</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="carousel-wrapper">
+      <div class="carousel-arrow best-sellers-arrow prev" data-section="best-sellers">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="package-carousel best-sellers-carousel" data-section="best-sellers">
+        <div class="carousel-track">
+          <!-- Card 1 -->
+        <div class="package-card">
+          <div class="card-image">
+            <img src="/assets/vietnam-cover-img.jpg" alt="Vietnam">
+            <div class="card-badges">
+              <span class="badge group">Group Tour</span>
+              <span class="badge flight">Flight Inclusive</span>
+            </div>
+            <div class="price-badge">
+              <span class="price">₹54,999</span>
+              <span class="per-person">Per Person</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Da Nang • Ba Na Hills • Hoi An Ancient Town</span>
+            </div>
+            <h3 class="package-title">Vietnam 3N / 4D Group Tour</h3>
+            <div class="duration">
+              <i class="far fa-clock"></i>
+              <span>3 Nights 4 Days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="package-card">
+          <div class="card-image">
+            <img src="/assets/vietnam-cover-img.jpg" alt="Vietnam">
+            <div class="card-badges">
+              <span class="badge group">Group Tour</span>
+              <span class="badge flight">Flight Inclusive</span>
+            </div>
+            <div class="price-badge">
+              <span class="price">₹54,999</span>
+              <span class="per-person">Per Person</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Da Nang • Ba Na Hills • Hoi An Ancient Town</span>
+            </div>
+            <h3 class="package-title">Vietnam 3N / 4D Group Tour</h3>
+            <div class="duration">
+              <i class="far fa-clock"></i>
+              <span>3 Nights 4 Days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="package-card">
+          <div class="card-image">
+            <img src="/assets/vietnam-cover-img.jpg" alt="Vietnam">
+            <div class="card-badges">
+              <span class="badge group">Group Tour</span>
+              <span class="badge flight">Flight Inclusive</span>
+            </div>
+            <div class="price-badge">
+              <span class="price">₹54,999</span>
+              <span class="per-person">Per Person</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Da Nang • Ba Na Hills • Hoi An Ancient Town</span>
+            </div>
+            <h3 class="package-title">Vietnam 3N / 4D Group Tour</h3>
+            <div class="duration">
+              <i class="far fa-clock"></i>
+              <span>3 Nights 4 Days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="package-card">
+          <div class="card-image">
+            <img src="/assets/vietnam-cover-img.jpg" alt="Vietnam">
+            <div class="card-badges">
+              <span class="badge group">Group Tour</span>
+              <span class="badge flight">Flight Inclusive</span>
+            </div>
+            <div class="price-badge">
+              <span class="price">₹54,999</span>
+              <span class="per-person">Per Person</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Da Nang • Ba Na Hills • Hoi An Ancient Town</span>
+            </div>
+            <h3 class="package-title">Vietnam 3N / 4D Group Tour</h3>
+            <div class="duration">
+              <i class="far fa-clock"></i>
+              <span>3 Nights 4 Days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="package-card">
+          <div class="card-image">
+            <img src="/assets/vietnam-cover-img.jpg" alt="Vietnam">
+            <div class="card-badges">
+              <span class="badge group">Group Tour</span>
+              <span class="badge flight">Flight Inclusive</span>
+            </div>
+            <div class="price-badge">
+              <span class="price">₹54,999</span>
+              <span class="per-person">Per Person</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Da Nang • Ba Na Hills • Hoi An Ancient Town</span>
+            </div>
+            <h3 class="package-title">Vietnam 3N / 4D Group Tour</h3>
+            <div class="duration">
+              <i class="far fa-clock"></i>
+              <span>3 Nights 4 Days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="package-card">
+          <div class="card-image">
+            <img src="/assets/vietnam-cover-img.jpg" alt="Vietnam">
+            <div class="card-badges">
+              <span class="badge group">Group Tour</span>
+              <span class="badge flight">Flight Inclusive</span>
+            </div>
+            <div class="price-badge">
+              <span class="price">₹54,999</span>
+              <span class="per-person">Per Person</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Da Nang • Ba Na Hills • Hoi An Ancient Town</span>
+            </div>
+            <h3 class="package-title">Vietnam 3N / 4D Group Tour</h3>
+            <div class="duration">
+              <i class="far fa-clock"></i>
+              <span>3 Nights 4 Days</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="carousel-arrow best-sellers-arrow next" data-section="best-sellers">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+    
+    <div class="view-all-container">
+      <a href="packages.html#best-sellers" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- High Trending Section -->
+<section id="trending" class="package-section alt-bg visible">
+  <div class="package-container">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="section-icon"><i class="fas fa-fire"></i></span>
+        <div class="section-text">
+          <h2>High Trending</h2>
+          <p>Hot destinations everyone is booking</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-arrow trending-arrow prev" data-section="trending">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="package-carousel trending-carousel" data-section="trending">
+        <div class="carousel-track">
+          <!-- Card 1 -->
+<div class="package-card">
+  <div class="card-image">
+    <img src="/assets/malaysia-cover-img.jpg" alt="Malaysia">
+    <div class="card-badges">
+      <span class="badge group">Group Tour</span>
+      <span class="badge flight">Flight Inclusive</span>
+    </div>
+    <div class="price-badge">
+      <span class="price">₹34,999</span>
+      <span class="per-person">Per Person</span>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Malaysia – Kuala Lumpur</span>
+    </div>
+    <h3 class="package-title"><a href="majestic-malaysia-tour.html" style="color:inherit;text-decoration:none;">Majestic Malaysia Tour 3N / 4D</a></h3>
+    <div class="duration">
+      <i class="far fa-clock"></i>
+      <span>3 Nights 4 Days</span>
+    </div>
+  </div>
+</div>
+
+<!-- Card 2 -->
+<div class="package-card">
+  <div class="card-image">
+    <img src="/assets/malaysia-cover-img.jpg" alt="Malaysia">
+    <div class="card-badges">
+      <span class="badge group">Group Tour</span>
+      <span class="badge flight">Flight Inclusive</span>
+    </div>
+    <div class="price-badge">
+      <span class="price">₹34,999</span>
+      <span class="per-person">Per Person</span>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Malaysia – Kuala Lumpur</span>
+    </div>
+    <h3 class="package-title"><a href="majestic-malaysia-tour.html" style="color:inherit;text-decoration:none;">Majestic Malaysia Tour 3N / 4D</a></h3>
+    <div class="duration">
+      <i class="far fa-clock"></i>
+      <span>3 Nights 4 Days</span>
+    </div>
+  </div>
+</div>
+
+<!-- Card 3 -->
+<div class="package-card">
+  <div class="card-image">
+    <img src="/assets/malaysia-cover-img.jpg" alt="Malaysia">
+    <div class="card-badges">
+      <span class="badge group">Group Tour</span>
+      <span class="badge flight">Flight Inclusive</span>
+    </div>
+    <div class="price-badge">
+      <span class="price">₹34,999</span>
+      <span class="per-person">Per Person</span>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Malaysia – Kuala Lumpur</span>
+    </div>
+    <h3 class="package-title"><a href="majestic-malaysia-tour.html" style="color:inherit;text-decoration:none;">Majestic Malaysia Tour 3N / 4D</a></h3>
+    <div class="duration">
+      <i class="far fa-clock"></i>
+      <span>3 Nights 4 Days</span>
+    </div>
+  </div>
+</div>
+
+<!-- Card 4 -->
+<div class="package-card">
+  <div class="card-image">
+    <img src="/assets/malaysia-cover-img.jpg" alt="Malaysia">
+    <div class="card-badges">
+      <span class="badge group">Group Tour</span>
+      <span class="badge flight">Flight Inclusive</span>
+    </div>
+    <div class="price-badge">
+      <span class="price">₹34,999</span>
+      <span class="per-person">Per Person</span>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Malaysia – Kuala Lumpur</span>
+    </div>
+    <h3 class="package-title"><a href="majestic-malaysia-tour.html" style="color:inherit;text-decoration:none;">Majestic Malaysia Tour 3N / 4D</a></h3>
+    <div class="duration">
+      <i class="far fa-clock"></i>
+      <span>3 Nights 4 Days</span>
+    </div>
+  </div>
+</div>
+
+<!-- Card 5 -->
+<div class="package-card">
+  <div class="card-image">
+    <img src="/assets/malaysia-cover-img.jpg" alt="Malaysia">
+    <div class="card-badges">
+      <span class="badge group">Group Tour</span>
+      <span class="badge flight">Flight Inclusive</span>
+    </div>
+    <div class="price-badge">
+      <span class="price">₹34,999</span>
+      <span class="per-person">Per Person</span>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Malaysia – Kuala Lumpur</span>
+    </div>
+    <h3 class="package-title"><a href="majestic-malaysia-tour.html" style="color:inherit;text-decoration:none;">Majestic Malaysia Tour 3N / 4D</a></h3>
+    <div class="duration">
+      <i class="far fa-clock"></i>
+      <span>3 Nights 4 Days</span>
+    </div>
+  </div>
+</div>
+
+<!-- Card 6 -->
+<div class="package-card">
+  <div class="card-image">
+    <img src="/assets/malaysia-cover-img.jpg" alt="Malaysia">
+    <div class="card-badges">
+      <span class="badge group">Group Tour</span>
+      <span class="badge flight">Flight Inclusive</span>
+    </div>
+    <div class="price-badge">
+      <span class="price">₹34,999</span>
+      <span class="per-person">Per Person</span>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Malaysia – Kuala Lumpur</span>
+    </div>
+    <h3 class="package-title"><a href="majestic-malaysia-tour.html" style="color:inherit;text-decoration:none;">Majestic Malaysia Tour 3N / 4D</a></h3>
+    <div class="duration">
+      <i class="far fa-clock"></i>
+      <span>3 Nights 4 Days</span>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+      <div class="carousel-arrow trending-arrow next" data-section="trending">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+
+    <div class="view-all-container">
+      <a href="packages.html#trending" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Most Loved Section -->
+<section id="most-loved" class="package-section visible">
+  <div class="package-container">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="section-icon"><i class="fas fa-heart"></i></span>
+        <div class="section-text">
+          <h2>Most Loved</h2>
+          <p>Packages with 5-star ratings</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="carousel-wrapper">
+      <div class="carousel-arrow most-loved-arrow prev" data-section="most-loved">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="package-carousel most-loved-carousel" data-section="most-loved">
+        <div class="carousel-track">
+          <!-- Card 1 -->
+          <div class="package-card">
+            <div class="card-image">
+              <img src="/assets/thailand-cover-img.jpg" alt="Thailand">
+              <div class="card-badges">
+                <span class="badge group">Group Tour</span>
+                <span class="badge flight">Flight Inclusive</span>
+              </div>
+              <div class="price-badge">
+                <span class="price">₹39,999</span>
+                <span class="per-person">Per Person</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Thailand – Bangkok & Pattaya</span>
+              </div>
+              <h3 class="package-title"><a href="thailand-group-tour.html" style="color:inherit;text-decoration:none;">Thailand 4N / 5D Group Tour</a></h3>
+              <div class="duration">
+                <i class="far fa-clock"></i>
+                <span>4 Nights 5 Days</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="package-card">
+            <div class="card-image">
+              <img src="/assets/thailand-cover-img.jpg" alt="Thailand">
+              <div class="card-badges">
+                <span class="badge group">Group Tour</span>
+                <span class="badge flight">Flight Inclusive</span>
+              </div>
+              <div class="price-badge">
+                <span class="price">₹39,999</span>
+                <span class="per-person">Per Person</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Thailand – Bangkok & Pattaya</span>
+              </div>
+              <h3 class="package-title"><a href="thailand-group-tour.html" style="color:inherit;text-decoration:none;">Thailand 4N / 5D Group Tour</a></h3>
+              <div class="duration">
+                <i class="far fa-clock"></i>
+                <span>4 Nights 5 Days</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="package-card">
+            <div class="card-image">
+              <img src="/assets/thailand-cover-img.jpg" alt="Thailand">
+              <div class="card-badges">
+                <span class="badge group">Group Tour</span>
+                <span class="badge flight">Flight Inclusive</span>
+              </div>
+              <div class="price-badge">
+                <span class="price">₹39,999</span>
+                <span class="per-person">Per Person</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Thailand – Bangkok & Pattaya</span>
+              </div>
+              <h3 class="package-title"><a href="thailand-group-tour.html" style="color:inherit;text-decoration:none;">Thailand 4N / 5D Group Tour</a></h3>
+              <div class="duration">
+                <i class="far fa-clock"></i>
+                <span>4 Nights 5 Days</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 4 -->
+          <div class="package-card">
+            <div class="card-image">
+              <img src="/assets/thailand-cover-img.jpg" alt="Thailand">
+              <div class="card-badges">
+                <span class="badge group">Group Tour</span>
+                <span class="badge flight">Flight Inclusive</span>
+              </div>
+              <div class="price-badge">
+                <span class="price">₹39,999</span>
+                <span class="per-person">Per Person</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Thailand – Bangkok & Pattaya</span>
+              </div>
+              <h3 class="package-title"><a href="thailand-group-tour.html" style="color:inherit;text-decoration:none;">Thailand 4N / 5D Group Tour</a></h3>
+              <div class="duration">
+                <i class="far fa-clock"></i>
+                <span>4 Nights 5 Days</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 5 -->
+          <div class="package-card">
+            <div class="card-image">
+              <img src="/assets/thailand-cover-img.jpg" alt="Thailand">
+              <div class="card-badges">
+                <span class="badge group">Group Tour</span>
+                <span class="badge flight">Flight Inclusive</span>
+              </div>
+              <div class="price-badge">
+                <span class="price">₹39,999</span>
+                <span class="per-person">Per Person</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Thailand – Bangkok & Pattaya</span>
+              </div>
+              <h3 class="package-title"><a href="thailand-group-tour.html" style="color:inherit;text-decoration:none;">Thailand 4N / 5D Group Tour</a></h3>
+              <div class="duration">
+                <i class="far fa-clock"></i>
+                <span>4 Nights 5 Days</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 6 -->
+          <div class="package-card">
+            <div class="card-image">
+              <img src="/assets/thailand-cover-img.jpg" alt="Thailand">
+              <div class="card-badges">
+                <span class="badge group">Group Tour</span>
+                <span class="badge flight">Flight Inclusive</span>
+              </div>
+              <div class="price-badge">
+                <span class="price">₹39,999</span>
+                <span class="per-person">Per Person</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Thailand – Bangkok & Pattaya</span>
+              </div>
+              <h3 class="package-title"><a href="thailand-group-tour.html" style="color:inherit;text-decoration:none;">Thailand 4N / 5D Group Tour</a></h3>
+              <div class="duration">
+                <i class="far fa-clock"></i>
+                <span>4 Nights 5 Days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-arrow most-loved-arrow next" data-section="most-loved">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+    
+    <div class="view-all-container">
+      <a href="packages.html#most-loved" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- All-Inclusive Tours Section -->
+<section id="all-inclusive" class="features-section">
+  <div class="features-container">
+    <div class="features-header">
+      <div class="section-title">
+        <span class="section-icon"><i class="fas fa-check-circle"></i></span>
+        <div class="section-text">
+          <h2>All-Inclusive Tours</h2>
+          <p>Complete journeys, crafted with care!</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="features-grid">
+      <!-- Feature 1: Flights -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-plane"></i>
+        </div>
+        <h3>Flights Included</h3>
+        <p>Enjoy seamless travel with carefully planned flights included in your tour. From departure to return, we ensure smooth connections and comfortable journeys.</p>
+      </div>
+      
+      <!-- Feature 2: Sightseeing -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bus"></i>
+        </div>
+        <h3>Sightseeing & Transportation</h3>
+        <p>All sightseeing and local transportation are thoughtfully arranged. Travel comfortably while enjoying well-timed visits to must-see attractions.</p>
+      </div>
+      
+      <!-- Feature 3: Meals & Accommodation -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <h3>Meals & Accommodation</h3>
+        <p>Stay at comfortable, handpicked hotels and enjoy delicious daily meals including breakfast, lunch, and dinner. Everything chosen for your comfort.</p>
+      </div>
+      
+      <!-- Feature 4: Visa Assistance -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-passport"></i>
+        </div>
+        <h3>Visa Assistance</h3>
+        <p>We take care of the visa process with complete guidance and support. From documentation to submission, our team ensures a smooth experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience & Trust Section -->
+<section id="experience" class="trust-section">
+  <div class="trust-overlay"></div>
+  <div class="trust-container">
+    <div class="trust-header">
+      <h2>We curate experiences that bring people together and make every journey special.</h2>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-item" data-target="8500">
+        <div class="stat-icon">
+          <i class="fas fa-smile"></i>
+        </div>
+        <div class="stat-number">
+          <span class="counter" data-target="8500">8,500</span>
+          <span class="suffix">+</span>
+        </div>
+        <div class="stat-label">Happy Guests</div>
+        <p class="stat-desc">Thousands of travelers have trusted us to plan their holidays</p>
+      </div>
+      
+      <div class="stat-item" data-target="1200">
+        <div class="stat-icon">
+          <i class="fas fa-route"></i>
+        </div>
+        <div class="stat-number">
+          <span class="counter" data-target="1200">1,200</span>
+          <span class="suffix">+</span>
+        </div>
+        <div class="stat-label">Tours Completed</div>
+        <p class="stat-desc">Successfully delivered tours with attention to detail</p>
+      </div>
+      
+      <div class="stat-item" data-target="80">
+        <div class="stat-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <div class="stat-number">
+          <span class="counter" data-target="80">80</span>
+          <span class="suffix">+</span>
+        </div>
+        <div class="stat-label">Tour Destinations</div>
+        <p class="stat-desc">Handpicked destinations across India and abroad</p>
+      </div>
+    </div>
+    
+    <div class="goal-section">
+      <div class="goal-content">
+        <h3>Our Goal</h3>
+        <p class="goal-main">To provide tours of exceptional value.</p>
+        <p class="goal-sub">Delivering thoughtfully planned holidays that balance comfort, quality, and unforgettable experiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section with Map -->
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="contact-info">
+      <div class="map-wrapper">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.9548820977225!2d77.551298!3d12.910621400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15d0b054ca51%3A0xe0c593de8df2f462!2sDelight%20Departures%20-%20Best%20Travel%20Agency!5e0!3m2!1sen!2sin!4v1770369437039!5m2!1sen!2sin"
+          width="100%" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      
+      <div class="contact-logo-section">
+        <a class="footer-logo">
+          <img src="assets/logo.png" alt="Delight Departures Logo">
+        </a>
+        <p class="contact-tagline">Book your trip with us today!</p>
+        <a href="#" class="contact-cta-btn" onclick="showContactModal()">CONTACT US</a>
+        <p class="contact-address">Office Address: No. 5, 1st Floor, Uttarahalli Main Road, Near Balaji Cinemas, Ankappa Layout, Chikkalasandra, Bangalore - 560061</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="privacy-footer">
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms-and-conditions.html">Terms & Conditions</a>
+  <a href="refund-policy.html">Refund Policy</a>
+  <p>© 2026 Delight Departures</p>
+</footer>
+
+<script src="js/whatsapp.js"></script>
+<script>
+  function showContactModal() {
+    document.getElementById('contactModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeContactModal(e) {
+    // Close on overlay click or close button click
+    if (!e || e.target === document.getElementById('contactModal')) {
+      document.getElementById('contactModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeContactModal();
+  });
+
+  // Mobile menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const navCta = document.querySelector('.nav-cta');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    navCta.classList.toggle('active');
+  });
+
+  // Destinations dropdown — desktop hover + mobile click
+  const dropdownWrapper = document.querySelector('.nav-dropdown-wrapper');
+  const navDropdown = document.querySelector('.nav-dropdown');
+  const dropdownTrigger = document.querySelector('.dropdown-trigger');
+  let dropdownTimeout;
+
+  function openDropdown() {
+    clearTimeout(dropdownTimeout);
+    dropdownWrapper.classList.add('open');
+  }
+
+  function closeDropdown() {
+    dropdownTimeout = setTimeout(() => {
+      dropdownWrapper.classList.remove('open');
+    }, 120);
+  }
+
+  if (dropdownWrapper && navDropdown) {
+    // Desktop: hover on trigger area
+    dropdownWrapper.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) openDropdown();
+    });
+    dropdownWrapper.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) closeDropdown();
+    });
+
+    // Keep open when hovering over the dropdown panel itself
+    navDropdown.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) openDropdown();
+    });
+    navDropdown.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) closeDropdown();
+    });
+
+    // Mobile: click to toggle
+    dropdownTrigger.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdownWrapper.classList.toggle('open');
+      }
+    });
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (dropdownWrapper && navDropdown && !dropdownWrapper.contains(e.target) && !navDropdown.contains(e.target)) {
+      dropdownWrapper.classList.remove('open');
+    }
+  });
+
+  // Close dropdown when a country link inside it is clicked
+  document.querySelectorAll('.nav-dropdown a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (dropdownWrapper) dropdownWrapper.classList.remove('open');
+    });
+  });
+  
+  // Scroll to top button - Show only when scrolling up
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const navbar = document.querySelector('.navbar');
+  let lastScrollTop = 0;
+  const scrollThreshold = 100;
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
+    
+    if (scrollTop < 50) {
+      navbar.classList.remove('hidden');
+    } else if (scrollDirection === 'down' && scrollTop > 100) {
+      navbar.classList.add('hidden');
+    }
+    
+    if (scrollDirection === 'up' && scrollTop > scrollThreshold) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+  
+  scrollTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
+  // Smooth scroll for hero CTA
+  document.querySelector('.hero-cta').addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector('#best-sellers');
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 200;
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Packages section animation on scroll
+  const sections = document.querySelectorAll('.package-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  sections.forEach(section => observer.observe(section));
+  
+  // Carousel functionality for Best Sellers section
+  const bestSellersCarousel = document.querySelector('.best-sellers-carousel');
+  const bestSellersTrack = bestSellersCarousel ? bestSellersCarousel.querySelector('.carousel-track') : null;
+  const bestSellersPrevBtn = document.querySelector('.best-sellers-arrow.prev');
+  const bestSellersNextBtn = document.querySelector('.best-sellers-arrow.next');
+  
+  let bestSellersCurrentIndex = 0;
+  let bestSellersAutoScrollInterval;
+  let bestSellersCardWidth = 0;
+  let bestSellersCardsToShow = 3;
+  
+  function getBestSellersCardWidth() {
+    if (!bestSellersTrack) return 320;
+    const firstCard = bestSellersTrack.querySelector('.package-card');
+    if (!firstCard) return 320;
+    
+    const style = window.getComputedStyle(firstCard);
+    const width = firstCard.offsetWidth;
+    const marginLeft = parseFloat(style.marginLeft) || 0;
+    const marginRight = parseFloat(style.marginRight) || 0;
+    
+    return width + marginLeft + marginRight;
+  }
+  
+  function getBestSellersCardsToShow() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1200) return 2;
+    return 3;
+  }
+  
+  function updateBestSellersCarousel() {
+    if (!bestSellersTrack) return;
+    bestSellersCardWidth = getBestSellersCardWidth();
+    bestSellersCardsToShow = getBestSellersCardsToShow();
+    bestSellersTrack.style.transition = 'transform 0.5s ease-in-out';
+    bestSellersTrack.style.transform = `translateX(-${bestSellersCurrentIndex * bestSellersCardWidth}px)`;
+  }
+  
+  function scrollBestSellersLeft() {
+    const cards = bestSellersTrack ? bestSellersTrack.querySelectorAll('.package-card') : [];
+    const maxIndex = Math.max(0, cards.length - bestSellersCardsToShow);
+    
+    if (bestSellersCurrentIndex > 0) {
+      bestSellersCurrentIndex--;
+    } else {
+      bestSellersCurrentIndex = maxIndex;
+    }
+    updateBestSellersCarousel();
+  }
+  
+  function scrollBestSellersRight() {
+    const cards = bestSellersTrack ? bestSellersTrack.querySelectorAll('.package-card') : [];
+    const maxIndex = Math.max(0, cards.length - bestSellersCardsToShow);
+    
+    if (bestSellersCurrentIndex < maxIndex) {
+      bestSellersCurrentIndex++;
+    } else {
+      bestSellersCurrentIndex = 0;
+    }
+    updateBestSellersCarousel();
+  }
+  
+  function startBestSellersAutoScroll() {
+    bestSellersAutoScrollInterval = setInterval(scrollBestSellersRight, 4000);
+  }
+  
+  function stopBestSellersAutoScroll() {
+    clearInterval(bestSellersAutoScrollInterval);
+  }
+  
+  // Best Sellers carousel controls
+  if (bestSellersPrevBtn && bestSellersNextBtn) {
+    bestSellersPrevBtn.addEventListener('click', () => {
+      stopBestSellersAutoScroll();
+      scrollBestSellersLeft();
+      startBestSellersAutoScroll();
+    });
+    
+    bestSellersNextBtn.addEventListener('click', () => {
+      stopBestSellersAutoScroll();
+      scrollBestSellersRight();
+      startBestSellersAutoScroll();
+    });
+    
+    bestSellersCarousel.addEventListener('mouseenter', stopBestSellersAutoScroll);
+    bestSellersCarousel.addEventListener('mouseleave', startBestSellersAutoScroll);
+  }
+  
+  // Carousel functionality for High Trending section
+  const trendingCarousel = document.querySelector('.trending-carousel');
+  const trendingTrack = trendingCarousel ? trendingCarousel.querySelector('.carousel-track') : null;
+  const trendingPrevBtn = document.querySelector('.trending-arrow.prev');
+  const trendingNextBtn = document.querySelector('.trending-arrow.next');
+
+  let trendingCurrentIndex = 0;
+  let trendingAutoScrollInterval;
+  let trendingCardWidth = 0;
+  let trendingCardsToShow = 3;
+
+  function getTrendingCardWidth() {
+    if (!trendingTrack) return 320;
+    const firstCard = trendingTrack.querySelector('.package-card');
+    if (!firstCard) return 320;
+    const style = window.getComputedStyle(firstCard);
+    const width = firstCard.offsetWidth;
+    const marginLeft = parseFloat(style.marginLeft) || 0;
+    const marginRight = parseFloat(style.marginRight) || 0;
+    return width + marginLeft + marginRight;
+  }
+
+  function getTrendingCardsToShow() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1200) return 2;
+    return 3;
+  }
+
+  function updateTrendingCarousel() {
+    if (!trendingTrack) return;
+    trendingCardWidth = getTrendingCardWidth();
+    trendingCardsToShow = getTrendingCardsToShow();
+    trendingTrack.style.transition = 'transform 0.5s ease-in-out';
+    trendingTrack.style.transform = `translateX(-${trendingCurrentIndex * trendingCardWidth}px)`;
+  }
+
+  function scrollTrendingLeft() {
+    const cards = trendingTrack ? trendingTrack.querySelectorAll('.package-card') : [];
+    const maxIndex = Math.max(0, cards.length - trendingCardsToShow);
+    if (trendingCurrentIndex > 0) {
+      trendingCurrentIndex--;
+    } else {
+      trendingCurrentIndex = maxIndex;
+    }
+    updateTrendingCarousel();
+  }
+
+  function scrollTrendingRight() {
+    const cards = trendingTrack ? trendingTrack.querySelectorAll('.package-card') : [];
+    const maxIndex = Math.max(0, cards.length - trendingCardsToShow);
+    if (trendingCurrentIndex < maxIndex) {
+      trendingCurrentIndex++;
+    } else {
+      trendingCurrentIndex = 0;
+    }
+    updateTrendingCarousel();
+  }
+
+  function startTrendingAutoScroll() {
+    trendingAutoScrollInterval = setInterval(scrollTrendingRight, 4000);
+  }
+
+  function stopTrendingAutoScroll() {
+    clearInterval(trendingAutoScrollInterval);
+  }
+
+  if (trendingPrevBtn && trendingNextBtn) {
+    trendingPrevBtn.addEventListener('click', () => {
+      stopTrendingAutoScroll();
+      scrollTrendingLeft();
+      startTrendingAutoScroll();
+    });
+
+    trendingNextBtn.addEventListener('click', () => {
+      stopTrendingAutoScroll();
+      scrollTrendingRight();
+      startTrendingAutoScroll();
+    });
+
+    trendingCarousel.addEventListener('mouseenter', stopTrendingAutoScroll);
+    trendingCarousel.addEventListener('mouseleave', startTrendingAutoScroll);
+  }
+
+  // Carousel functionality for Most Loved section
+  const mostLovedCarousel = document.querySelector('.most-loved-carousel');
+  const mostLovedTrack = mostLovedCarousel ? mostLovedCarousel.querySelector('.carousel-track') : null;
+  const mostLovedPrevBtn = document.querySelector('.most-loved-arrow.prev');
+  const mostLovedNextBtn = document.querySelector('.most-loved-arrow.next');
+  
+  let mostLovedCurrentIndex = 0;
+  let mostLovedAutoScrollInterval;
+  let mostLovedCardWidth = 0;
+  let mostLovedCardsToShow = 3;
+  
+  function getMostLovedCardWidth() {
+    if (!mostLovedTrack) return 320;
+    const firstCard = mostLovedTrack.querySelector('.package-card');
+    if (!firstCard) return 320;
+    
+    const style = window.getComputedStyle(firstCard);
+    const width = firstCard.offsetWidth;
+    const marginLeft = parseFloat(style.marginLeft) || 0;
+    const marginRight = parseFloat(style.marginRight) || 0;
+    
+    return width + marginLeft + marginRight;
+  }
+  
+  function getMostLovedCardsToShow() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1200) return 2;
+    return 3;
+  }
+  
+  function updateMostLovedCarousel() {
+    if (!mostLovedTrack) return;
+    mostLovedCardWidth = getMostLovedCardWidth();
+    mostLovedCardsToShow = getMostLovedCardsToShow();
+    mostLovedTrack.style.transition = 'transform 0.5s ease-in-out';
+    mostLovedTrack.style.transform = `translateX(-${mostLovedCurrentIndex * mostLovedCardWidth}px)`;
+  }
+  
+  function scrollMostLovedLeft() {
+    const cards = mostLovedTrack ? mostLovedTrack.querySelectorAll('.package-card') : [];
+    const maxIndex = Math.max(0, cards.length - mostLovedCardsToShow);
+    
+    if (mostLovedCurrentIndex > 0) {
+      mostLovedCurrentIndex--;
+    } else {
+      mostLovedCurrentIndex = maxIndex;
+    }
+    updateMostLovedCarousel();
+  }
+  
+  function scrollMostLovedRight() {
+    const cards = mostLovedTrack ? mostLovedTrack.querySelectorAll('.package-card') : [];
+    const maxIndex = Math.max(0, cards.length - mostLovedCardsToShow);
+    
+    if (mostLovedCurrentIndex < maxIndex) {
+      mostLovedCurrentIndex++;
+    } else {
+      mostLovedCurrentIndex = 0;
+    }
+    updateMostLovedCarousel();
+  }
+  
+  function startMostLovedAutoScroll() {
+    mostLovedAutoScrollInterval = setInterval(scrollMostLovedRight, 4000);
+  }
+  
+  function stopMostLovedAutoScroll() {
+    clearInterval(mostLovedAutoScrollInterval);
+  }
+  
+  // Most Loved carousel controls
+  if (mostLovedPrevBtn && mostLovedNextBtn) {
+    mostLovedPrevBtn.addEventListener('click', () => {
+      stopMostLovedAutoScroll();
+      scrollMostLovedLeft();
+      startMostLovedAutoScroll();
+    });
+    
+    mostLovedNextBtn.addEventListener('click', () => {
+      stopMostLovedAutoScroll();
+      scrollMostLovedRight();
+      startMostLovedAutoScroll();
+    });
+    
+    mostLovedCarousel.addEventListener('mouseenter', stopMostLovedAutoScroll);
+    mostLovedCarousel.addEventListener('mouseleave', startMostLovedAutoScroll);
+  }
+  
+  // Counter Animation for Stats — triggered by IntersectionObserver when section is visible
+  let countersAnimated = false;
+
+  function animateCounters() {
+    if (countersAnimated) return;
+    countersAnimated = true;
+
+    const counters = document.querySelectorAll('.stat-item .counter');
+    counters.forEach(function(counter) {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000;
+      const startTime = Date.now();
+
+      function updateCounter() {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(target * easeOutQuart);
+        counter.textContent = current.toLocaleString();
+
+        if (progress < 1) {
+          setTimeout(updateCounter, 16);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      }
+
+      updateCounter();
+    });
+  }
+
+  // Trigger counter animation when trust section scrolls into view
+  const trustSection = document.querySelector('.trust-section');
+  if (trustSection) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersAnimated) {
+          animateCounters();
+        }
+      });
+    }, { threshold: 0.2 });
+    counterObserver.observe(trustSection);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize carousels after DOM is ready
+    setTimeout(() => {
+      updateBestSellersCarousel();
+      if (bestSellersCarousel) {
+        startBestSellersAutoScroll();
+      }
+
+      updateTrendingCarousel();
+      if (trendingCarousel) {
+        startTrendingAutoScroll();
+      }
+
+      updateMostLovedCarousel();
+      if (mostLovedCarousel) {
+        startMostLovedAutoScroll();
+      }
+    }, 100);
+  });
+
+  // Handle window resize - recalculate carousel positions
+  window.addEventListener('resize', function() {
+    updateBestSellersCarousel();
+    updateTrendingCarousel();
+    updateMostLovedCarousel();
+  });
+
+  // Package card clickable functionality - shared with packages.html
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.package-card.clickable').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('.card-badges, .price-badge, .duration i, .location i')) {
+          return;
+        }
+        const title = this.querySelector('.package-title');
+        const href = title ? title.dataset.href : null;
+        if (href) {
+          window.location.href = href;
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>All Packages – Delight Departures</title>
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+      .package-card.clickable {
+        cursor: pointer !important;
+      }
+      .package-card.clickable:hover {
+        transform: translateY(-12px) !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.22) !important;
+      }
+      .package-card.clickable .card-content:hover * {
+        color: inherit;
+      }
+    </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown-wrapper">
+        <a href="#" class="nav-link dropdown-trigger">
+          Destinations <i class="fas fa-chevron-down nav-dropdown-icon"></i>
+        </a>
+        <div class="nav-dropdown">
+          <div class="dropdown-inner">
+
+            <!-- Asia -->
+            <div class="dropdown-continent asia">
+              <div class="continent-header">
+                <span class="continent-emoji">🌏</span>
+                <span>Asia</span>
+              </div>
+              <ul class="country-list">
+                <li><a href="destinations.html#india">India</a></li>
+                <li><a href="destinations.html#malaysia">Malaysia</a></li>
+                <li><a href="destinations.html#maldives">Maldives</a></li>
+                <li><a href="destinations.html#thailand">Thailand</a></li>
+                <li><a href="destinations.html#bali">Indonesia (Bali)</a></li>
+                <li><a href="destinations.html#vietnam">Vietnam</a></li>
+                <li><a href="destinations.html#philippines">Philippines</a></li>
+                <li><a href="destinations.html#singapore">Singapore</a></li>
+                <li><a href="destinations.html#cambodia">Cambodia</a></li>
+                <li><a href="destinations.html#china">China</a></li>
+                <li><a href="destinations.html#sri-lanka">Sri Lanka</a></li>
+                <li><a href="destinations.html#georgia">Georgia</a></li>
+                <li><a href="destinations.html#south-korea">South Korea</a></li>
+                <li><a href="destinations.html#japan">Japan</a></li>
+                <li><a href="destinations.html#armenia">Armenia</a></li>
+                <li><a href="destinations.html#azerbaijan">Azerbaijan</a></li>
+                <li><a href="destinations.html#bhutan">Bhutan</a></li>
+                <li><a href="destinations.html#kazakhstan">Kazakhstan</a></li>
+                <li><a href="destinations.html#nepal">Nepal</a></li>
+                <li><a href="destinations.html#uzbekistan">Uzbekistan</a></li>
+              </ul>
+            </div>
+
+            <!-- Middle East -->
+            <div class="dropdown-continent">
+              <div class="continent-header">
+                <span class="continent-emoji">🏜️</span>
+                <span>Middle East</span>
+              </div>
+              <ul class="country-list">
+                <li><a href="destinations.html#dubai">United Arab Emirates (Dubai)</a></li>
+                <li><a href="destinations.html#turkey">Turkey</a></li>
+                <li><a href="destinations.html#jordan">Jordan</a></li>
+                <li><a href="destinations.html#oman">Oman</a></li>
+                <li><a href="destinations.html#qatar">Qatar</a></li>
+              </ul>
+            </div>
+
+            <!-- Africa -->
+            <div class="dropdown-continent">
+              <div class="continent-header">
+                <span class="continent-emoji">🌍</span>
+                <span>Africa</span>
+              </div>
+              <ul class="country-list">
+                <li><a href="destinations.html#mauritius">Mauritius</a></li>
+                <li><a href="destinations.html#egypt">Egypt</a></li>
+                <li><a href="destinations.html#kenya">Kenya</a></li>
+                <li><a href="destinations.html#seychelles">Seychelles</a></li>
+                <li><a href="destinations.html#south-africa">South Africa</a></li>
+                <li><a href="destinations.html#tanzania">Tanzania</a></li>
+                <li><a href="destinations.html#ethiopia">Ethiopia</a></li>
+                <li><a href="destinations.html#morocco">Morocco</a></li>
+              </ul>
+            </div>
+
+            <!-- Europe -->
+            <div class="dropdown-continent">
+              <div class="continent-header">
+                <span class="continent-emoji">🌍</span>
+                <span>Europe</span>
+              </div>
+              <p class="coming-soon-text">Coming Soon..!</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+<a href="testimonials.html" class="nav-link">Testimonials</a>
+      <a href="blogs.html" class="nav-link">Blogs</a>
+<a href="about.html" class="nav-link">About Us</a>
+    </div>
+    <a href="#" class="nav-cta" onclick="showContactModal()">Contact Us</a>
+    <div class="contact-modal-overlay" id="contactModal" onclick="closeContactModal(event)">
+  <div class="contact-modal-box">
+    <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+    <div class="contact-modal-icon">✈️</div>
+    <h3 class="contact-modal-title">Get in Touch</h3>
+    <p class="contact-modal-sub">Choose how you'd like to reach us — we're ready to help plan your perfect trip.</p>
+    <div class="contact-modal-actions">
+      <a href="tel:+919429693718" class="contact-action-btn call-btn">
+        <div class="cab-icon"><i class="fas fa-phone"></i></div>
+        <div class="cab-text">
+          <span class="cab-label">Call Us</span>
+          <span class="cab-num">+91 94296 93718</span>
+        </div>
+        <i class="fas fa-arrow-right cab-arrow"></i>
+      </a>
+      <a href="https://wa.me/918123568002" target="_blank" rel="noopener" class="contact-action-btn wa-btn">
+        <div class="cab-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="cab-text">
+          <span class="cab-label">WhatsApp Us</span>
+          <span class="cab-num">+91 81235 68002</span>
+        </div>
+        <i class="fas fa-arrow-right cab-arrow"></i>
+      </a>
+    </div>
+    <p class="contact-modal-hours"><i class="fas fa-clock"></i> All Days · 10:30 AM – 7:30 PM &nbsp;|&nbsp; WhatsApp 24 / 7</p>
+  </div>
+</div>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Scroll to Top Button -->
+<a href="#" class="scroll-top-btn" id="scrollTopBtn">
+  <i class="fas fa-chevron-up"></i>
+</a>
+
+<!-- Page Hero -->
+<div class="packages-page-hero">
+  <h1>All Tours</h1>
+  <p>Explore our complete collection of handpicked travel experiences</p>
+</div>
+
+<!-- Sticky Jump Navigation -->
+<nav class="packages-jump-nav" id="packagesJumpNav">
+  <div class="packages-jump-nav-inner">
+    <a href="#best-sellers" class="jump-link">
+      <i class="fas fa-star"></i> Best Sellers
+    </a>
+    <a href="#trending" class="jump-link">
+      <i class="fas fa-fire"></i> High Trending
+    </a>
+    <a href="#most-loved" class="jump-link">
+      <i class="fas fa-heart"></i> Most Loved
+    </a>
+    <a href="#destinations" class="jump-link">
+      <i class="fas fa-globe"></i> Browse by Destination
+    </a>
+  </div>
+</nav>
+
+<!-- ===== Best Sellers ===== -->
+<section id="best-sellers" class="all-packages-section">
+  <div class="all-packages-container">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="section-icon"><i class="fas fa-star"></i></span>
+        <div class="section-text">
+          <h2>Best Sellers</h2>
+          <p>Our most loved travel packages</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="packages-grid">
+      <!-- Card 1 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop" alt="Dubai">
+          <div class="card-badges">
+            <span class="badge flight">Private Tour</span>
+            <span class="badge group">Group Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹89,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Dubai – United Arab Emirates</span>
+          </div>
+          <h3 class="package-title">Dubai Delight with Desert Safari</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>5 Nights 6 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&h=400&fit=crop" alt="Bali">
+          <div class="card-badges">
+            <span class="badge">Private Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,04,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Bali – Indonesia</span>
+          </div>
+          <h3 class="package-title">Bali Beach & Cultural Tour</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>6 Nights 7 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=600&h=400&fit=crop" alt="Maldives">
+          <div class="card-badges">
+            <span class="badge group">Honeymoon Special</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,45,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Maldives</span>
+          </div>
+          <h3 class="package-title">Maldives Paradise Escape</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>4 Nights 5 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="package-card clickable">
+        <div class="card-image">
+          <img src="assets/Thailand 4N-5D Group/hero1.png" alt="Thailand Group Tour">
+          <div class="card-badges">
+            <span class="badge flight">Flight Inclusive</span>
+            <span class="badge group">Group Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹44,800</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Thailand – Pattaya & Bangkok</span>
+          </div>
+          <h3 class="package-title" data-href="thailand-group-tour.html">Thailand Group Tour</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>4 Nights 5 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="package-card clickable">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop" alt="Singapore">
+          <div class="card-badges">
+            <span class="badge">Private Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹79,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Singapore & Malaysia</span>
+          </div>
+          <h3 class="package-title" data-href="majestic-malaysia-tour.html">Majestic Malaysia Tour 3N / 4D</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>4 Nights 5 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="package-card clickable">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop" alt="Kashmir">
+          <div class="card-badges">
+            <span class="badge group">Domestic Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹45,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Kashmir – India</span>
+          </div>
+          <h3 class="package-title" data-href="kashmir-heaven-on-earth.html">Kashmir Heaven on Earth</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>5 Nights 6 Days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== High Trending ===== -->
+<section id="trending" class="all-packages-section alt-bg">
+  <div class="all-packages-container">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="section-icon"><i class="fas fa-fire"></i></span>
+        <div class="section-text">
+          <h2>High Trending</h2>
+          <p>Hot destinations everyone is booking</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="packages-grid">
+      <!-- Card 1 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop" alt="Paris">
+          <div class="card-badges">
+            <span class="badge flight">Private Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,29,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Paris – France</span>
+          </div>
+          <h3 class="package-title">Paris City of Love & Lights</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>5 Nights 6 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=600&h=400&fit=crop" alt="Tokyo">
+          <div class="card-badges">
+            <span class="badge flight">Private Tour</span>
+            <span class="badge group">Group Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,59,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Tokyo – Japan</span>
+          </div>
+          <h3 class="package-title">Tokyo & Kyoto Cultural Journey</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>6 Nights 7 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop" alt="New York">
+          <div class="card-badges">
+            <span class="badge flight">Private Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,89,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New York – USA</span>
+          </div>
+          <h3 class="package-title">New York City Explorer</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>5 Nights 6 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="package-card clickable">
+        <div class="card-image">
+          <img src="/assets/malaysia-cover-img.jpg" alt="Malaysia">
+          <div class="card-badges">
+            <span class="badge">Private Tour</span>
+            <span class="badge flight">Land Package</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹34,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Malaysia – Kuala Lumpur</span>
+          </div>
+          <h3 class="package-title" data-href="majestic-malaysia-tour.html">Majestic Malaysia Tour 3N / 4D</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>3 Nights 4 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=600&h=400&fit=crop" alt="Amsterdam">
+          <div class="card-badges">
+            <span class="badge flight">Land Package</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,19,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Amsterdam – Netherlands</span>
+          </div>
+          <h3 class="package-title">Amsterdam Canals & Culture</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>4 Nights 5 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&h=400&fit=crop" alt="Lisbon">
+          <div class="card-badges">
+            <span class="badge flight">Land Package</span>
+            <span class="badge group">Honeymoon Special</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,09,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Lisbon – Portugal</span>
+          </div>
+          <h3 class="package-title">Lisbon & Porto Scenic Tour</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>5 Nights 6 Days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Most Loved ===== -->
+<section id="most-loved" class="all-packages-section">
+  <div class="all-packages-container">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="section-icon"><i class="fas fa-heart"></i></span>
+        <div class="section-text">
+          <h2>Most Loved</h2>
+          <p>Packages with 5-star ratings</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="packages-grid">
+      <!-- Card 1 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=600&h=400&fit=crop" alt="Goa">
+          <div class="card-badges">
+            <span class="badge group">Beach Special</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹34,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Goa – India</span>
+          </div>
+          <h3 class="package-title">Goa Beach Vacation</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>3 Nights 4 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop" alt="Caribbean">
+          <div class="card-badges">
+            <span class="badge flight">All Inclusive</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,65,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Caribbean – Bahamas</span>
+          </div>
+          <h3 class="package-title">Caribbean Beach Paradise</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>6 Nights 7 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop" alt="Greece">
+          <div class="card-badges">
+            <span class="badge flight">Land Package</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,39,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Greece – Santorini & Mykonos</span>
+          </div>
+          <h3 class="package-title">Greek Islands Explorer</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>6 Nights 7 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&h=400&fit=crop" alt="Sri Lanka">
+          <div class="price-badge">
+            <span class="price">₹54,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Sri Lanka</span>
+          </div>
+          <h3 class="package-title">Sri Lanka Cultural Trail</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>5 Nights 6 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop" alt="Canada">
+          <div class="card-badges">
+            <span class="badge flight">Land Package</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹1,99,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Canada – Rocky Mountains</span>
+          </div>
+          <h3 class="package-title">Canadian Rockies Adventure</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>7 Nights 8 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="package-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&h=400&fit=crop" alt="Abu Dhabi">
+          <div class="card-badges">
+            <span class="badge group">Group Tour</span>
+          </div>
+          <div class="price-badge">
+            <span class="price">₹94,999</span>
+            <span class="per-person">Per Person</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Abu Dhabi – UAE</span>
+          </div>
+          <h3 class="package-title">Abu Dhabi Luxury Experience</h3>
+          <div class="duration">
+            <i class="far fa-clock"></i>
+            <span>4 Nights 5 Days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Browse by Destination ===== -->
+<section id="destinations" class="dest-browse-section">
+  <div class="dest-browse-container">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="section-icon"><i class="fas fa-globe"></i></span>
+        <div class="section-text">
+          <h2>Browse by Destination</h2>
+          <p>Find your perfect package by destination</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Asia -->
+    <div class="dest-continent-group">
+      <div class="dest-continent-title">
+        <span>🌏</span> Asia
+      </div>
+      <div class="dest-chips">
+        <a href="destinations.html#india" class="dest-chip">India</a>
+        <a href="destinations.html#malaysia" class="dest-chip">Malaysia</a>
+        <a href="destinations.html#maldives" class="dest-chip">Maldives</a>
+        <a href="destinations.html#thailand" class="dest-chip">Thailand</a>
+        <a href="destinations.html#bali" class="dest-chip">Indonesia (Bali)</a>
+        <a href="destinations.html#vietnam" class="dest-chip">Vietnam</a>
+        <a href="destinations.html#philippines" class="dest-chip">Philippines</a>
+        <a href="destinations.html#singapore" class="dest-chip">Singapore</a>
+        <a href="destinations.html#cambodia" class="dest-chip">Cambodia</a>
+        <a href="destinations.html#china" class="dest-chip">China</a>
+        <a href="destinations.html#sri-lanka" class="dest-chip">Sri Lanka</a>
+        <a href="destinations.html#georgia" class="dest-chip">Georgia</a>
+        <a href="destinations.html#south-korea" class="dest-chip">South Korea</a>
+        <a href="destinations.html#japan" class="dest-chip">Japan</a>
+        <a href="destinations.html#armenia" class="dest-chip">Armenia</a>
+        <a href="destinations.html#azerbaijan" class="dest-chip">Azerbaijan</a>
+        <a href="destinations.html#bhutan" class="dest-chip">Bhutan</a>
+        <a href="destinations.html#kazakhstan" class="dest-chip">Kazakhstan</a>
+        <a href="destinations.html#nepal" class="dest-chip">Nepal</a>
+        <a href="destinations.html#uzbekistan" class="dest-chip">Uzbekistan</a>
+      </div>
+    </div>
+
+    <!-- Middle East -->
+    <div class="dest-continent-group">
+      <div class="dest-continent-title">
+        <span>🏜️</span> Middle East
+      </div>
+      <div class="dest-chips">
+        <a href="destinations.html#dubai" class="dest-chip">United Arab Emirates (Dubai)</a>
+        <a href="destinations.html#turkey" class="dest-chip">Turkey</a>
+        <a href="destinations.html#jordan" class="dest-chip">Jordan</a>
+        <a href="destinations.html#oman" class="dest-chip">Oman</a>
+        <a href="destinations.html#qatar" class="dest-chip">Qatar</a>
+      </div>
+    </div>
+
+    <!-- Africa -->
+    <div class="dest-continent-group">
+      <div class="dest-continent-title">
+        <span>🌍</span> Africa
+      </div>
+      <div class="dest-chips">
+        <a href="destinations.html#mauritius" class="dest-chip">Mauritius</a>
+        <a href="destinations.html#egypt" class="dest-chip">Egypt</a>
+        <a href="destinations.html#kenya" class="dest-chip">Kenya</a>
+        <a href="destinations.html#seychelles" class="dest-chip">Seychelles</a>
+        <a href="destinations.html#south-africa" class="dest-chip">South Africa</a>
+        <a href="destinations.html#tanzania" class="dest-chip">Tanzania</a>
+        <a href="destinations.html#ethiopia" class="dest-chip">Ethiopia</a>
+        <a href="destinations.html#morocco" class="dest-chip">Morocco</a>
+      </div>
+    </div>
+
+    <!-- Europe -->
+    <div class="dest-continent-group">
+      <div class="dest-continent-title">
+        <span>🌍</span> Europe
+      </div>
+      <div class="dest-chips">
+        <span class="dest-coming-soon-chip">Coming Soon..!</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="privacy-footer">
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms-and-conditions.html">Terms & Conditions</a>
+  <a href="refund-policy.html">Refund Policy</a>
+  <p>© 2026 Delight Departures</p>
+</footer>
+
+<script src="js/whatsapp.js"></script>
+<script>
+  //CTA Contact Us Button
+  function showContactModal() {
+    document.getElementById('contactModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeContactModal(e) {
+    // Close on overlay click or close button click
+    if (!e || e.target === document.getElementById('contactModal')) {
+      document.getElementById('contactModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeContactModal();
+  });
+  
+  // Mobile menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const navCta = document.querySelector('.nav-cta');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    navCta.classList.toggle('active');
+  });
+
+  // Destinations dropdown — desktop hover + mobile click
+  const dropdownWrapper = document.querySelector('.nav-dropdown-wrapper');
+  const navDropdown = document.querySelector('.nav-dropdown');
+  const dropdownTrigger = document.querySelector('.dropdown-trigger');
+  let dropdownTimeout;
+
+  function openDropdown() {
+    clearTimeout(dropdownTimeout);
+    dropdownWrapper.classList.add('open');
+  }
+
+  function closeDropdown() {
+    dropdownTimeout = setTimeout(() => {
+      dropdownWrapper.classList.remove('open');
+    }, 120);
+  }
+
+  if (dropdownWrapper && navDropdown) {
+    dropdownWrapper.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) openDropdown();
+    });
+    dropdownWrapper.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) closeDropdown();
+    });
+    navDropdown.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) openDropdown();
+    });
+    navDropdown.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 768) closeDropdown();
+    });
+    dropdownTrigger.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdownWrapper.classList.toggle('open');
+      }
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (dropdownWrapper && navDropdown && !dropdownWrapper.contains(e.target) && !navDropdown.contains(e.target)) {
+      dropdownWrapper.classList.remove('open');
+    }
+  });
+
+  // Close dropdown when a country link inside it is clicked
+  document.querySelectorAll('.nav-dropdown a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (dropdownWrapper) dropdownWrapper.classList.remove('open');
+    });
+  });
+
+  // Navbar hide/show + scroll-to-top button
+  const navbar = document.querySelector('.navbar');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  let lastScrollTop = 0;
+  const scrollThreshold = 200;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
+
+    // Navbar hide/show
+    if (scrollTop < 50) {
+      navbar.classList.remove('hidden');
+    } else if (scrollDirection === 'down' && scrollTop > 100) {
+      navbar.classList.add('hidden');
+    } else if (scrollDirection === 'up') {
+      navbar.classList.remove('hidden');
+    }
+
+    // Scroll-to-top button — show only when scrolling up past threshold
+    if (scrollDirection === 'up' && scrollTop > scrollThreshold) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, { passive: true });
+
+  // Scroll to top on button click
+  scrollTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Highlight active jump link on scroll
+  const jumpLinks = document.querySelectorAll('.jump-link');
+  const pageSections = document.querySelectorAll('.all-packages-section, .dest-browse-section');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    pageSections.forEach(section => {
+      const sectionTop = section.offsetTop - 160;
+      if (window.pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    jumpLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }, { passive: true });
+
+  // Smooth scroll to hash on page load (for View All links from index.html)
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          const offset = target.getBoundingClientRect().top + window.pageYOffset - 150;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+        }, 150);
+      }
+    }
+  });
+
+  // Smooth scroll for jump nav links
+  jumpLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        const offset = target.getBoundingClientRect().top + window.pageYOffset - 150;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Package card clickable functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.package-card.clickable').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        // Don't navigate if clicking on interactive elements like badges, icons
+        if (e.target.closest('.card-badges, .price-badge, .duration i, .location i')) {
+          return;
+        }
+        const title = this.querySelector('.package-title');
+        const href = title ? title.dataset.href : null;
+        if (href) {
+          window.location.href = href;
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

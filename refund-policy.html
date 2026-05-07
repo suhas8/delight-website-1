@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Refund Policy - Delight Departures</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:        #1a2a5e;
+      --navy-mid:    #2d4a8a;
+      --navy-deep:   #111e45;
+      --orange:      #FF6B35;
+      --orange-lt:   #FF8C42;
+      --orange-pale: #fff4ef;
+      --white:       #ffffff;
+      --gray-bg:     #f7f8fc;
+      --gray-text:   #4a5568;
+      --gray-sub:    #718096;
+      --gray-dark:   #1a202c;
+      --border:      rgba(26,42,94,0.08);
+      --shadow-sm:   0 4px 16px rgba(26,42,94,0.07);
+      --shadow-md:   0 12px 40px rgba(26,42,94,0.12);
+      --shadow-lg:   0 28px 72px rgba(26,42,94,0.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--gray-dark);overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+
+    /* ── HERO ── */
+    .rp-hero{
+      position:relative;
+      background:linear-gradient(135deg,#111e45 0%,#1a2a5e 50%,#2d4a8a 100%);
+      padding:140px 24px 100px;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;min-height:460px;
+    }
+    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,0.09) 1px,transparent 1px);background-size:30px 30px;}
+    .h-orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.15;animation:orbDrift 10s ease-in-out infinite alternate;}
+    .h-orb-1{width:480px;height:480px;background:#FF6B35;top:-180px;right:-100px;}
+    .h-orb-2{width:340px;height:340px;background:#60a5fa;bottom:-110px;left:-70px;animation-delay:3s;}
+    .h-orb-3{width:180px;height:180px;background:#fbbf24;top:40%;left:42%;animation-delay:5s;}
+    @keyframes orbDrift{from{transform:translate(0,0) scale(1);}to{transform:translate(18px,-28px) scale(1.07);}}
+    .hero-stripe{position:absolute;bottom:0;left:0;right:0;height:70px;background:var(--white);clip-path:polygon(0 100%,100% 0,100% 100%);}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:680px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.11);border:1px solid rgba(255,255,255,0.22);backdrop-filter:blur(10px);border-radius:40px;padding:8px 22px;color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;animation:fadeDown .7s ease both;}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;color:#fff;line-height:1.18;margin-bottom:16px;animation:fadeDown .7s .15s ease both;}
+    .hero-title em{color:#FF8C42;font-style:italic;}
+    .hero-sub{font-size:.97rem;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:0;max-width:520px;margin-left:auto;margin-right:auto;animation:fadeDown .7s .3s ease both;}
+    .hero-date{display:inline-flex;align-items:center;gap:7px;margin-top:22px;background:rgba(255,255,255,0.1);border-radius:30px;padding:7px 18px;font-size:.78rem;color:rgba(255,255,255,0.65);font-weight:500;animation:fadeDown .7s .45s ease both;}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ── QUICK-GLANCE PILLS ── */
+    .quick-band{
+      background:var(--gray-bg);
+      border-bottom:1px solid var(--border);
+      padding:28px 24px;
+    }
+    .quick-inner{
+      max-width:1100px;margin:0 auto;
+      display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+    }
+    @media(max-width:840px){.quick-inner{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:480px){.quick-inner{grid-template-columns:1fr;}}
+    .q-pill{
+      display:flex;align-items:center;gap:14px;
+      background:var(--white);border-radius:18px;
+      border:1px solid var(--border);padding:18px 20px;
+      box-shadow:var(--shadow-sm);
+      transition:transform .3s ease,box-shadow .3s ease;
+    }
+    .q-pill:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+    .q-pill-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+    .qi-orange{background:linear-gradient(135deg,#FF6B35,#FF8C42);}
+    .qi-navy{background:linear-gradient(135deg,#1a2a5e,#2d4a8a);}
+    .qi-green{background:linear-gradient(135deg,#059669,#10b981);}
+    .qi-rose{background:linear-gradient(135deg,#e11d48,#f43f5e);}
+    .q-pill-text{}
+    .q-pill-label{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gray-sub);margin-bottom:3px;}
+    .q-pill-val{font-size:.88rem;font-weight:700;color:var(--navy);}
+
+    /* ── LAYOUT ── */
+    .rp-layout{
+      max-width:1100px;margin:0 auto;
+      padding:72px 24px 96px;
+      display:grid;grid-template-columns:250px 1fr;gap:52px;align-items:start;
+    }
+    @media(max-width:880px){.rp-layout{grid-template-columns:1fr;}}
+
+    /* ── STICKY TOC ── */
+    .toc{
+      position:sticky;top:88px;
+      background:var(--white);border-radius:22px;
+      border:1px solid var(--border);box-shadow:var(--shadow-sm);
+      padding:26px 22px;
+    }
+    @media(max-width:880px){.toc{position:static;}}
+    .toc-title{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:18px;display:flex;align-items:center;gap:7px;}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px;}
+    .toc-list li a{
+      display:flex;align-items:center;gap:9px;
+      padding:9px 12px;border-radius:12px;
+      font-size:.81rem;font-weight:500;color:var(--gray-sub);
+      transition:all .22s ease;
+    }
+    .toc-list li a:hover{background:var(--orange-pale);color:var(--orange);}
+    .toc-list li a.active{background:var(--orange-pale);color:var(--orange);font-weight:700;}
+    .toc-list li a i{font-size:.65rem;color:var(--orange);flex-shrink:0;}
+    .toc-contact{margin-top:22px;padding:16px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:14px;text-align:center;}
+    .toc-contact p{font-size:.75rem;color:rgba(255,255,255,0.62);line-height:1.6;margin-bottom:10px;}
+    .toc-contact a{display:inline-flex;align-items:center;gap:6px;background:var(--orange);color:#fff;border-radius:20px;padding:7px 16px;font-size:.75rem;font-weight:700;transition:opacity .2s ease;}
+    .toc-contact a:hover{opacity:.88;}
+
+    /* ── POLICY CONTENT ── */
+    .update-banner{display:flex;align-items:center;gap:12px;background:var(--orange-pale);border:1px solid rgba(255,107,53,0.2);border-radius:14px;padding:14px 20px;margin-bottom:44px;font-size:.83rem;color:var(--orange);font-weight:600;}
+    .update-banner i{font-size:1rem;flex-shrink:0;}
+
+    .rp-intro{background:var(--gray-bg);border-radius:22px;padding:30px 32px;border-left:4px solid var(--orange);margin-bottom:48px;box-shadow:var(--shadow-sm);}
+    .rp-intro p{font-size:.92rem;color:var(--gray-text);line-height:1.8;}
+    .rp-intro strong{color:var(--navy);}
+
+    /* Section */
+    .rp-section{margin-bottom:56px;scroll-margin-top:100px;}
+    .rp-sec-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--gray-bg);}
+    .rp-sec-icon{width:50px;height:50px;border-radius:15px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.25rem;}
+    .ic-orange{background:linear-gradient(135deg,#FF6B35,#FF8C42);}
+    .ic-navy{background:linear-gradient(135deg,#1a2a5e,#2d4a8a);}
+    .ic-green{background:linear-gradient(135deg,#059669,#10b981);}
+    .ic-rose{background:linear-gradient(135deg,#e11d48,#f43f5e);}
+    .ic-teal{background:linear-gradient(135deg,#0891b2,#06b6d4);}
+    .ic-amber{background:linear-gradient(135deg,#b45309,#d97706);}
+    .rp-sec-num{font-family:'Playfair Display',serif;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:4px;}
+    .rp-sec-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:800;color:var(--navy);}
+
+    .rp-text{font-size:.9rem;color:var(--gray-text);line-height:1.85;margin-bottom:16px;}
+    .rp-text:last-child{margin-bottom:0;}
+    .rp-text strong{color:var(--gray-dark);}
+    .rp-text a{color:var(--orange);font-weight:600;}
+    .rp-text a:hover{text-decoration:underline;}
+
+    /* List */
+    .rp-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:18px;}
+    .rp-list li{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:var(--gray-text);line-height:1.7;}
+    .rp-list li i{color:var(--orange);font-size:.75rem;flex-shrink:0;margin-top:5px;}
+
+    /* Coloured cards */
+    .rp-box{border-radius:18px;padding:22px 24px;margin-bottom:18px;display:flex;gap:16px;align-items:flex-start;}
+    .rp-box.blue{background:#eff6ff;border:1px solid #bfdbfe;}
+    .rp-box.green{background:#f0fdf4;border:1px solid #bbf7d0;}
+    .rp-box.amber{background:#fffbeb;border:1px solid #fde68a;}
+    .rp-box.rose{background:#fff1f2;border:1px solid #fecdd3;}
+    .rp-box.navy{background:rgba(26,42,94,0.04);border:1px solid rgba(26,42,94,0.12);}
+    .rp-box-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+    .rp-box-text{font-size:.87rem;line-height:1.72;}
+    .rp-box.blue  .rp-box-text{color:#1d4ed8;}
+    .rp-box.green .rp-box-text{color:#15803d;}
+    .rp-box.amber .rp-box-text{color:#92400e;}
+    .rp-box.rose  .rp-box-text{color:#be123c;}
+    .rp-box.navy  .rp-box-text{color:var(--navy);}
+    .rp-box-text strong{display:block;margin-bottom:5px;}
+
+    /* Cancellation timeline steps */
+    .timeline{display:flex;flex-direction:column;gap:0;margin:20px 0 24px;position:relative;}
+    .timeline::before{content:'';position:absolute;left:23px;top:0;bottom:0;width:2px;background:var(--border);}
+    .tl-step{display:flex;gap:18px;align-items:flex-start;padding-bottom:28px;position:relative;}
+    .tl-step:last-child{padding-bottom:0;}
+    .tl-dot{
+      width:46px;height:46px;border-radius:50%;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      font-size:.82rem;font-weight:800;color:#fff;
+      border:3px solid var(--white);
+      box-shadow:0 0 0 2px var(--border);
+      position:relative;z-index:1;
+    }
+    .tl-body{flex:1;padding-top:10px;}
+    .tl-heading{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+    .tl-sub{font-size:.83rem;color:var(--gray-text);line-height:1.65;}
+    .tl-tag{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:3px 12px;font-size:.72rem;font-weight:700;margin-top:7px;}
+    .tag-red{background:#fff1f2;color:#e11d48;border:1px solid #fecdd3;}
+    .tag-amber{background:#fffbeb;color:#b45309;border:1px solid #fde68a;}
+    .tag-green{background:#f0fdf4;color:#059669;border:1px solid #bbf7d0;}
+
+    /* Non-refundable grid */
+    .nr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0 24px;}
+    @media(max-width:600px){.nr-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:380px){.nr-grid{grid-template-columns:1fr;}}
+    .nr-card{
+      background:var(--white);border-radius:18px;padding:22px 18px;text-align:center;
+      border:1px solid var(--border);box-shadow:var(--shadow-sm);
+      transition:transform .3s ease,box-shadow .3s ease;
+    }
+    .nr-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+    .nr-icon{font-size:1.8rem;margin-bottom:10px;}
+    .nr-label{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:5px;}
+    .nr-note{font-size:.74rem;color:var(--gray-sub);line-height:1.5;}
+    .nr-badge{display:inline-block;background:#fff1f2;color:#e11d48;border:1px solid #fecdd3;border-radius:10px;padding:2px 10px;font-size:.68rem;font-weight:800;margin-top:8px;}
+
+    /* Refund process steps */
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0 24px;position:relative;}
+    @media(max-width:700px){.process-steps{grid-template-columns:repeat(2,1fr);}}
+    .process-steps::before{
+      content:'';position:absolute;
+      top:34px;left:12.5%;right:12.5%;height:2px;
+      background:linear-gradient(90deg,var(--orange),var(--navy));
+      opacity:.15;
+    }
+    @media(max-width:700px){.process-steps::before{display:none;}}
+    .ps-step{background:var(--white);border-radius:18px;padding:22px 16px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow-sm);position:relative;transition:transform .3s ease,box-shadow .3s ease;}
+    .ps-step:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+    .ps-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-lt));color:#fff;font-size:.85rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;}
+    .ps-icon{font-size:1.5rem;margin-bottom:10px;}
+    .ps-label{font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:5px;}
+    .ps-sub{font-size:.73rem;color:var(--gray-sub);line-height:1.55;}
+
+    /* Contact card */
+    .rp-contact-card{background:linear-gradient(135deg,#1a2a5e,#2d4a8a);border-radius:22px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px;}
+    @media(max-width:560px){.rp-contact-card{grid-template-columns:1fr;}}
+    .pcc-item{display:flex;align-items:flex-start;gap:14px;}
+    .pcc-icon{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:#FF8C42;font-size:.95rem;flex-shrink:0;}
+    .pcc-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:3px;}
+    .pcc-val{font-size:.88rem;color:#fff;font-weight:600;}
+    .pcc-val a{color:#FF8C42;}
+    .pcc-val a:hover{text-decoration:underline;}
+
+    /* Table */
+    .rp-table-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--border);margin-bottom:20px;}
+    table{width:100%;border-collapse:collapse;font-size:.85rem;}
+    thead tr{background:var(--navy);color:#fff;}
+    thead th{padding:13px 18px;text-align:left;font-weight:700;font-size:.79rem;letter-spacing:.04em;}
+    tbody tr{border-bottom:1px solid var(--border);}
+    tbody tr:last-child{border-bottom:none;}
+    tbody tr:nth-child(even){background:var(--gray-bg);}
+    tbody td{padding:12px 18px;color:var(--gray-text);vertical-align:top;line-height:1.6;}
+    tbody td:first-child{color:var(--navy);font-weight:600;}
+    .badge-nr{display:inline-block;background:#fff1f2;color:#e11d48;border-radius:8px;padding:2px 9px;font-size:.7rem;font-weight:700;}
+    .badge-partial{display:inline-block;background:#fffbeb;color:#b45309;border-radius:8px;padding:2px 9px;font-size:.7rem;font-weight:700;}
+    .badge-full{display:inline-block;background:#f0fdf4;color:#059669;border-radius:8px;padding:2px 9px;font-size:.7rem;font-weight:700;}
+
+    /* ── CTA ── */
+    .rp-cta{background:linear-gradient(135deg,#111e45 0%,#1a2a5e 50%,#2d4a8a 100%);padding:80px 24px;text-align:center;position:relative;overflow:hidden;}
+    .rp-cta::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:28px 28px;}
+    .cta-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.12;}
+    .cta-o1{width:360px;height:360px;background:#FF6B35;top:-120px;right:-60px;}
+    .cta-o2{width:280px;height:280px;background:#60a5fa;bottom:-80px;left:-50px;}
+    .cta-inner{position:relative;z-index:2;max-width:580px;margin:0 auto;}
+    .cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:14px;}
+    .cta-inner h2 em{color:#FF8C42;font-style:italic;}
+    .cta-inner p{font-size:.95rem;color:rgba(255,255,255,0.68);line-height:1.7;margin-bottom:32px;}
+    .cta-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+    .btn-white{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:#fff;color:var(--navy);border-radius:50px;font-weight:700;font-size:.9rem;transition:all .3s ease;box-shadow:0 8px 24px rgba(0,0,0,0.14);}
+    .btn-white:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,0.18);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);border-radius:50px;font-weight:600;font-size:.9rem;transition:all .3s ease;}
+    .btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:#fff;transform:translateY(-3px);}
+
+    /* ── FOOTER ── */
+    .site-footer{background:var(--navy-deep);padding:72px 24px 0;}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.08);}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;}
+    .footer-logo span{color:var(--orange);}
+    .footer-brand p{font-size:.84rem;line-height:1.75;color:rgba(255,255,255,0.48);margin:14px 0 22px;max-width:300px;}
+    .footer-socials{display:flex;gap:10px;flex-wrap:wrap;}
+    .f-social{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);transition:all .25s ease;cursor:pointer;}
+    .f-social:hover{background:var(--orange);color:#fff;border-color:var(--orange);transform:translateY(-2px);}
+    .footer-col h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.88);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:.84rem;color:rgba(255,255,255,0.46);transition:color .2s ease;display:flex;align-items:center;gap:8px;}
+    .footer-col ul li a:hover{color:var(--orange-lt);}
+    .footer-col ul li a i{font-size:.62rem;color:var(--orange);}
+    .contact-note{margin-top:18px;padding:14px 16px;background:rgba(255,107,53,0.1);border-radius:14px;border:1px solid rgba(255,107,53,0.18);}
+    .contact-note p{font-size:.78rem;color:rgba(255,255,255,0.65);line-height:1.65;}
+    .contact-note strong{color:#FF8C42;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+    .footer-bottom p{font-size:.79rem;color:rgba(255,255,255,0.3);}
+    .footer-legal{display:flex;gap:20px;flex-wrap:wrap;}
+    .footer-legal a{font-size:.77rem;color:rgba(255,255,255,0.35);transition:color .2s ease;}
+    .footer-legal a:hover{color:rgba(255,255,255,0.75);}
+
+    /* ── SCROLL TOP & REVEAL ── */
+    .scroll-top-btn{position:fixed;bottom:28px;right:28px;z-index:999;width:48px;height:48px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 8px 24px rgba(255,107,53,0.38);opacity:0;transform:translateY(16px);transition:all .3s ease;pointer-events:none;}
+    .scroll-top-btn.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+    .scroll-top-btn:hover{transform:translateY(-4px);}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .rd1{transition-delay:.08s;}.rd2{transition-delay:.16s;}.rd3{transition-delay:.24s;}.rd4{transition-delay:.32s;}
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown-wrapper">
+        <a href="#" class="nav-link dropdown-trigger">Destinations <i class="fas fa-chevron-down nav-dropdown-icon"></i></a>
+        <div class="nav-dropdown">
+          <div class="dropdown-inner">
+            <div class="dropdown-continent asia">
+              <div class="continent-header"><span class="continent-emoji">🌏</span><span>Asia</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#india">India</a></li><li><a href="destinations.html#malaysia">Malaysia</a></li><li><a href="destinations.html#maldives">Maldives</a></li><li><a href="destinations.html#thailand">Thailand</a></li><li><a href="destinations.html#bali">Indonesia (Bali)</a></li><li><a href="destinations.html#vietnam">Vietnam</a></li><li><a href="destinations.html#philippines">Philippines</a></li><li><a href="destinations.html#singapore">Singapore</a></li><li><a href="destinations.html#cambodia">Cambodia</a></li><li><a href="destinations.html#china">China</a></li><li><a href="destinations.html#sri-lanka">Sri Lanka</a></li><li><a href="destinations.html#georgia">Georgia</a></li><li><a href="destinations.html#south-korea">South Korea</a></li><li><a href="destinations.html#japan">Japan</a></li><li><a href="destinations.html#armenia">Armenia</a></li><li><a href="destinations.html#azerbaijan">Azerbaijan</a></li><li><a href="destinations.html#bhutan">Bhutan</a></li><li><a href="destinations.html#kazakhstan">Kazakhstan</a></li><li><a href="destinations.html#nepal">Nepal</a></li><li><a href="destinations.html#uzbekistan">Uzbekistan</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🏜️</span><span>Middle East</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#dubai">UAE (Dubai)</a></li><li><a href="destinations.html#turkey">Turkey</a></li><li><a href="destinations.html#jordan">Jordan</a></li><li><a href="destinations.html#oman">Oman</a></li><li><a href="destinations.html#qatar">Qatar</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🌍</span><span>Africa</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#mauritius">Mauritius</a></li><li><a href="destinations.html#egypt">Egypt</a></li><li><a href="destinations.html#kenya">Kenya</a></li><li><a href="destinations.html#seychelles">Seychelles</a></li><li><a href="destinations.html#south-africa">South Africa</a></li><li><a href="destinations.html#tanzania">Tanzania</a></li><li><a href="destinations.html#ethiopia">Ethiopia</a></li><li><a href="destinations.html#morocco">Morocco</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🌍</span><span>Europe</span></div>
+              <p class="coming-soon-text">Coming Soon..!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="testimonials.html" class="nav-link">Testimonials</a>
+      <a href="blogs.html" class="nav-link">Blogs</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </div>
+    <a href="#" class="nav-cta" onclick="showContactModal()">Contact Us</a>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<a href="#" class="scroll-top-btn" id="scrollTopBtn"><i class="fas fa-chevron-up"></i></a>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="rp-hero">
+  <div class="hero-dots"></div>
+  <div class="h-orb h-orb-1"></div>
+  <div class="h-orb h-orb-2"></div>
+  <div class="h-orb h-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-undo-alt"></i>&nbsp; Transparent &amp; Fair Policies</div>
+    <h1 class="hero-title">Refund <em>Policy</em></h1>
+    <p class="hero-sub">We believe in honest, transparent policies. Please read this carefully before making a booking so you know exactly where you stand.</p>
+    <div class="hero-date"><i class="fas fa-calendar-alt"></i> Last Updated: 1 April 2026 &nbsp;·&nbsp; Effective: 1 April 2026</div>
+  </div>
+  <div class="hero-stripe"></div>
+</section>
+
+<!-- ══════════════════ QUICK GLANCE ══════════════════ -->
+<div class="quick-band">
+  <div class="quick-inner">
+    <div class="q-pill reveal rd1">
+      <div class="q-pill-icon qi-navy"><i class="fas fa-user-times" style="color:#fff;font-size:1.1rem;"></i></div>
+      <div class="q-pill-text">
+        <div class="q-pill-label">Customer Cancellation</div>
+        <div class="q-pill-val">Vendor policy applies</div>
+      </div>
+    </div>
+    <div class="q-pill reveal rd2">
+      <div class="q-pill-icon qi-green"><i class="fas fa-building" style="color:#fff;font-size:1.1rem;"></i></div>
+      <div class="q-pill-text">
+        <div class="q-pill-label">Company Cancellation</div>
+        <div class="q-pill-val">Refund in 7–14 days</div>
+      </div>
+    </div>
+    <div class="q-pill reveal rd3">
+      <div class="q-pill-icon qi-rose"><i class="fas fa-ban" style="color:#fff;font-size:1.1rem;"></i></div>
+      <div class="q-pill-text">
+        <div class="q-pill-label">Service Charges</div>
+        <div class="q-pill-val">Non-refundable</div>
+      </div>
+    </div>
+    <div class="q-pill reveal rd4">
+      <div class="q-pill-icon qi-orange"><i class="fas fa-credit-card" style="color:#fff;font-size:1.1rem;"></i></div>
+      <div class="q-pill-text">
+        <div class="q-pill-label">Refund Mode</div>
+        <div class="q-pill-val">Original payment only</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ LAYOUT ══════════════════ -->
+<div class="rp-layout">
+
+  <!-- TOC -->
+  <aside class="toc reveal">
+    <div class="toc-title"><i class="fas fa-list" style="color:var(--orange);"></i> Contents</div>
+    <ul class="toc-list">
+      <li><a href="#section-1" class="toc-link"><i class="fas fa-chevron-right"></i> 1. Overview</a></li>
+      <li><a href="#section-2" class="toc-link"><i class="fas fa-chevron-right"></i> 2. Cancellation by Customer</a></li>
+      <li><a href="#section-3" class="toc-link"><i class="fas fa-chevron-right"></i> 3. Cancellation by Company</a></li>
+      <li><a href="#section-4" class="toc-link"><i class="fas fa-chevron-right"></i> 4. Non-Refundable Items</a></li>
+      <li><a href="#section-5" class="toc-link"><i class="fas fa-chevron-right"></i> 5. Refund Mode &amp; Timeline</a></li>
+      <li><a href="#section-6" class="toc-link"><i class="fas fa-chevron-right"></i> 6. Cancellation Process</a></li>
+      <li><a href="#section-7" class="toc-link"><i class="fas fa-chevron-right"></i> 7. Force Majeure</a></li>
+      <li><a href="#section-8" class="toc-link"><i class="fas fa-chevron-right"></i> 8. Contact Us</a></li>
+    </ul>
+    <div class="toc-contact">
+      <p>Need to cancel or have a refund query?</p>
+      <a href="mailto:support@delightdepartures.com"><i class="fas fa-envelope"></i> Email Us</a>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main>
+
+    <div class="update-banner reveal">
+      <i class="fas fa-info-circle"></i>
+      This Refund Policy was last updated on <strong>&nbsp;1 April 2026</strong>. We recommend reading it in full before confirming any booking.
+    </div>
+
+    <div class="rp-intro reveal">
+      <p>At <strong>Delight Departures</strong>, we are committed to being completely transparent about our cancellation and refund practices. Travel involves multiple third-party services — airlines, hotels, transport providers and more — each with their own cancellation terms. This policy explains clearly what you can expect if plans change.</p>
+    </div>
+
+    <!-- ── SECTION 1 ── -->
+    <div class="rp-section reveal" id="section-1">
+      <div class="rp-sec-header">
+        <div class="rp-sec-icon ic-navy"><i class="fas fa-file-alt" style="color:#fff;"></i></div>
+        <div>
+          <span class="rp-sec-num">Section 01</span>
+          <div class="rp-sec-title">Overview</div>
+        </div>
+      </div>
+      <p class="rp-text">This Refund Policy applies to all bookings made with Delight Departures, whether for group tours, customised private trips, honeymoon packages, corporate travel or individual travel services. By making a payment to confirm your booking, you agree to the terms outlined in this policy.</p>
+      <p class="rp-text">Refunds are subject to the policies of third-party vendors — including airlines, hotels, resorts, transport operators and activity providers — as well as any applicable service charges retained by Delight Departures for the work already performed.</p>
+
+      <div class="rp-box blue">
+        <div class="rp-box-icon">💡</div>
+        <div class="rp-box-text">
+          <strong>Tip: Read before you book</strong>
+          We strongly recommend reading this policy and all booking terms before making a payment. If you have any questions about cancellation terms for a specific package or vendor, please ask us before confirming your booking — we're happy to clarify.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 2 ── -->
+    <div class="rp-section reveal" id="section-2">
+      <div class="rp-sec-header">
+        <div class="rp-sec-icon ic-orange"><i class="fas fa-user-times" style="color:#fff;"></i></div>
+        <div>
+          <span class="rp-sec-num">Section 02</span>
+          <div class="rp-sec-title">Cancellation by Customer</div>
+        </div>
+      </div>
+      <p class="rp-text">If you choose to cancel your booking, the refund amount will depend on the cancellation policies of the airlines, hotels, and other vendors involved in your trip, as well as the timing of your cancellation. General cancellation timelines are as follows:</p>
+
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-dot" style="background:linear-gradient(135deg,#059669,#10b981);">1</div>
+          <div class="tl-body">
+            <div class="tl-heading">30+ Days Before Departure</div>
+            <div class="tl-sub">Maximum refund possible, subject to airline and hotel cancellation fees. Service charges are deducted. We will process whatever amount vendors return to us.</div>
+            <div class="tl-tag tag-green"><i class="fas fa-check-circle"></i> Higher Refund Likely</div>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot" style="background:linear-gradient(135deg,#b45309,#d97706);">2</div>
+          <div class="tl-body">
+            <div class="tl-heading">15–29 Days Before Departure</div>
+            <div class="tl-sub">Partial refund, subject to vendor policies. Most airlines and hotels apply significant cancellation charges at this stage. Service charges are non-refundable.</div>
+            <div class="tl-tag tag-amber"><i class="fas fa-exclamation-circle"></i> Partial Refund</div>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot" style="background:linear-gradient(135deg,#e11d48,#f43f5e);">3</div>
+          <div class="tl-body">
+            <div class="tl-heading">8–14 Days Before Departure</div>
+            <div class="tl-sub">Minimal refund likely, as most vendors apply heavy cancellation penalties or no-refund clauses at this stage. Service charges are non-refundable.</div>
+            <div class="tl-tag tag-red"><i class="fas fa-times-circle"></i> Minimal Refund</div>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot" style="background:linear-gradient(135deg,#111e45,#2d4a8a);">4</div>
+          <div class="tl-body">
+            <div class="tl-heading">0–7 Days Before Departure / No-Show</div>
+            <div class="tl-sub">In most cases, little to no refund is possible. Most airline tickets and hotel bookings are fully non-refundable this close to the travel date. Service charges are non-refundable.</div>
+            <div class="tl-tag tag-red"><i class="fas fa-times-circle"></i> No Refund Expected</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rp-box amber">
+        <div class="rp-box-icon">⚠️</div>
+        <div class="rp-box-text">
+          <strong>Important: Vendor-Dependent Refunds</strong>
+          The actual refund amount is determined entirely by the airline, hotel and other vendor cancellation policies applicable to your booking. Delight Departures will always pass on the full refund amount received from vendors after deducting applicable service charges. We cannot guarantee refunds beyond what vendors return to us.
+        </div>
+      </div>
+
+      <p class="rp-text"><strong>Service charges retained by Delight Departures</strong> — including planning fees, coordination charges, documentation charges and consultation fees — are <strong>non-refundable</strong> in all cases of customer-initiated cancellation, regardless of timing.</p>
+
+      <div class="rp-box rose">
+        <div class="rp-box-icon">🛡️</div>
+        <div class="rp-box-text">
+          <strong>Our Recommendation: Travel Insurance</strong>
+          We strongly recommend purchasing comprehensive travel insurance that covers trip cancellation, medical emergencies and travel disruptions. This protects you financially if you need to cancel for unavoidable reasons such as illness, injury or family emergencies.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3 ── -->
+    <div class="rp-section reveal" id="section-3">
+      <div class="rp-sec-header">
+        <div class="rp-sec-icon ic-green"><i class="fas fa-building" style="color:#fff;"></i></div>
+        <div>
+          <span class="rp-sec-num">Section 03</span>
+          <div class="rp-sec-title">Cancellation by Delight Departures</div>
+        </div>
+      </div>
+      <p class="rp-text">In the rare event that Delight Departures needs to cancel a tour or travel package, we will:</p>
+      <ul class="rp-list">
+        <li><i class="fas fa-circle"></i><span>Notify you as early as possible through your registered email address, phone number and/or WhatsApp.</span></li>
+        <li><i class="fas fa-circle"></i><span>Offer you a full refund of all amounts paid to Delight Departures, or an alternative tour of equal or similar value at your preference.</span></li>
+        <li><i class="fas fa-circle"></i><span>Process eligible refunds within <strong>7–14 working days</strong> from the date of cancellation confirmation.</span></li>
+        <li><i class="fas fa-circle"></i><span>Work actively with airlines, hotels and vendors to recover and return any amounts paid on your behalf to the extent possible.</span></li>
+      </ul>
+
+      <div class="rp-box green">
+        <div class="rp-box-icon">✅</div>
+        <div class="rp-box-text">
+          <strong>Company-Initiated Cancellations</strong>
+          If a tour is cancelled by Delight Departures for reasons within our control, you will receive a full refund of all amounts paid directly to us. Refunds from third-party vendors (airlines, hotels) are subject to their respective policies, but we will advocate fully on your behalf.
+        </div>
+      </div>
+
+      <p class="rp-text">Situations that may lead to company-initiated cancellation include: insufficient group size to operate a group tour, unforeseen operational issues, or safety concerns at the destination. In such cases, we will always prioritise your wellbeing and financial interests.</p>
+    </div>
+
+    <!-- ── SECTION 4 ── -->
+    <div class="rp-section reveal" id="section-4">
+      <div class="rp-sec-header">
+        <div class="rp-sec-icon ic-rose"><i class="fas fa-ban" style="color:#fff;"></i></div>
+        <div>
+          <span class="rp-sec-num">Section 04</span>
+          <div class="rp-sec-title">Non-Refundable Items</div>
+        </div>
+      </div>
+      <p class="rp-text">The following charges are <strong>strictly non-refundable</strong> under all circumstances, including customer-initiated cancellations, company-initiated cancellations, or events beyond either party's control:</p>
+
+      <div class="nr-grid">
+        <div class="nr-card">
+          <div class="nr-icon">🛂</div>
+          <div class="nr-label">Visa Fees</div>
+          <div class="nr-note">Fees paid to embassies or consulates for visa processing are non-refundable regardless of visa outcome or trip cancellation.</div>
+          <div class="nr-badge">Non-Refundable</div>
+        </div>
+        <div class="nr-card">
+          <div class="nr-icon">⚙️</div>
+          <div class="nr-label">Service Charges</div>
+          <div class="nr-note">Planning, coordination, consultation and documentation fees charged by Delight Departures for services already rendered.</div>
+          <div class="nr-badge">Non-Refundable</div>
+        </div>
+        <div class="nr-card">
+          <div class="nr-icon">🖥️</div>
+          <div class="nr-label">Convenience Fees</div>
+          <div class="nr-note">Payment gateway fees and online transaction processing charges are not refundable as they are collected by the payment provider.</div>
+          <div class="nr-badge">Non-Refundable</div>
+        </div>
+        <div class="nr-card">
+          <div class="nr-icon">📋</div>
+          <div class="nr-label">Booking Charges</div>
+          <div class="nr-note">Initial booking and registration charges applied at the time of reservation to secure your package.</div>
+          <div class="nr-badge">Non-Refundable</div>
+        </div>
+        <div class="nr-card">
+          <div class="nr-icon">🎟️</div>
+          <div class="nr-label">Entry Tickets</div>
+          <div class="nr-note">Pre-booked attraction tickets, theme parks, safaris, and experience vouchers that are non-refundable per the vendor's terms.</div>
+          <div class="nr-badge">Non-Refundable</div>
+        </div>
+        <div class="nr-card">
+          <div class="nr-icon">🩺</div>
+          <div class="nr-label">Travel Insurance</div>
+          <div class="nr-note">Travel insurance premiums once the policy has been issued are non-refundable per insurer terms.</div>
+          <div class="nr-badge">Non-Refundable</div>
+        </div>
+      </div>
+
+      <div class="rp-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Refundable?</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Airline tickets (refundable fare)</td>
+              <td><span class="badge-partial">Partial</span></td>
+              <td>Subject to airline cancellation policy and fare class</td>
+            </tr>
+            <tr>
+              <td>Airline tickets (non-refundable fare)</td>
+              <td><span class="badge-nr">No</span></td>
+              <td>As per airline terms; date-change may be possible with fees</td>
+            </tr>
+            <tr>
+              <td>Hotel bookings (free cancellation)</td>
+              <td><span class="badge-full">Full</span></td>
+              <td>If cancelled within the hotel's free cancellation window</td>
+            </tr>
+            <tr>
+              <td>Hotel bookings (non-refundable rate)</td>
+              <td><span class="badge-nr">No</span></td>
+              <td>Non-refundable rates are booked at customer's risk</td>
+            </tr>
+            <tr>
+              <td>Visa application fees</td>
+              <td><span class="badge-nr">No</span></td>
+              <td>Embassy fees are never refundable regardless of outcome</td>
+            </tr>
+            <tr>
+              <td>Delight Departures service charge</td>
+              <td><span class="badge-nr">No</span></td>
+              <td>Non-refundable in all cases</td>
+            </tr>
+            <tr>
+              <td>Convenience / payment gateway fee</td>
+              <td><span class="badge-nr">No</span></td>
+              <td>Charged by payment processor; not in our control</td>
+            </tr>
+            <tr>
+              <td>Tour amount (company cancels)</td>
+              <td><span class="badge-full">Full</span></td>
+              <td>Within 7–14 working days; vendor refunds subject to their policy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── SECTION 5 ── -->
+    <div class="rp-section reveal" id="section-5">
+      <div class="rp-sec-header">
+        <div class="rp-sec-icon ic-teal"><i class="fas fa-credit-card" style="color:#fff;"></i></div>
+        <div>
+          <span class="rp-sec-num">Section 05</span>
+          <div class="rp-sec-title">Refund Mode &amp; Timeline</div>
+        </div>
+      </div>
+      <p class="rp-text">All approved refunds are processed exclusively to the <strong>original payment method</strong> used at the time of booking. We do not issue refunds to a different account, card, or payment method than the one originally used.</p>
+
+      <div class="process-steps">
+        <div class="ps-step">
+          <div class="ps-num">1</div>
+          <div class="ps-icon">📩</div>
+          <div class="ps-label">Submit Request</div>
+          <div class="ps-sub">Email us your cancellation request with booking details</div>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num">2</div>
+          <div class="ps-icon">🔍</div>
+          <div class="ps-label">Review &amp; Verify</div>
+          <div class="ps-sub">We review your booking and check vendor refund eligibility</div>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num">3</div>
+          <div class="ps-icon">💬</div>
+          <div class="ps-label">Confirmation</div>
+          <div class="ps-sub">We confirm the refund amount in writing within 3 working days</div>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num">4</div>
+          <div class="ps-icon">💸</div>
+          <div class="ps-label">Refund Processed</div>
+          <div class="ps-sub">Amount credited to original payment method within 7–14 working days</div>
+        </div>
+      </div>
+
+      <div class="rp-box blue">
+        <div class="rp-box-icon">🏦</div>
+        <div class="rp-box-text">
+          <strong>Refund Timeline by Method</strong>
+          Once we initiate the refund, the time for it to appear in your account depends on your bank or payment provider:
+          Credit/Debit Card: 5–10 business days · UPI / Net Banking: 3–7 business days · Bank Transfer: 5–10 business days. Actual timelines may vary depending on your financial institution.
+        </div>
+      </div>
+
+      <div class="rp-box navy">
+        <div class="rp-box-icon">📌</div>
+        <div class="rp-box-text">
+          <strong>Original Payment Method Only</strong>
+          Refunds will only be credited to the original payment source. If your card has expired or your account has closed, please inform us immediately so we can work with your bank to resolve this. We cannot transfer refunds to a different account or payment method under any circumstances.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 6 ── -->
+    <div class="rp-section reveal" id="section-6">
+      <div class="rp-sec-header">
+        <div class="rp-sec-icon ic-amber"><i class="fas fa-paper-plane" style="color:#fff;"></i></div>
+        <div>
+          <span class="rp-sec-num">Section 06</span>
+          <div class="rp-sec-title">How to Request a Cancellation</div>
+        </div>
+      </div>
+      <p class="rp-text">To initiate a cancellation and refund request, please follow these steps:</p>
+      <ul class="rp-list">
+        <li><i class="fas fa-circle"></i><span>Send an email to <a href="mailto:support@delightdepartures.com">support@delightdepartures.com</a> with the subject line <strong>"Cancellation Request – [Your Booking Reference]"</strong>.</span></li>
+        <li><i class="fas fa-circle"></i><span>Include your full name, registered phone number, booking reference number, trip details, and the reason for cancellation.</span></li>
+        <li><i class="fas fa-circle"></i><span>Our team will acknowledge your request within <strong>1 working day</strong> and begin processing.</span></li>
+        <li><i class="fas fa-circle"></i><span>You will receive a written confirmation of the refund amount (if any) within <strong>3 working days</strong> of your request.</span></li>
+        <li><i class="fas fa-circle"></i><span>Approved refunds will be credited within <strong>7–14 working days</strong> of the written confirmation.</span></li>
+      </ul>
+
+      <div class="rp-box amber">
+        <div class="rp-box-icon">📞</div>
+        <div class="rp-box-text">
+          <strong>For urgent cancellations</strong>, please also WhatsApp or call us at <a href="https://wa.me/918123568002" style="color:#92400e;font-weight:700;">+91 81235 68002</a> to ensure we act promptly. Verbal cancellations are not accepted — a written email request is always required to process a cancellation officially.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 7 ── -->
+    <div class="rp-section reveal" id="section-7">
+      <div class="rp-sec-header">
+        <div class="rp-sec-icon ic-navy"><i class="fas fa-cloud-bolt" style="color:#fff;"></i></div>
+        <div>
+          <span class="rp-sec-num">Section 07</span>
+          <div class="rp-sec-title">Force Majeure &amp; Extraordinary Circumstances</div>
+        </div>
+      </div>
+      <p class="rp-text">In the event of cancellations caused by circumstances beyond our reasonable control — including but not limited to natural disasters, pandemics, government-imposed travel bans, civil unrest, airline groundings, or other force majeure events — the following applies:</p>
+      <ul class="rp-list">
+        <li><i class="fas fa-circle"></i><span>Delight Departures will make every reasonable effort to recover funds from vendors and pass them on to customers.</span></li>
+        <li><i class="fas fa-circle"></i><span>Refunds are subject to whatever amounts vendors return, as airlines, hotels and vendors often have their own force majeure policies.</span></li>
+        <li><i class="fas fa-circle"></i><span>We will prioritise offering date changes or alternative packages where possible before processing refunds.</span></li>
+        <li><i class="fas fa-circle"></i><span>Service charges paid to Delight Departures for work already completed remain non-refundable even in force majeure situations.</span></li>
+      </ul>
+
+      <div class="rp-box rose">
+        <div class="rp-box-icon">⚡</div>
+        <div class="rp-box-text">
+          <strong>Travel Insurance is Essential</strong>
+          Force majeure events highlight why comprehensive travel insurance is so important. We urge all travellers to purchase a policy that covers cancellation due to natural disasters, medical emergencies, travel advisories and other unforeseen events before confirming any booking.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 8 ── -->
+    <div class="rp-section reveal" id="section-8">
+      <div class="rp-sec-header">
+        <div class="rp-sec-icon ic-green"><i class="fas fa-envelope" style="color:#fff;"></i></div>
+        <div>
+          <span class="rp-sec-num">Section 08</span>
+          <div class="rp-sec-title">Contact Us</div>
+        </div>
+      </div>
+      <p class="rp-text">If you have any questions about this Refund Policy, your specific booking, or a pending refund, please reach out to us through any of the following channels. We aim to respond to all refund queries within <strong>1 working day</strong>.</p>
+      <div class="rp-contact-card">
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="pcc-label">Email</div>
+            <div class="pcc-val"><a href="mailto:support@delightdepartures.com">support@delightdepartures.com</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fab fa-whatsapp"></i></div>
+          <div>
+            <div class="pcc-label">WhatsApp</div>
+            <div class="pcc-val"><a href="https://wa.me/918123568002">+91 81235 68002</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="pcc-label">Phone (All Days, 10:30 AM – 7:30 PM)</div>
+            <div class="pcc-val"><a href="tel:+919429693718">+91 94296 93718</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="pcc-label">Office</div>
+            <div class="pcc-val">Bengaluru, Karnataka, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ══════════════════ CTA ══════════════════ -->
+<section class="rp-cta">
+  <div class="cta-orb cta-o1"></div>
+  <div class="cta-orb cta-o2"></div>
+  <div class="cta-inner reveal">
+    <h2>Plan Your Trip with <em>Confidence</em></h2>
+    <p>We believe in honest policies and hassle-free travel. If you have any questions before booking, we're always happy to help you understand your options.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-white"><i class="fas fa-paper-plane"></i> Talk to Us</a>
+      <a href="packages.html" class="btn-ghost"><i class="fas fa-map-marked-alt"></i> Explore Packages</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <div class="footer-logo">✈️ Delight <span>Departures</span></div>
+      <div><span> - </span></div>
+      <p>We don't just plan trips — we create experiences that stay with you for a lifetime. Specialising in international group tours and customised private trips across 80+ destinations worldwide.</p>
+      <div class="footer-socials">
+        <div class="f-social"><i class="fab fa-instagram"></i></div>
+        <div class="f-social"><i class="fab fa-whatsapp"></i></div>
+        <div class="f-social"><i class="fab fa-youtube"></i></div>
+        <div class="f-social"><i class="fab fa-facebook-f"></i></div>
+        <div class="f-social"><i class="fab fa-google"></i></div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Top Destinations</h4>
+      <ul>
+        <li><a href="destinations.html#bali"><i class="fas fa-chevron-right"></i> Bali, Indonesia</a></li>
+        <li><a href="destinations.html#thailand"><i class="fas fa-chevron-right"></i> Thailand</a></li>
+        <li><a href="destinations.html#maldives"><i class="fas fa-chevron-right"></i> Maldives</a></li>
+        <li><a href="destinations.html#dubai"><i class="fas fa-chevron-right"></i> Dubai, UAE</a></li>
+        <li><a href="destinations.html#singapore"><i class="fas fa-chevron-right"></i> Singapore</a></li>
+        <li><a href="destinations.html#malaysia"><i class="fas fa-chevron-right"></i> Malaysia</a></li>
+        <li><a href="destinations.html#japan"><i class="fas fa-chevron-right"></i> Japan</a></li>
+        <li><a href="destinations.html#vietnam"><i class="fas fa-chevron-right"></i> Vietnam</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Destinations</a></li>
+        <li><a href="blogs.html"><i class="fas fa-chevron-right"></i> Blogs</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right" onclick="showContactModal()"></i> Contact Us</a></li>
+        <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+        <li><a href="packages.html"><i class="fas fa-chevron-right"></i> Group Tours</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul>
+        <li><a href="tel:+919429693718"><i class="fas fa-phone"></i> +91 94296 93718</a></li>
+        <li><a href="mailto:support@delightdepartures.com"><i class="fas fa-envelope"></i> support@delightdepartures.com</a></li>
+        <li><a href="https://wa.me/918123568002"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></li>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</a></li>
+      </ul>
+      <div class="contact-note">
+        <p>⏱️ <strong>Mon – Sun:</strong> 10:30 AM – 7:30 PM<br></p>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Delight Departures. All rights reserved. Made with ❤️ for travellers.</p>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <a href="refund-policy.html">Refund Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════ SCRIPTS ══════════════════ -->
+<script src="js/whatsapp.js"></script>
+<script>
+  /* NAVBAR */
+  const hamburger=document.querySelector('.hamburger');
+  const navLinksEl=document.querySelector('.nav-links');
+  const navCtaEl=document.querySelector('.nav-cta');
+  const dropWrapper=document.querySelector('.nav-dropdown-wrapper');
+  const dropTrigger=document.querySelector('.dropdown-trigger');
+  let ddT;
+  hamburger?.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinksEl.classList.toggle('active');navCtaEl.classList.toggle('active');});
+  const openDD=()=>{clearTimeout(ddT);dropWrapper?.classList.add('open');};
+  const closeDD=()=>{ddT=setTimeout(()=>dropWrapper?.classList.remove('open'),120);};
+  if(dropWrapper){
+    dropWrapper.addEventListener('mouseenter',()=>{if(window.innerWidth>768)openDD();});
+    dropWrapper.addEventListener('mouseleave',()=>{if(window.innerWidth>768)closeDD();});
+    dropTrigger.addEventListener('click',e=>{if(window.innerWidth<=768){e.preventDefault();dropWrapper.classList.toggle('open');}});
+  }
+  document.addEventListener('click',e=>{if(dropWrapper&&!dropWrapper.contains(e.target))dropWrapper.classList.remove('open');});
+  document.querySelectorAll('.nav-dropdown a').forEach(l=>l.addEventListener('click',()=>dropWrapper?.classList.remove('open')));
+
+  /* SCROLL + TOC ACTIVE */
+  const scrollTopBtn=document.getElementById('scrollTopBtn');
+  const navbar=document.querySelector('.navbar');
+  let lastST=0;
+  window.addEventListener('scroll',()=>{
+    const st=window.pageYOffset,dir=st>lastST?'down':'up';
+    if(st<60)navbar.classList.remove('hidden');
+    else if(dir==='down'&&st>120)navbar.classList.add('hidden');
+    else if(dir==='up')navbar.classList.remove('hidden');
+    scrollTopBtn.classList.toggle('visible',dir==='up'&&st>250);
+    lastST=Math.max(0,st);
+    document.querySelectorAll('.rp-section').forEach(sec=>{
+      const top=sec.getBoundingClientRect().top;
+      const link=document.querySelector(`.toc-link[href="#${sec.id}"]`);
+      if(link){
+        if(top<=120&&top>-sec.offsetHeight+120){
+          document.querySelectorAll('.toc-link').forEach(l=>l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      }
+    });
+  });
+  scrollTopBtn.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* REVEAL */
+  const ro=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});
+  },{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Privacy Policy - Delight Departures</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:        #1a2a5e;
+      --navy-mid:    #2d4a8a;
+      --navy-deep:   #111e45;
+      --orange:      #FF6B35;
+      --orange-lt:   #FF8C42;
+      --orange-pale: #fff4ef;
+      --white:       #ffffff;
+      --gray-bg:     #f7f8fc;
+      --gray-text:   #4a5568;
+      --gray-sub:    #718096;
+      --gray-dark:   #1a202c;
+      --border:      rgba(26,42,94,0.08);
+      --shadow-sm:   0 4px 16px rgba(26,42,94,0.07);
+      --shadow-md:   0 12px 40px rgba(26,42,94,0.12);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--gray-dark);overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+
+    /* ── HERO ── */
+    .pp-hero{
+      position:relative;
+      background:linear-gradient(135deg,#111e45 0%,#1a2a5e 50%,#2d4a8a 100%);
+      padding:140px 24px 100px;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,0.09) 1px,transparent 1px);background-size:30px 30px;}
+    .h-orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.14;animation:orbDrift 10s ease-in-out infinite alternate;}
+    .h-orb-1{width:480px;height:480px;background:#FF6B35;top:-180px;right:-100px;}
+    .h-orb-2{width:340px;height:340px;background:#60a5fa;bottom:-110px;left:-70px;animation-delay:3s;}
+    @keyframes orbDrift{from{transform:translate(0,0) scale(1);}to{transform:translate(18px,-28px) scale(1.07);}}
+    .hero-stripe{position:absolute;bottom:0;left:0;right:0;height:70px;background:var(--white);clip-path:polygon(0 100%,100% 0,100% 100%);}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:680px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.11);border:1px solid rgba(255,255,255,0.22);backdrop-filter:blur(10px);border-radius:40px;padding:8px 22px;color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;animation:fadeDown .7s ease both;}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;color:#fff;line-height:1.18;margin-bottom:16px;animation:fadeDown .7s .15s ease both;}
+    .hero-title em{color:#FF8C42;font-style:italic;}
+    .hero-sub{font-size:.97rem;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:0;animation:fadeDown .7s .3s ease both;}
+    .hero-date{display:inline-flex;align-items:center;gap:7px;margin-top:20px;background:rgba(255,255,255,0.1);border-radius:30px;padding:7px 18px;font-size:.78rem;color:rgba(255,255,255,0.65);font-weight:500;animation:fadeDown .7s .45s ease both;}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ── LAYOUT ── */
+    .pp-layout{
+      max-width:1160px;margin:0 auto;padding:72px 24px 96px;
+      display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start;
+    }
+    @media(max-width:900px){.pp-layout{grid-template-columns:1fr;}}
+
+    /* ── STICKY TOC ── */
+    .toc{
+      position:sticky;top:88px;
+      background:var(--white);border-radius:22px;
+      border:1px solid var(--border);box-shadow:var(--shadow-sm);
+      padding:26px 22px;
+    }
+    @media(max-width:900px){.toc{position:static;}}
+    .toc-title{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:18px;display:flex;align-items:center;gap:7px;}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:2px;}
+    .toc-list li a{
+      display:flex;align-items:center;gap:9px;
+      padding:9px 12px;border-radius:12px;
+      font-size:.81rem;font-weight:500;color:var(--gray-sub);
+      transition:all .22s ease;
+    }
+    .toc-list li a:hover{background:var(--orange-pale);color:var(--orange);}
+    .toc-list li a.active{background:var(--orange-pale);color:var(--orange);font-weight:700;}
+    .toc-list li a i{font-size:.68rem;color:var(--orange);flex-shrink:0;}
+    .toc-contact{margin-top:22px;padding:16px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:14px;text-align:center;}
+    .toc-contact p{font-size:.76rem;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:10px;}
+    .toc-contact a{display:inline-flex;align-items:center;gap:6px;background:var(--orange);color:#fff;border-radius:20px;padding:7px 16px;font-size:.76rem;font-weight:700;transition:opacity .2s ease;}
+    .toc-contact a:hover{opacity:.88;}
+
+    /* ── POLICY CONTENT ── */
+    .pp-content{}
+    .pp-intro{
+      background:var(--gray-bg);border-radius:22px;padding:32px 32px;
+      border-left:4px solid var(--orange);margin-bottom:48px;
+      box-shadow:var(--shadow-sm);
+    }
+    .pp-intro p{font-size:.92rem;color:var(--gray-text);line-height:1.8;}
+    .pp-intro strong{color:var(--navy);}
+
+    .pp-section{margin-bottom:52px;scroll-margin-top:100px;}
+    .pp-section-header{
+      display:flex;align-items:center;gap:16px;margin-bottom:22px;
+      padding-bottom:16px;border-bottom:2px solid var(--gray-bg);
+    }
+    .pp-sec-icon{
+      width:48px;height:48px;border-radius:14px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.2rem;
+    }
+    .ic-orange{background:linear-gradient(135deg,#FF6B35,#FF8C42);}
+    .ic-navy{background:linear-gradient(135deg,#1a2a5e,#2d4a8a);}
+    .ic-teal{background:linear-gradient(135deg,#0891b2,#06b6d4);}
+    .ic-green{background:linear-gradient(135deg,#059669,#10b981);}
+    .ic-purple{background:linear-gradient(135deg,#7c3aed,#8b5cf6);}
+    .ic-rose{background:linear-gradient(135deg,#e11d48,#f43f5e);}
+    .ic-amber{background:linear-gradient(135deg,#b45309,#d97706);}
+    .ic-indigo{background:linear-gradient(135deg,#4338ca,#6366f1);}
+
+    .pp-sec-num{font-family:'Playfair Display',serif;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:4px;}
+    .pp-sec-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:800;color:var(--navy);}
+
+    .pp-text{font-size:.9rem;color:var(--gray-text);line-height:1.85;margin-bottom:16px;}
+    .pp-text:last-child{margin-bottom:0;}
+    .pp-text strong{color:var(--gray-dark);}
+    .pp-text a{color:var(--orange);font-weight:600;}
+    .pp-text a:hover{text-decoration:underline;}
+
+    /* list */
+    .pp-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+    .pp-list li{display:flex;align-items:flex-start;gap:11px;font-size:.9rem;color:var(--gray-text);line-height:1.7;}
+    .pp-list li i{color:var(--orange);font-size:.75rem;flex-shrink:0;margin-top:5px;}
+
+    /* info boxes */
+    .pp-box{
+      border-radius:16px;padding:22px 24px;margin-bottom:18px;
+      display:flex;gap:16px;align-items:flex-start;
+    }
+    .pp-box.blue{background:#eff6ff;border:1px solid #bfdbfe;}
+    .pp-box.green{background:#f0fdf4;border:1px solid #bbf7d0;}
+    .pp-box.amber{background:#fffbeb;border:1px solid #fde68a;}
+    .pp-box.rose{background:#fff1f2;border:1px solid #fecdd3;}
+    .pp-box-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
+    .pp-box-text{font-size:.86rem;line-height:1.7;}
+    .pp-box.blue .pp-box-text{color:#1d4ed8;}
+    .pp-box.green .pp-box-text{color:#15803d;}
+    .pp-box.amber .pp-box-text{color:#92400e;}
+    .pp-box.rose .pp-box-text{color:#be123c;}
+    .pp-box-text strong{display:block;margin-bottom:4px;}
+
+    /* table */
+    .pp-table-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--border);margin-bottom:18px;}
+    table{width:100%;border-collapse:collapse;font-size:.85rem;}
+    thead tr{background:var(--navy);color:#fff;}
+    thead th{padding:13px 18px;text-align:left;font-weight:700;font-size:.8rem;letter-spacing:.04em;}
+    tbody tr{border-bottom:1px solid var(--border);}
+    tbody tr:last-child{border-bottom:none;}
+    tbody tr:nth-child(even){background:var(--gray-bg);}
+    tbody td{padding:12px 18px;color:var(--gray-text);vertical-align:top;line-height:1.6;}
+    tbody td:first-child{color:var(--navy);font-weight:600;}
+
+    /* contact card */
+    .pp-contact-card{
+      background:linear-gradient(135deg,#1a2a5e,#2d4a8a);
+      border-radius:22px;padding:36px 32px;
+      display:grid;grid-template-columns:1fr 1fr;gap:20px;
+      margin-top:8px;
+    }
+    @media(max-width:600px){.pp-contact-card{grid-template-columns:1fr;}}
+    .pcc-item{display:flex;align-items:flex-start;gap:14px;}
+    .pcc-icon{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:#FF8C42;font-size:.95rem;flex-shrink:0;}
+    .pcc-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:3px;}
+    .pcc-val{font-size:.88rem;color:#fff;font-weight:600;}
+    .pcc-val a{color:#FF8C42;}
+    .pcc-val a:hover{text-decoration:underline;}
+
+    /* last updated banner */
+    .update-banner{
+      display:flex;align-items:center;gap:12px;
+      background:var(--orange-pale);border:1px solid rgba(255,107,53,0.2);
+      border-radius:14px;padding:14px 20px;margin-bottom:48px;
+      font-size:.83rem;color:var(--orange);font-weight:600;
+    }
+    .update-banner i{font-size:1rem;}
+
+    /* ── CTA BAND ── */
+    .pp-cta{
+      background:linear-gradient(135deg,#111e45 0%,#1a2a5e 50%,#2d4a8a 100%);
+      padding:80px 24px;text-align:center;position:relative;overflow:hidden;
+    }
+    .pp-cta::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:28px 28px;}
+    .cta-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.12;}
+    .cta-o1{width:360px;height:360px;background:#FF6B35;top:-120px;right:-60px;}
+    .cta-o2{width:280px;height:280px;background:#60a5fa;bottom:-80px;left:-50px;}
+    .cta-inner{position:relative;z-index:2;max-width:580px;margin:0 auto;}
+    .cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:14px;}
+    .cta-inner h2 em{color:#FF8C42;font-style:italic;}
+    .cta-inner p{font-size:.95rem;color:rgba(255,255,255,0.68);line-height:1.7;margin-bottom:32px;}
+    .cta-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+    .btn-white{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:#fff;color:var(--navy);border-radius:50px;font-weight:700;font-size:.9rem;transition:all .3s ease;box-shadow:0 8px 24px rgba(0,0,0,0.14);}
+    .btn-white:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,0.18);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);border-radius:50px;font-weight:600;font-size:.9rem;transition:all .3s ease;}
+    .btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:#fff;transform:translateY(-3px);}
+
+    /* ── FOOTER ── */
+    .site-footer{background:var(--navy-deep);padding:72px 24px 0;}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.08);}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;}
+    .footer-logo span{color:var(--orange);}
+    .footer-brand p{font-size:.84rem;line-height:1.75;color:rgba(255,255,255,0.48);margin:14px 0 22px;max-width:300px;}
+    .footer-socials{display:flex;gap:10px;flex-wrap:wrap;}
+    .f-social{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);transition:all .25s ease;cursor:pointer;}
+    .f-social:hover{background:var(--orange);color:#fff;border-color:var(--orange);transform:translateY(-2px);}
+    .footer-col h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.88);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:.84rem;color:rgba(255,255,255,0.46);transition:color .2s ease;display:flex;align-items:center;gap:8px;}
+    .footer-col ul li a:hover{color:var(--orange-lt);}
+    .footer-col ul li a i{font-size:.62rem;color:var(--orange);}
+    .contact-note{margin-top:18px;padding:14px 16px;background:rgba(255,107,53,0.1);border-radius:14px;border:1px solid rgba(255,107,53,0.18);}
+    .contact-note p{font-size:.78rem;color:rgba(255,255,255,0.65);line-height:1.65;}
+    .contact-note strong{color:#FF8C42;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+    .footer-bottom p{font-size:.79rem;color:rgba(255,255,255,0.3);}
+    .footer-legal{display:flex;gap:20px;flex-wrap:wrap;}
+    .footer-legal a{font-size:.77rem;color:rgba(255,255,255,0.35);transition:color .2s ease;}
+    .footer-legal a:hover{color:rgba(255,255,255,0.75);}
+
+    /* ── SCROLL TOP & REVEAL ── */
+    .scroll-top-btn{position:fixed;bottom:28px;right:28px;z-index:999;width:48px;height:48px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 8px 24px rgba(255,107,53,0.38);opacity:0;transform:translateY(16px);transition:all .3s ease;pointer-events:none;}
+    .scroll-top-btn.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+    .scroll-top-btn:hover{transform:translateY(-4px);}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .rd1{transition-delay:.08s;}.rd2{transition-delay:.16s;}.rd3{transition-delay:.24s;}
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown-wrapper">
+        <a href="#" class="nav-link dropdown-trigger">Destinations <i class="fas fa-chevron-down nav-dropdown-icon"></i></a>
+        <div class="nav-dropdown">
+          <div class="dropdown-inner">
+            <div class="dropdown-continent asia">
+              <div class="continent-header"><span class="continent-emoji">🌏</span><span>Asia</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#india">India</a></li><li><a href="destinations.html#malaysia">Malaysia</a></li><li><a href="destinations.html#maldives">Maldives</a></li><li><a href="destinations.html#thailand">Thailand</a></li><li><a href="destinations.html#bali">Indonesia (Bali)</a></li><li><a href="destinations.html#vietnam">Vietnam</a></li><li><a href="destinations.html#philippines">Philippines</a></li><li><a href="destinations.html#singapore">Singapore</a></li><li><a href="destinations.html#cambodia">Cambodia</a></li><li><a href="destinations.html#china">China</a></li><li><a href="destinations.html#sri-lanka">Sri Lanka</a></li><li><a href="destinations.html#georgia">Georgia</a></li><li><a href="destinations.html#south-korea">South Korea</a></li><li><a href="destinations.html#japan">Japan</a></li><li><a href="destinations.html#armenia">Armenia</a></li><li><a href="destinations.html#azerbaijan">Azerbaijan</a></li><li><a href="destinations.html#bhutan">Bhutan</a></li><li><a href="destinations.html#kazakhstan">Kazakhstan</a></li><li><a href="destinations.html#nepal">Nepal</a></li><li><a href="destinations.html#uzbekistan">Uzbekistan</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🏜️</span><span>Middle East</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#dubai">UAE (Dubai)</a></li><li><a href="destinations.html#turkey">Turkey</a></li><li><a href="destinations.html#jordan">Jordan</a></li><li><a href="destinations.html#oman">Oman</a></li><li><a href="destinations.html#qatar">Qatar</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🌍</span><span>Africa</span></div>
+              <ul class="country-list">
+                <li><a href="destinations.html#mauritius">Mauritius</a></li><li><a href="destinations.html#egypt">Egypt</a></li><li><a href="destinations.html#kenya">Kenya</a></li><li><a href="destinations.html#seychelles">Seychelles</a></li><li><a href="destinations.html#south-africa">South Africa</a></li><li><a href="destinations.html#tanzania">Tanzania</a></li><li><a href="destinations.html#ethiopia">Ethiopia</a></li><li><a href="destinations.html#morocco">Morocco</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-continent">
+              <div class="continent-header"><span class="continent-emoji">🌍</span><span>Europe</span></div>
+              <p class="coming-soon-text">Coming Soon..!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="testimonials.html" class="nav-link">Testimonials</a>
+      <a href="blogs.html" class="nav-link">Blogs</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </div>
+    <a href="#" class="nav-cta" onclick="showContactModal()">Contact Us</a>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<a href="#" class="scroll-top-btn" id="scrollTopBtn"><i class="fas fa-chevron-up"></i></a>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="pp-hero">
+  <div class="hero-dots"></div>
+  <div class="h-orb h-orb-1"></div>
+  <div class="h-orb h-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-shield-alt"></i>&nbsp; Your Privacy Matters to Us</div>
+    <h1 class="hero-title">Privacy <em>Policy</em></h1>
+    <p class="hero-sub">We believe in complete transparency about how we collect, use and protect your personal information. Please read this carefully — it matters.</p>
+    <div class="hero-date"><i class="fas fa-calendar-alt"></i> Last Updated: 1 April 2026 &nbsp;·&nbsp; Effective: 1 April 2026</div>
+  </div>
+  <div class="hero-stripe"></div>
+</section>
+
+<!-- ══════════════════ MAIN LAYOUT ══════════════════ -->
+<div class="pp-layout">
+
+  <!-- TABLE OF CONTENTS -->
+  <aside class="toc reveal">
+    <div class="toc-title"><i class="fas fa-list" style="color:var(--orange);"></i> Contents</div>
+    <ul class="toc-list">
+      <li><a href="#section-1" class="toc-link"><i class="fas fa-chevron-right"></i> 1. Who We Are</a></li>
+      <li><a href="#section-2" class="toc-link"><i class="fas fa-chevron-right"></i> 2. Information We Collect</a></li>
+      <li><a href="#section-3" class="toc-link"><i class="fas fa-chevron-right"></i> 3. How We Use Your Data</a></li>
+      <li><a href="#section-4" class="toc-link"><i class="fas fa-chevron-right"></i> 4. Sharing Your Information</a></li>
+      <li><a href="#section-5" class="toc-link"><i class="fas fa-chevron-right"></i> 5. Cookies &amp; Tracking</a></li>
+      <li><a href="#section-6" class="toc-link"><i class="fas fa-chevron-right"></i> 6. Data Security</a></li>
+      <li><a href="#section-7" class="toc-link"><i class="fas fa-chevron-right"></i> 7. Data Retention</a></li>
+      <li><a href="#section-8" class="toc-link"><i class="fas fa-chevron-right"></i> 8. Your Rights</a></li>
+      <li><a href="#section-9" class="toc-link"><i class="fas fa-chevron-right"></i> 9. Third-Party Links</a></li>
+      <li><a href="#section-10" class="toc-link"><i class="fas fa-chevron-right"></i> 10. Children's Privacy</a></li>
+      <li><a href="#section-11" class="toc-link"><i class="fas fa-chevron-right"></i> 11. Policy Updates</a></li>
+      <li><a href="#section-12" class="toc-link"><i class="fas fa-chevron-right"></i> 12. Contact Us</a></li>
+    </ul>
+    <div class="toc-contact">
+      <p>Have a privacy concern? Reach us directly.</p>
+      <a href="mailto:support@delightdepartures.com"><i class="fas fa-envelope"></i> Email Us</a>
+    </div>
+  </aside>
+
+  <!-- POLICY CONTENT -->
+  <main class="pp-content">
+
+    <!-- Last updated banner -->
+    <div class="update-banner reveal">
+      <i class="fas fa-info-circle"></i>
+      This Privacy Policy was last updated on <strong>&nbsp;1 April 2026</strong>. We recommend reviewing it periodically for any changes.
+    </div>
+
+    <!-- Intro -->
+    <div class="pp-intro reveal">
+      <p>Welcome to <strong>Delight Departures</strong>. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains what information we collect, why we collect it, how we use it, and what rights you have in relation to it. By using our website, services or communicating with us, you agree to the practices described in this policy.</p>
+    </div>
+
+    <!-- ── SECTION 1 ── -->
+    <div class="pp-section reveal" id="section-1">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-orange"><i class="fas fa-building" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 01</span>
+          <div class="pp-sec-title">Who We Are</div>
+        </div>
+      </div>
+      <p class="pp-text"><strong>Delight Departures</strong> is a travel agency based in Bengaluru, Karnataka, India, specialising in international group tours and customised private travel experiences. We operate the website <a href="https://www.delightdepartures.com">www.delightdepartures.com</a> and related digital services.</p>
+      <p class="pp-text">For the purposes of this Privacy Policy, <strong>"we"</strong>, <strong>"us"</strong> or <strong>"our"</strong> refers to Delight Departures. <strong>"You"</strong> refers to the individual accessing our website or using our services as a customer, prospective customer, or visitor.</p>
+      <div class="pp-box blue">
+        <div class="pp-box-icon">🏢</div>
+        <div class="pp-box-text">
+          <strong>Data Controller</strong>
+          Delight Departures acts as the data controller for personal information collected through this website and our services. If you have any questions about how your data is handled, please contact us at <a href="mailto:support@delightdepartures.com" style="color:#1d4ed8;font-weight:600;">support@delightdepartures.com</a>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 2 ── -->
+    <div class="pp-section reveal" id="section-2">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-navy"><i class="fas fa-database" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 02</span>
+          <div class="pp-sec-title">Information We Collect</div>
+        </div>
+      </div>
+      <p class="pp-text">We collect personal information that you voluntarily provide to us and information that is automatically collected when you visit our website. The types of information we may collect include:</p>
+
+      <p class="pp-text"><strong>A. Information You Provide Directly</strong></p>
+      <ul class="pp-list">
+        <li><i class="fas fa-circle"></i><span><strong>Contact Details:</strong> Full name, email address, phone number, and WhatsApp number when you enquire about or book a trip.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Travel Information:</strong> Passport details, nationality, date of birth, travel dates, destination preferences, dietary requirements, and medical information where relevant to your trip.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Payment Information:</strong> Transaction reference numbers. Note: we do not store full card numbers or banking credentials — payments are processed through secure third-party gateways.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Communications:</strong> Messages, enquiries, feedback, reviews and testimonials submitted through our website, WhatsApp, email or social media.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Group Member Details:</strong> Names, ages and passport information of co-travellers when you book for a group.</span></li>
+      </ul>
+
+      <p class="pp-text"><strong>B. Information Collected Automatically</strong></p>
+      <ul class="pp-list">
+        <li><i class="fas fa-circle"></i><span><strong>Device &amp; Browser Data:</strong> IP address, browser type and version, operating system, screen resolution, and device identifiers.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Usage Data:</strong> Pages visited, time spent on pages, links clicked, referring URLs, and navigation paths through our website.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Cookies &amp; Similar Technologies:</strong> Session cookies, persistent cookies, and pixel tags. See Section 5 for full details.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Location Data:</strong> Approximate geographic location derived from your IP address (we do not collect precise GPS location).</span></li>
+      </ul>
+
+      <div class="pp-box green">
+        <div class="pp-box-icon">✅</div>
+        <div class="pp-box-text">
+          <strong>We only collect what we genuinely need.</strong>
+          We do not collect sensitive personal data such as caste, religion or political opinions. Passport details and health information are only collected where strictly necessary for visa applications or travel arrangements, and are handled with the highest level of care.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3 ── -->
+    <div class="pp-section reveal" id="section-3">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-teal"><i class="fas fa-cogs" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 03</span>
+          <div class="pp-sec-title">How We Use Your Information</div>
+        </div>
+      </div>
+      <p class="pp-text">We use the personal information we collect for the following purposes:</p>
+
+      <div class="pp-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Purpose</th>
+              <th>Information Used</th>
+              <th>Legal Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Processing tour bookings and travel arrangements</td>
+              <td>Name, contact details, passport info, travel preferences</td>
+              <td>Contract performance</td>
+            </tr>
+            <tr>
+              <td>Visa applications and travel documentation</td>
+              <td>Passport details, photos, nationality, DOB</td>
+              <td>Contract performance</td>
+            </tr>
+            <tr>
+              <td>Customer support and responding to enquiries</td>
+              <td>Contact details, communication history</td>
+              <td>Legitimate interest</td>
+            </tr>
+            <tr>
+              <td>Sending booking confirmations and trip updates</td>
+              <td>Email, phone, WhatsApp number</td>
+              <td>Contract performance</td>
+            </tr>
+            <tr>
+              <td>Marketing emails, offers and newsletters</td>
+              <td>Email address, travel preferences</td>
+              <td>Consent (opt-in)</td>
+            </tr>
+            <tr>
+              <td>Improving website performance and user experience</td>
+              <td>Usage data, device data, cookies</td>
+              <td>Legitimate interest</td>
+            </tr>
+            <tr>
+              <td>Fraud prevention and security</td>
+              <td>IP address, payment transaction refs</td>
+              <td>Legal obligation</td>
+            </tr>
+            <tr>
+              <td>Testimonials and marketing content (with consent)</td>
+              <td>Name, review text, travel photos/videos</td>
+              <td>Consent</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pp-box amber">
+        <div class="pp-box-icon">📣</div>
+        <div class="pp-box-text">
+          <strong>Marketing Communications</strong>
+          We will only send you promotional emails or WhatsApp messages if you have explicitly opted in. You can unsubscribe at any time by clicking "Unsubscribe" in any email, replying "STOP" on WhatsApp, or emailing us at <a href="mailto:support@delightdepartures.com" style="color:#92400e;font-weight:600;">support@delightdepartures.com</a>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 4 ── -->
+    <div class="pp-section reveal" id="section-4">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-purple"><i class="fas fa-share-alt" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 04</span>
+          <div class="pp-sec-title">Sharing Your Information</div>
+        </div>
+      </div>
+      <p class="pp-text">We do not sell, rent or trade your personal information to third parties for their own marketing purposes. We share your information only in the following circumstances:</p>
+      <ul class="pp-list">
+        <li><i class="fas fa-circle"></i><span><strong>Travel Service Providers:</strong> Airlines, hotels, resorts, transport companies, and local tour operators — to the extent necessary to fulfil your booking. These parties are contractually required to handle your data securely.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Visa &amp; Government Authorities:</strong> Indian and foreign government authorities, embassies and consulates, as required for visa processing and border clearance.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Payment Processors:</strong> Secure payment gateway providers (e.g., Razorpay, PayU) who process transactions on our behalf. They are PCI-DSS compliant and do not store your full card details with us.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Technology Partners:</strong> Website hosting, email delivery, CRM and analytics providers who process data on our behalf under strict data processing agreements.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Legal Requirements:</strong> Where required by law, court order, regulatory authority, or to protect the legal rights of Delight Departures or our customers.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Business Transfers:</strong> In the event of a merger, acquisition or sale of business assets, your information may be transferred — you will be notified in advance of any such transfer.</span></li>
+      </ul>
+      <div class="pp-box green">
+        <div class="pp-box-icon">🔒</div>
+        <div class="pp-box-text">
+          <strong>We never sell your data.</strong>
+          Your personal information is used solely to deliver and improve your travel experience with us, and to comply with legal obligations. We require all third parties we share data with to maintain appropriate security standards.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 5 ── -->
+    <div class="pp-section reveal" id="section-5">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-amber"><i class="fas fa-cookie-bite" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 05</span>
+          <div class="pp-sec-title">Cookies &amp; Tracking Technologies</div>
+        </div>
+      </div>
+      <p class="pp-text">Our website uses cookies and similar tracking technologies to enhance your browsing experience, analyse website traffic and deliver relevant content. A cookie is a small text file placed on your device when you visit our website.</p>
+
+      <div class="pp-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Cookie Type</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Essential / Functional</td>
+              <td>Enable core website features such as navigation, form submissions and session management. Cannot be disabled without breaking site functionality.</td>
+              <td>Session</td>
+            </tr>
+            <tr>
+              <td>Analytics</td>
+              <td>Collect anonymous data on how visitors use our website (e.g., Google Analytics) to help us improve page performance and content.</td>
+              <td>Up to 2 years</td>
+            </tr>
+            <tr>
+              <td>Marketing / Retargeting</td>
+              <td>Track visits across websites to show you relevant advertisements on platforms such as Google Ads, Facebook and Instagram.</td>
+              <td>Up to 1 year</td>
+            </tr>
+            <tr>
+              <td>Preference</td>
+              <td>Remember your settings and preferences such as language, region and previously viewed packages.</td>
+              <td>Up to 1 year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="pp-text">You can manage or disable cookies at any time through your browser settings. Please note that disabling certain cookies may affect the functionality of our website. For more information on managing cookies, visit <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener">www.allaboutcookies.org</a>.</p>
+
+      <div class="pp-box blue">
+        <div class="pp-box-icon">📊</div>
+        <div class="pp-box-text">
+          <strong>Google Analytics</strong>
+          We use Google Analytics to understand how visitors interact with our website. Google Analytics collects data anonymously and reports website trends without identifying individual visitors. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color:#1d4ed8;font-weight:600;">Google Analytics Opt-out Browser Add-on</a>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 6 ── -->
+    <div class="pp-section reveal" id="section-6">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-green"><i class="fas fa-lock" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 06</span>
+          <div class="pp-sec-title">Data Security</div>
+        </div>
+      </div>
+      <p class="pp-text">We take the security of your personal information seriously and implement appropriate technical and organisational measures to protect it from unauthorised access, alteration, disclosure or destruction. Our security measures include:</p>
+      <ul class="pp-list">
+        <li><i class="fas fa-circle"></i><span><strong>SSL / TLS Encryption:</strong> All data transmitted between your browser and our website is encrypted using industry-standard SSL/TLS protocols (HTTPS).</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Access Controls:</strong> Personal data is accessible only to authorised Delight Departures staff and service partners who need it to process your booking or provide support.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Secure Storage:</strong> Data is stored on secure servers with firewalls, regular backups and access logging.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Payment Security:</strong> All payment transactions are processed through PCI-DSS certified payment gateways. We do not store full card numbers on our systems.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Staff Training:</strong> Our team is trained in data privacy best practices and confidentiality obligations.</span></li>
+      </ul>
+      <div class="pp-box rose">
+        <div class="pp-box-icon">⚠️</div>
+        <div class="pp-box-text">
+          <strong>Important Notice</strong>
+          While we do our best to protect your data, no method of transmission over the internet or electronic storage is 100% secure. If you believe your data has been compromised, please contact us immediately at <a href="mailto:support@delightdepartures.com" style="color:#be123c;font-weight:600;">support@delightdepartures.com</a>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 7 ── -->
+    <div class="pp-section reveal" id="section-7">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-indigo"><i class="fas fa-clock" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 07</span>
+          <div class="pp-sec-title">Data Retention</div>
+        </div>
+      </div>
+      <p class="pp-text">We retain your personal information only for as long as necessary to fulfil the purposes for which it was collected, or as required by applicable law. Our general retention periods are:</p>
+      <div class="pp-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Data Type</th><th>Retention Period</th><th>Reason</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Booking &amp; travel records</td><td>7 years</td><td>Tax, legal &amp; audit compliance</td></tr>
+            <tr><td>Passport &amp; visa documents</td><td>1 year after trip completion</td><td>Regulatory compliance; deleted thereafter</td></tr>
+            <tr><td>Customer enquiry records</td><td>3 years</td><td>Customer service &amp; dispute resolution</td></tr>
+            <tr><td>Marketing consent records</td><td>Until you withdraw consent</td><td>Proof of consent</td></tr>
+            <tr><td>Website analytics data</td><td>26 months</td><td>Standard Google Analytics retention</td></tr>
+            <tr><td>Payment transaction records</td><td>7 years</td><td>Financial &amp; tax compliance</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pp-text">When data is no longer required, it is securely deleted or anonymised. You may request earlier deletion of your data subject to the exceptions described in Section 8.</p>
+    </div>
+
+    <!-- ── SECTION 8 ── -->
+    <div class="pp-section reveal" id="section-8">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-rose"><i class="fas fa-user-shield" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 08</span>
+          <div class="pp-sec-title">Your Rights</div>
+        </div>
+      </div>
+      <p class="pp-text">Under applicable Indian data protection law (the Digital Personal Data Protection Act, 2023) and general best practices, you have the following rights regarding your personal data:</p>
+      <ul class="pp-list">
+        <li><i class="fas fa-circle"></i><span><strong>Right to Access:</strong> You may request a copy of the personal information we hold about you at any time.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Right to Correction:</strong> You may ask us to correct any inaccurate or incomplete personal information.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Right to Erasure:</strong> You may request that we delete your personal data, subject to legal and contractual obligations that require us to retain certain records.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Right to Withdraw Consent:</strong> Where we process your data based on consent (e.g., marketing emails), you can withdraw consent at any time without affecting the lawfulness of prior processing.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Right to Data Portability:</strong> You may request your personal data in a structured, commonly used format to transfer to another service provider.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Right to Object:</strong> You may object to our processing of your personal data for direct marketing purposes.</span></li>
+        <li><i class="fas fa-circle"></i><span><strong>Right to Nominate:</strong> You may nominate a person to exercise your data rights on your behalf in case of death or incapacity, as provided under Indian law.</span></li>
+      </ul>
+      <div class="pp-box blue">
+        <div class="pp-box-icon">📬</div>
+        <div class="pp-box-text">
+          <strong>How to Exercise Your Rights</strong>
+          To exercise any of the above rights, please email us at <a href="mailto:support@delightdepartures.com" style="color:#1d4ed8;font-weight:600;">support@delightdepartures.com</a> with the subject line "Data Rights Request". We will respond within <strong>30 days</strong>. We may need to verify your identity before processing your request.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 9 ── -->
+    <div class="pp-section reveal" id="section-9">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-teal"><i class="fas fa-external-link-alt" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 09</span>
+          <div class="pp-sec-title">Third-Party Links</div>
+        </div>
+      </div>
+      <p class="pp-text">Our website may contain links to third-party websites such as hotel booking platforms, airline websites, review platforms (Google, TripAdvisor), social media platforms (Instagram, YouTube, Facebook, WhatsApp) and payment gateways.</p>
+      <p class="pp-text">These websites operate independently and have their own privacy policies. We have no control over, and accept no responsibility for, the content or privacy practices of any third-party website. We encourage you to review the privacy policy of any website you visit through a link on our site.</p>
+      <div class="pp-box amber">
+        <div class="pp-box-icon">🔗</div>
+        <div class="pp-box-text">
+          <strong>Social Media Plugins</strong>
+          Our website may include social media sharing buttons (WhatsApp, Instagram, Facebook). When you interact with these buttons, the respective platform may collect information about your visit. This is governed by the privacy policy of that platform, not ours.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 10 ── -->
+    <div class="pp-section reveal" id="section-10">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-orange"><i class="fas fa-child" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 10</span>
+          <div class="pp-sec-title">Children's Privacy</div>
+        </div>
+      </div>
+      <p class="pp-text">Our website and services are not directed at children under the age of 18. We do not knowingly collect personal information directly from minors. If you are a parent or guardian making travel arrangements that include a minor, you are responsible for providing their information on their behalf and ensuring you have the authority to do so.</p>
+      <p class="pp-text">Travel-related information for minors (e.g., passport details included in group bookings) is collected solely for the purpose of completing the travel arrangements and is handled with the same care as adult data.</p>
+      <div class="pp-box rose">
+        <div class="pp-box-icon">👨‍👩‍👧</div>
+        <div class="pp-box-text">
+          <strong>If you believe a minor's data has been submitted without proper authorisation</strong>, please contact us immediately at <a href="mailto:support@delightdepartures.com" style="color:#be123c;font-weight:600;">support@delightdepartures.com</a> and we will promptly delete the relevant information.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 11 ── -->
+    <div class="pp-section reveal" id="section-11">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-navy"><i class="fas fa-sync-alt" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 11</span>
+          <div class="pp-sec-title">Changes to This Policy</div>
+        </div>
+      </div>
+      <p class="pp-text">We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements or business operations. When we make material changes, we will:</p>
+      <ul class="pp-list">
+        <li><i class="fas fa-circle"></i><span>Update the "Last Updated" date at the top of this page.</span></li>
+        <li><i class="fas fa-circle"></i><span>Post a prominent notice on our website homepage for a reasonable period after the change.</span></li>
+        <li><i class="fas fa-circle"></i><span>Where required, send an email notification to customers with active bookings or marketing subscriptions.</span></li>
+      </ul>
+      <p class="pp-text">We encourage you to review this Privacy Policy periodically. Your continued use of our website or services after any changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <!-- ── SECTION 12 ── -->
+    <div class="pp-section reveal" id="section-12">
+      <div class="pp-section-header">
+        <div class="pp-sec-icon ic-green"><i class="fas fa-envelope" style="color:#fff;"></i></div>
+        <div>
+          <span class="pp-sec-num">Section 12</span>
+          <div class="pp-sec-title">Contact Us</div>
+        </div>
+      </div>
+      <p class="pp-text">If you have any questions, concerns or requests relating to this Privacy Policy or how we handle your personal information, please do not hesitate to contact us through any of the following channels. We are committed to resolving any concerns promptly and transparently.</p>
+      <div class="pp-contact-card">
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="pcc-label">Email</div>
+            <div class="pcc-val"><a href="mailto:support@delightdepartures.com">support@delightdepartures.com</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fab fa-whatsapp"></i></div>
+          <div>
+            <div class="pcc-label">WhatsApp</div>
+            <div class="pcc-val"><a href="https://wa.me/918123568002">+91 81235 68002</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="pcc-label">Phone</div>
+            <div class="pcc-val"><a href="tel:+919429693718">+91 94296 93718</a></div>
+          </div>
+        </div>
+        <div class="pcc-item">
+          <div class="pcc-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="pcc-label">Office Address</div>
+            <div class="pcc-val">Bengaluru, Karnataka, India</div>
+          </div>
+        </div>
+      </div>
+      <p class="pp-text" style="margin-top:20px;">We aim to respond to all privacy-related enquiries within <strong>30 business days</strong>. For urgent matters, please contact us by phone or WhatsApp.</p>
+    </div>
+
+  </main>
+</div>
+
+<!-- ══════════════════ CTA ══════════════════ -->
+<section class="pp-cta">
+  <div class="cta-orb cta-o1"></div>
+  <div class="cta-orb cta-o2"></div>
+  <div class="cta-inner reveal">
+    <h2>Questions? We're <em>Here to Help</em></h2>
+    <p>If you have any concerns about your privacy or how we use your data, our team is always happy to assist you.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn-white"><i class="fas fa-paper-plane" onclick="showContactModal()"></i> Contact Us</a>
+      <a href="index.html" class="btn-ghost"><i class="fas fa-home"></i> Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <div class="footer-logo">✈️ Delight <span>Departures</span></div>
+      <div><span> - </span></div>
+      <p>We don't just plan trips — we create experiences that stay with you for a lifetime. Specialising in international group tours and customised private trips across 80+ destinations worldwide.</p>
+      <div class="footer-socials">
+        <div class="f-social"><i class="fab fa-instagram"></i></div>
+        <div class="f-social"><i class="fab fa-whatsapp"></i></div>
+        <div class="f-social"><i class="fab fa-youtube"></i></div>
+        <div class="f-social"><i class="fab fa-facebook-f"></i></div>
+        <div class="f-social"><i class="fab fa-google"></i></div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Top Destinations</h4>
+      <ul>
+        <li><a href="destinations.html#bali"><i class="fas fa-chevron-right"></i> Bali, Indonesia</a></li>
+        <li><a href="destinations.html#thailand"><i class="fas fa-chevron-right"></i> Thailand</a></li>
+        <li><a href="destinations.html#maldives"><i class="fas fa-chevron-right"></i> Maldives</a></li>
+        <li><a href="destinations.html#dubai"><i class="fas fa-chevron-right"></i> Dubai, UAE</a></li>
+        <li><a href="destinations.html#singapore"><i class="fas fa-chevron-right"></i> Singapore</a></li>
+        <li><a href="destinations.html#malaysia"><i class="fas fa-chevron-right"></i> Malaysia</a></li>
+        <li><a href="destinations.html#japan"><i class="fas fa-chevron-right"></i> Japan</a></li>
+        <li><a href="destinations.html#vietnam"><i class="fas fa-chevron-right"></i> Vietnam</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="destinations.html"><i class="fas fa-chevron-right"></i> Destinations</a></li>
+        <li><a href="blogs.html"><i class="fas fa-chevron-right"></i> Blogs</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+        <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+        <li><a href="packages.html"><i class="fas fa-chevron-right"></i> Group Tours</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul>
+        <li><a href="tel:+919429693718"><i class="fas fa-phone"></i> +91 94296 93718</a></li>
+        <li><a href="mailto:support@delightdepartures.com"><i class="fas fa-envelope"></i> support@delightdepartures.com</a></li>
+        <li><a href="https://wa.me/918123568002"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></li>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</a></li>
+      </ul>
+      <div class="contact-note">
+        <p>⏱️ <strong>Mon – Sun:</strong> 10:30 AM – 7:30 PM<br></p>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Delight Departures. All rights reserved. Made with ❤️ for travellers.</p>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <a href="refund-policy.html">Refund Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════ SCRIPTS ══════════════════ -->
+<script src="js/whatsapp.js"></script>
+<script>
+  /* NAVBAR */
+  const hamburger=document.querySelector('.hamburger');
+  const navLinksEl=document.querySelector('.nav-links');
+  const navCtaEl=document.querySelector('.nav-cta');
+  const dropWrapper=document.querySelector('.nav-dropdown-wrapper');
+  const dropTrigger=document.querySelector('.dropdown-trigger');
+  let ddT;
+  hamburger?.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinksEl.classList.toggle('active');navCtaEl.classList.toggle('active');});
+  const openDD=()=>{clearTimeout(ddT);dropWrapper?.classList.add('open');};
+  const closeDD=()=>{ddT=setTimeout(()=>dropWrapper?.classList.remove('open'),120);};
+  if(dropWrapper){
+    dropWrapper.addEventListener('mouseenter',()=>{if(window.innerWidth>768)openDD();});
+    dropWrapper.addEventListener('mouseleave',()=>{if(window.innerWidth>768)closeDD();});
+    dropTrigger.addEventListener('click',e=>{if(window.innerWidth<=768){e.preventDefault();dropWrapper.classList.toggle('open');}});
+  }
+  document.addEventListener('click',e=>{if(dropWrapper&&!dropWrapper.contains(e.target))dropWrapper.classList.remove('open');});
+  document.querySelectorAll('.nav-dropdown a').forEach(l=>l.addEventListener('click',()=>dropWrapper?.classList.remove('open')));
+
+  /* SCROLL TOP */
+  const scrollTopBtn=document.getElementById('scrollTopBtn');
+  const navbar=document.querySelector('.navbar');
+  let lastST=0;
+  window.addEventListener('scroll',()=>{
+    const st=window.pageYOffset,dir=st>lastST?'down':'up';
+    if(st<60)navbar.classList.remove('hidden');
+    else if(dir==='down'&&st>120)navbar.classList.add('hidden');
+    else if(dir==='up')navbar.classList.remove('hidden');
+    scrollTopBtn.classList.toggle('visible',dir==='up'&&st>250);
+    lastST=Math.max(0,st);
+
+    /* Active TOC link */
+    const sections=document.querySelectorAll('.pp-section');
+    sections.forEach(sec=>{
+      const top=sec.getBoundingClientRect().top;
+      const link=document.querySelector(`.toc-link[href="#${sec.id}"]`);
+      if(link){
+        if(top<=120&&top>-sec.offsetHeight+120){
+          document.querySelectorAll('.toc-link').forEach(l=>l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      }
+    });
+  });
+  scrollTopBtn.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* REVEAL */
+  const ro=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});
+  },{threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
